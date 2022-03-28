@@ -1,6 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
 *$py.class
 
 # C extensions
@@ -26,11 +25,11 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.idea
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
 *.spec
 
 # Installer logs
@@ -129,3 +128,7 @@ dmypy.json
 .pyre/
 
 .idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/ConcurMLWorkshop.iml
