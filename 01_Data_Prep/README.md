@@ -28,10 +28,14 @@ Steps We will go through:
 
 Post-Requisites:
 •	After the session’s completion, you should have an output file location that is pre-processed and ready to be used for Model Training.
-•	You should be having a crawler that would have crawled that data and created an Athena Table.
+•	You should be having a Enrich crawler that would have crawled that Enrich data and created an Athena Table.
 
 
 
 If you missed this session:
-Please download the Final Dataset, create a glue crawler, crawl the data, and make sure Athena's table is having the data by querying it.
+Please follow below steps:
+1. Download the Final Dataset from here
+2. Create a glue crawler as described here
+3. Crawl the data ( Run crawler)
+4. Make sure Athena's table is having the data by querying it. ( Check the database-> Tables-> View Data)
 
