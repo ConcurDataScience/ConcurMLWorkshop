@@ -34,7 +34,7 @@ By the end of this section, you should have a good idea on
 ### Missed it? Dont Worry 
 If you missed this session:
 Please follow below steps:
-1. Download the Final Dataset from enriched_data.zip, unzip it, and upload it in s3:://{bucket_name}/labeling_data_component/data_prep_output/enriched_data
+1. Download the Final Dataset from enriched_data.tar.gz, untar it, and upload it in s3:://{bucket_name}/labeling_data_component/data_prep_output/enriched_data
 2. Create a glue crawler as described https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html
 3. Crawl the data ( Run crawler)
 4. Make sure Athena's table is having the data by querying it. ( Check the database-> Tables-> View Data)

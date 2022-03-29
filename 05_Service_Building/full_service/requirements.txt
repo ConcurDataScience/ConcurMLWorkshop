@@ -1,0 +1,4 @@
+flask
+keras
+nltk
+tensorflow>=2.6.1
