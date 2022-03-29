@@ -1,4 +1,5 @@
-Day 2 Part1:
+:calendar: 
+### Day 2 Part 1:
 
 Welcome to the Data Prep section of the ML Workshop, in this section, you would get a sense of how we acquire data, prep it, ETL it, and get it ready for consumption and to begin our Model Development part of Data Science.
 
