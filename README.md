@@ -57,11 +57,8 @@ This workshop series is designed so that you can jump in on any session if you m
 - Hands-on: run service locally
 - Overview of deployment pipeline at SAP Concur
 
-<<<<<<< HEAD
+
 ### Session 8 Service Performance Tuning by Vladimir Valouch (Day 4)
-=======
-### Session 8 Service Optimization by Vladimir Valouch (Day 4)
->>>>>>> 5b826760cc329fe2bf213ef8279ca0dfd8c5ff4a
 
 - Hands-on: benchmark the service using Locust
 - Hands-on: optimize the service created in Session 7 by using tf-serving
