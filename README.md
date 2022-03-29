@@ -1,4 +1,5 @@
-:pushpin: # Hands-on ML Workshop by SAP Concur Data Science Team
+:pushpin: 
+# Hands-on ML Workshop by SAP Concur Data Science Team
 
 ## Welcome
 
