@@ -64,9 +64,12 @@ This workshop series is designed so that you can jump in on any session if you m
 - Hands-on: optimize the service created in Session 7 by using tf-serving
 
 
-
+<\br>
 
 ## What to Prep Before the Workshop
+
+### Install Anaconda
+Please install Anaconda environment from `https://www.anaconda.com/products/distribution`.
 
 ### Github repo
 
