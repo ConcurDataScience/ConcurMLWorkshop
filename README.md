@@ -109,6 +109,9 @@ Then create role.
 1. Go to AWS Quicksight
 ![QS](/imgs_readme/Screen Shot 2022-03-28 at 4.51.32 PM.png)
 2. If you don't already have a Quicksight account, follow the settings below to create your Quicksight account. We will use this in Session 5. This will incur charge in your AWS account, but very minimal. Again, please submit your cost for attending this workshop for reimbursement from your own cost center.
+
 ![QS setup1](/imgs_readme/Screen Shot 2022-03-28 at 4.52.29 PM.png)
+
 ![QS setup2](/imgs_readme/Screen Shot 2022-03-28 at 4.52.47 PM.png)
+
 ![QS setup3](imgs_readme/Screen Shot 2022-03-28 at 4.53.00 PM.png)

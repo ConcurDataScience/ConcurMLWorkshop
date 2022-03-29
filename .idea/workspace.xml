@@ -38,12 +38,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="85" />
-          <entry key="md" value="6593" />
+          <entry key="md" value="6596" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="6593" />
+          <entry key="Markdown" value="6596" />
           <entry key="PLAIN_TEXT" value="85" />
         </counts>
       </usages-collector>
@@ -55,8 +55,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="447">
-                <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+              <first_editor relative-caret-position="441">
+                <caret line="112" selection-start-line="112" selection-end-line="112" />
               </first_editor>
               <second_editor />
             </state>
@@ -272,8 +272,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="447">
-            <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+          <first_editor relative-caret-position="441">
+            <caret line="112" selection-start-line="112" selection-end-line="112" />
           </first_editor>
           <second_editor />
         </state>
