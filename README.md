@@ -114,11 +114,11 @@ Then create role.
   ![QS setup3](imgs_readme/Screen Shot 2022-03-28 at 4.53.00 PM.png)
 
 
-![QS setup1](./imgs_readme/Screen Shot 2022-03-28 at 4.52.29 PM.png)
+<br>![QS setup1](./imgs_readme/Screen Shot 2022-03-28 at 4.52.29 PM.png)<br>
 
 
-![QS setup2](/imgs_readme/Screen Shot 2022-03-28 at 4.52.47 PM.png)
+<br>![QS setup2](/imgs_readme/Screen Shot 2022-03-28 at 4.52.47 PM.png)<br>
 
 
-![QS setup3](imgs_readme/Screen Shot 2022-03-28 at 4.53.00 PM.png)
+<br>![QS setup3](imgs_readme/Screen Shot 2022-03-28 at 4.53.00 PM.png)<br>
 
