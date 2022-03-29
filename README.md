@@ -47,23 +47,24 @@ This workshop series is designed so that you can jump in on any session if you m
 ### Session 6 Model Training Automation by Chris Ismael (Day 3)
 
 - Hands-on: make your model training script re-usable using AWS Sagemaker Processing and Estimator jobs
-- Other tools for ML training automation
+- Use AWS Lambda for ML training automation
 
 ### Session 7 Service Building by Mike Stark (Day 4)
 
-- Hands-on: create a Flask-based service for serialized RNN model from Session 5
+- Hands-on: create a Flask-based REST API for serialized RNN model from Session 5
 - Hands-on: create a docker image of the service
 - Hands-on: run service locally
+- Overview of deployment pipeline at SAP Concur
 
-### Session 8 Service Optimization by Vladimir Valouch & Renan Barreto (Day 4)
+### Session 8 Service Performance Tuning by Vladimir Valouch (Day 4)
 
-- Hands-on: optimize the service created in Session 7 by using tf-serving
 - Hands-on: benchmark the service using Locust
+- Hands-on: optimize the service created in Session 7 by using tf-serving
 
 
 
 
-## What to Prep
+## What to Prep Before the Workshop
 
 ### Github repo
 
@@ -118,3 +119,44 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 
   ![Screen Shot 2022-03-28 at 4 53 00 PM](https://user-images.githubusercontent.com/102556995/160550841-b1dc6af1-41ee-4864-a07e-c241b6d1db7a.png)
 
+
+### Set up your computer local
+
+#### Python environment
+- Make sure your local python environment is 3.8
+- Your preferred Python IDE, such as VSCode, PyCharm etc
+
+#### Install Docker
+Install Docker from `https://docs.docker.com/get-docker/`   
+
+**Note: Docker now needs licenses to run on SAP laptops. If you don't currently have a Docker license through SAP, you can download the docker to your own personal laptop for personal use for free. See `https://www.docker.com/pricing/` for more information. For this workshop, you will need Docker on Day 4 and it needs to on the same laptop with Python 3.8 environment, IDE and Postman.**
+
+#### Install Postman
+Install Postman from `https://www.postman.com/downloads/`
+
+
+# Delete AWS Resources After the Workshop
+During the workshop, we will walk you through all the steps needed to delete all the AWS resources so that you don't get charged accidently.
+
+If you are following this tutorial on your own pace, please make sure to delete all the following resources:
+- After Session 3: delete Glue devpoint, Glue notebook
+- After Session 4: delete Ground Truth job and associated IAM roles and IAM policies
+- After Session 5: delete Quicksight account and associated IAM roles and IAM policies
+- After Session 6: stop and delete Sagemaker instances, Athena tables, S3 bucket and IAM role created during session 2.
+
+
+
+# Contact Us
+Feel free to reach out if you have any questions or feedbacks. We'd love to hear from you if you use some of the material we prepared. Please find our contact info below.
+
+SAP Slack Channel: #ask-datascience
+
+Work Emails of Instructors:
+- Jesper Lind, Director of Data Science: jesper.lind@sap.com
+- Mengyuan Liu, Data Science Manager: mengyuan.liu@sap.com
+- Anupam Dewan, Senior Data Scientist: anupam.dewan@sap.com
+- Hongyan Li, Senior Developer: hongyan.li01@sap.com
+- Adithya Kumar, Senior Data Scientist: adithya.kumar@sap.com
+- Chris Ismael, Senior Developer: chris.ismael@sap.com
+- Mike Stark, Data Science Manager: mike.stark@sap.com
+- Vladimir Valouch, Principal Data Scientist: vladimir.valouch@sap.com

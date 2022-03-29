@@ -38,12 +38,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="85" />
-          <entry key="md" value="6638" />
+          <entry key="md" value="9054" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="6638" />
+          <entry key="Markdown" value="9054" />
           <entry key="PLAIN_TEXT" value="85" />
         </counts>
       </usages-collector>
@@ -55,8 +55,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="477">
-                <caret line="122" column="74" selection-start-line="122" selection-start-column="74" selection-end-line="122" selection-end-column="74" />
+              <first_editor relative-caret-position="432">
+                <caret line="161" column="44" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
               </first_editor>
               <second_editor />
             </state>
@@ -129,11 +129,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1440" />
-    <option name="y" value="1040" />
-    <option name="width" value="1790" />
-    <option name="height" value="966" />
+    <option name="y" value="1051" />
+    <option name="width" value="1919" />
+    <option name="height" value="968" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -156,18 +156,17 @@
             <path>
               <item name="ConcurMLWorkshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="ConcurMLWorkshop" type="462c0819:PsiDirectoryNode" />
-              <item name="02_Data_Labeling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConcurMLWorkshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConcurMLWorkshop" type="462c0819:PsiDirectoryNode" />
-              <item name="02_Data_Labeling" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ConcurMLWorkshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConcurMLWorkshop" type="462c0819:PsiDirectoryNode" />
               <item name="03_Model_Building" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConcurMLWorkshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConcurMLWorkshop" type="462c0819:PsiDirectoryNode" />
+              <item name="04_model_retrain_automation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ConcurMLWorkshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ConcurMLWorkshop" type="462c0819:PsiDirectoryNode" />
+              <item name="05_Service_Building" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -205,7 +204,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="1040" width="1919" height="968" extended-state="6" />
+    <frame x="1440" y="1051" width="1919" height="968" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
@@ -272,8 +271,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="477">
-            <caret line="122" column="74" selection-start-line="122" selection-start-column="74" selection-end-line="122" selection-end-column="74" />
+          <first_editor relative-caret-position="432">
+            <caret line="161" column="44" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
           </first_editor>
           <second_editor />
         </state>
