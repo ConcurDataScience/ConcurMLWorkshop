@@ -6,7 +6,7 @@ In this workshop, you will go through every stage of the process of developing a
 
 To complete this workshop, you will need:
 
-- AWS account ** Note that this workshop will incur charges in your AWS account. Please submit your AWS bill for reimbursement in your own cost center. We will instruct you to delete all the instances you created through this workshop to avoid unnecessary charges.**
+- AWS account **Note that this workshop will incur charges in your AWS account. Please submit your AWS bill for reimbursement in your own cost center. We will instruct you to delete all the instances you created through this workshop to avoid unnecessary charges.**
 - A local conda enrivonment
 - A Github account
 - Passion to learn!
@@ -73,10 +73,17 @@ Please clone https://github.com/ConcurDataScience/ConcurMLWorkshop.git to your l
 
 ### Create an AWS account
 
+Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.  
+
+After creating, you can go to Billing Dashboard to see your current running instances.
+!(/Users/i867379/Desktop//Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.06.53 PM.png)
+
+
 ### Set up your AWS environment 
 We will also cover this in Session 2 of Day 1. If you can't make it to the session, please complete this before starting D2 or Session 3.
 
 #### Set up IAM role
+
 
 #### Create a S3 bucket for raw data
 
