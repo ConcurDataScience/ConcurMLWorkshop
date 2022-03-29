@@ -56,7 +56,7 @@ This workshop series is designed so that you can jump in on any session if you m
 - Hands-on: create a docker image of the service
 - Hands-on: run service locally
 
-### Session 8 Service Optimization by Vladimir Valouch & Renan Barreto (Day 4)
+### Session 8 Service Optimization by Vladimir Valouch (Day 4)
 
 - Hands-on: optimize the service created in Session 7 by using tf-serving
 - Hands-on: benchmark the service using Locust
