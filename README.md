@@ -76,16 +76,39 @@ Please clone https://github.com/ConcurDataScience/ConcurMLWorkshop.git to your l
 Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.  
 
 After creating, you can go to Billing Dashboard to see your current running instances.
-!(/Users/i867379/Desktop//Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.06.53 PM.png)
 
+![AWS Billing Dashboard](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.06.53 PM.png)
 
 ### Set up your AWS environment 
 We will also cover this in Session 2 of Day 1. If you can't make it to the session, please complete this before starting D2 or Session 3.
 
 #### Set up IAM role
 
+1. Go to AWS IAM.
+![AWS IAM](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.09.01 PM.png)
+2. Under "Roles" tab, you will see several basic roles already exist. Click on "Create role".
+![create role](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.09.19 PM.png)
+3. Follow the following setup to create your role.
+![role setup1](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.12.16 PM.png)
+Attach policies to your role. You should have the following policies at the end.
+![policies](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 11.07.33 PM.png)
+Use "ConcurMLWorkshopUse" as your role name and add "Description" as you wish. Then in the "Select trusted entities", edit the json to match below.
+![trusted entities](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.36.05 PM.png)
+Then create role.
 
 #### Create a S3 bucket for raw data
 
-### Create a QuickSight account
+1. Go to AWS S3.
+![AWS S3](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.27.43 PM.png)
+2. Click on "Create bucket" and use the following setup to create bucket. In Session 3, you will upload some pre-prepared data into this bucket.
+![S3 setup](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 1.30.54 PM.png)
+3. Go into your bucket, and "Create folder" with name "athena_log". We will use this folder in the future.
 
+
+### Create a QuickSight account
+1. Go to AWS Quicksight
+![QS](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 4.51.32 PM.png)
+2. If you don't already have a Quicksight account, follow the settings below to create your Quicksight account. We will use this in Session 5. This will incur charge in your AWS account, but very minimal. Again, please submit your cost for attending this workshop for reimbursement from your own cost center.
+![QS setup1](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 4.52.29 PM.png)
+![QS setup2](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 4.52.47 PM.png)
+![QS setup3](/Users/i867379/Desktop/Screen Shot 2022-03-28 at 4.53.00 PM.png)
