@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "f3b781e9-e47c-4b0d-9d22-8329a58e9980",
+		"name": "ML Classes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tweet sentiment service",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "close",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"That was a great experience!\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/predict",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "request example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "close",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"That was a great experience!\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/predict",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.1.0 Python/3.8.10"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 29 Mar 2022 19:22:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"prediction\": \"Positive\",\n    \"score\": 0.3442407250404358\n}"
+				}
+			]
+		}
+	]
+}
