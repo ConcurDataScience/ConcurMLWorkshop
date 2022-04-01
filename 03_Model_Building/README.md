@@ -24,3 +24,6 @@ By the end of this section, you should have a good idea on
 ## Missed it? Dont Worry 
 If you missed this session:
 Please follow below steps:
+
+## Contact
+For any questions, please feel free to email me at adithya.kumar@sap.com or Slack me at @i849730
