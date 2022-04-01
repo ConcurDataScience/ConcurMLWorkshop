@@ -38,7 +38,7 @@ After the session’s completion, you should have some data labeled and ready to
 Because Part1 already prepared some labeled data, you should be fine to continue to the next part even if you missed this session.
 
 ### Cleanup Instruction:
-The following resource are created after this session. Please follow the cleanup instructions to avoid incur any unnecessary charges.
+The following resources are created after this session. Please follow the cleanup instructions to avoid incur any unnecessary charges on you.
 
 1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, run "drop database `ml-workshop-db`" in Athena Query Editor.
 2. S3 bucket: You can go to the S3 console and delete it at the end of the week.
