@@ -14259,7 +14259,7 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Using-Sagemaker-ScriptProcessor-and-Estimator">Using Sagemaker ScriptProcessor and Estimator<a class="anchor-link" href="#Using-Sagemaker-ScriptProcessor-and-Estimator">&#182;</a></h1><h3 id="Preprocess-data-and-train-models">Preprocess data and train models<a class="anchor-link" href="#Preprocess-data-and-train-models">&#182;</a></h3>
+<h1 id="Using-Sagemaker-ScriptProcessors-and-Estimators">Using Sagemaker ScriptProcessors and Estimators<a class="anchor-link" href="#Using-Sagemaker-ScriptProcessors-and-Estimators">&#182;</a></h1><h3 id="Preprocess-data-and-train-models">Preprocess data and train models<a class="anchor-link" href="#Preprocess-data-and-train-models">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14299,18 +14299,15 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Collecting pyathena
-  Downloading PyAthena-2.3.2-py3-none-any.whl (37 kB)
+<pre>Requirement already satisfied: pyathena in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (2.3.2)
 Requirement already satisfied: botocore&gt;=1.5.52 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (1.24.25)
-Requirement already satisfied: tenacity&gt;=4.1.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (8.0.1)
 Requirement already satisfied: boto3&gt;=1.4.4 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (1.21.25)
+Requirement already satisfied: tenacity&gt;=4.1.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (8.0.1)
 Requirement already satisfied: s3transfer&lt;0.6.0,&gt;=0.5.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.5.0)
 Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.10.0)
-Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (2.8.1)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.25.4 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (1.26.8)
+Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (2.8.1)
 Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from python-dateutil&lt;3.0.0,&gt;=2.1-&gt;botocore&gt;=1.5.52-&gt;pyathena) (1.15.0)
-Installing collected packages: pyathena
-Successfully installed pyathena-2.3.2
 </pre>
 </div>
 </div>
@@ -14322,7 +14319,7 @@ Successfully installed pyathena-2.3.2
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyathena</span> <span class="kn">import</span> <span class="n">connect</span>
@@ -14352,18 +14349,18 @@ Successfully installed pyathena-2.3.2
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>      id dp_unique_key      target  \
-0  12934   uq_id_10078     Neutral   
-1  12945   uq_id_10136     Neutral   
-2  12983   uq_id_10356  Irrelevant   
-3  12999   uq_id_10456    Positive   
-4  13009   uq_id_10514    Negative   
+0  13015   uq_id_10549  Irrelevant   
+1  13015   uq_id_10552  Irrelevant   
+2  13026   uq_id_10615     Neutral   
+3  13069   uq_id_10867    Positive   
+4  13145   uq_id_11311     Neutral   
 
                                                 text updated_date  \
-0  Xbox Edition Series Super X WINS Up Again! | a...   21-03-2022   
-1  Price delay for PS5 and Xbox Series X: more BA...   21-03-2022   
-2  If you haven&#39;t gotten Game Pass yet, you serio...   21-03-2022   
-3  _.. The faster to more energy efficient AMD Ze...   21-03-2022   
-4  @ IdleSloth1984, what the hell do you mean? Xb...   21-03-2022   
+0  It is not the first time that the EU Commissio...   21-03-2022   
+1                                                 &#34;&#34;   21-03-2022   
+2  Nice video from @ JeffGrubb showing the auto H...   21-03-2022   
+3                                    Thanks @ amazon   21-03-2022   
+4  &#34;\&#34;Xbox series X \&#34;\&#34;was a lie\&#34;\&#34; | Developer...   21-03-2022   
 
           entity  
 0  Xbox(Xseries)  
@@ -16060,10 +16057,10 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to pdf sentiment-classification-twitter-modularize.ipynb
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
 </pre></div>
 
      </div>
@@ -16084,55 +16081,14 @@ variables/variables.data-00000-of-00001
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
-[NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to pdf
-[NbConvertApp] Writing 119225 bytes to notebook.tex
-[NbConvertApp] Building PDF
-Traceback (most recent call last):
-  File &#34;/home/ec2-user/anaconda3/envs/python3/bin/jupyter-nbconvert&#34;, line 11, in &lt;module&gt;
-    sys.exit(main())
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/jupyter_core/application.py&#34;, line 254, in launch_instance
-    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 664, in launch_instance
-    app.start()
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 350, in start
-    self.convert_notebooks()
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 524, in convert_notebooks
-    self.convert_single_notebook(notebook_filename)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 489, in convert_single_notebook
-    output, resources = self.export_single_notebook(notebook_filename, resources, input_buffer=input_buffer)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 418, in export_single_notebook
-    output, resources = self.exporter.from_filename(notebook_filename, resources=resources)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/exporter.py&#34;, line 181, in from_filename
-    return self.from_file(f, resources=resources, **kw)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/exporter.py&#34;, line 199, in from_file
-    return self.from_notebook_node(nbformat.read(file_stream, as_version=4), resources=resources, **kw)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/pdf.py&#34;, line 183, in from_notebook_node
-    self.run_latex(tex_file)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/pdf.py&#34;, line 154, in run_latex
-    self.latex_count, log_error, raise_on_failure)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/pdf.py&#34;, line 112, in run_command
-    &#34;at {link}.&#34;.format(formatter=command_list[0], link=link))
-OSError: xelatex not found on PATH, if you have not installed xelatex you may need to do so. Find further instructions at https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex.
+[NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
+[NbConvertApp] Writing 704350 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
 
 </div>
 
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>find / -name <span class="s1">&#39;xelatex&#39;</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
