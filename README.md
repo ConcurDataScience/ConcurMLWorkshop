@@ -175,17 +175,22 @@ click on that, this should launch a cloudshell env like this, here you can run y
           - `aws glue   delete-job --job-name {glue_job_name}`
     - [x] Delete Glue Job Trigger(if created)
           - `aws glue delete-trigger --name {glue_trigger_name}`
+          
+- After Session 4: stop Ground Truth job and delete the associated IAM roles and IAM policies
+
+- After Session 5: delete Quicksight account and associated IAM roles and IAM policies
+
+- After Session 6: Glue DB/Tabl/Crawler, Athena tables , stop and delete Sagemaker instances, S3 bucket and IAM role created during session 2
     - [x] Delete Glue Table
           - `aws glue delete-table --database-name {database_name} --name {table_name}`
     - [x] Delete Glue DB
           - `aws glue delete-database --name {database_name}`
     - [x] Delete Glue Crawler
           - `aws glue delete-crawler --name {crawler_name}`
-
-
-- After Session 4: stop Ground Truth job and delete the associated IAM roles and IAM policies
-- After Session 5: delete Quicksight account and associated IAM roles and IAM policies
-- After Session 6: stop and delete Sagemaker instances, Athena tables, S3 bucket and IAM role created during session 2.
+    - [x] Delete Athena Tables:
+    - [x] Delete/Stop All Sagemaker Instances
+    - [x] Delete S3 Bucket:
+    - [x] Delete IAM role
 
 
 
