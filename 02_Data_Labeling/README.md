@@ -4,11 +4,14 @@
 Welcome to the Data Labeling section of the ML Workshop. This morning we have gone through the process of how to aquire some already labeled data. However, in real life, you don't always get lucky to have labeled data. Very often, you will need to get your own data labeled. In this section, we will go through the process of setting up a labeling job using GroundTruth in AWS Sagemaker and preparing it for consumption by our Model.
 
 ### Pre-Requisites:
-1.	You should have created an AWS account and verified some of the key access to key resources we will be using in this 4 day’s workshop
-2.	You have followed the general instruction in the project git home to
+1.	You should have created an AWS account.
+2.  You have checked out this github project to your local disk
+3.	You have followed the general instruction in the github project home to
 * create the IAM role: <b>ConcurMLWorkshopUse</b>.
 * create your S3 bucket.
-* created and started your notebook instance (Make sure that the notebook was create in the us-west-2 region and assigned the above IAM role)
+* create and start your notebook instance (Make sure that the notebook was create in the us-west-2 region and assigned the above IAM role)
+
+Doing these preparation is important because some of the steps such as creating the notebook instance can take upto 10 minutes.
 
 ### Key Objectives:
 By the end of this section, you should have a good idea on
