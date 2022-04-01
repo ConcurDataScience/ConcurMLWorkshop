@@ -39,11 +39,12 @@ Because Part1 already prepared some labeled data, you should be fine to continue
 
 ### Cleanup Instruction:
 The following resource are created either by you are by Aamazon as a side effect of the exercise:
-1. Athena database with tables: You can delete at the end of the week.
+1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week.
 2. S3 bucket: You can delete the notebood at the end of week.
-3. SageMaker notebook instance:
+3. GroundTruth jobs: AWS does not have a mechanism to delete the jobs, but you can stop them and you should not incur any charge after that.
+4. SageMaker notebook instance:
 * You can stop the instance at the end of each day.
 * Start the notebook before the first session of the day.
 * Delete the notebook instance when the class is finished.
-4. Cognito User Pool: <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
+5. Cognito User Pool: <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
 
