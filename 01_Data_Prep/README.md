@@ -36,11 +36,10 @@ If you missed this session:
 Please follow below steps:
 1. Download the Final Dataset enriched_data.tar.gz from https://github.com/ConcurDataScience/ConcurMLWorkshop/blob/main/01_Data_Prep/enriched_data.tar.gz
 2. Untar it using either a UI unzip software or below command:
+
 `tar -xf enriched_data.tar.gz`
+
 As shown below:
-
-After creating, you can go to Billing Dashboard to see your current running instances.
-
 <img width="603" alt="Screen Shot 2022-04-01 at 11 34 39 AM" src="https://user-images.githubusercontent.com/101754067/161324337-a2f9f89f-cba3-4fcc-ac4d-85757665ba56.png">
 
 3.  Now, upload this enriched_data folder to S3 bucket that you created on first day. ( Ths uplaod can take up to 5 mins depending on internet upload speed) - Be patient
