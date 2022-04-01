@@ -17,8 +17,8 @@ By the end of this section, you should have a good idea on
 2. How to build a pipeline using AWS Glue to store the model results to Athena databzse and use QuickSights dashboards to view them 
 
 ## Post-Requisites:
-•	After the session’s completion, you should have an output file location that is pre-processed and ready to be used for Model Training.
-•	You should be having a Enrich crawler that would have crawled that Enrich data and created an Athena Table.
+- 
+- 
 
 
 ## Missed it? Dont Worry 
