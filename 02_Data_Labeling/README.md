@@ -6,7 +6,7 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 ### Pre-Requisites:
 1.	You should have created an AWS account.
 2.  You have checked out this github project to your local disk
-3.	You have followed the general instruction in the github project home to
+3.	If you missed the prior classes, please make sure that you have followed the general instruction in the github project home to
 * create the IAM role: <b>ConcurMLWorkshopUse</b>.
 * create your S3 bucket.
 * create and start your notebook instance (Make sure that the notebook was create in the us-west-2 region and assigned the above IAM role)
@@ -36,4 +36,14 @@ After the session’s completion, you should have some data labeled and ready to
 
 ### Missed it ? Dont Worry
 Because Part1 already prepared some labeled data, you should be fine to continue to the next part even if you missed this session.
+
+### Cleanup Instruction:
+The following resource are created either by you are by Aamazon as a side effect of the exercise:
+1. Athena database with tables: You can delete at the end of the week.
+2. S3 bucket: You can delete the notebood at the end of week.
+3. SageMaker notebook instance:
+* You can stop the instance at the end of each day.
+* Start the notebook before the first session of the day.
+* Delete the notebook instance when the class is finished.
+4. Cognito User Pool: <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
 
