@@ -39,7 +39,7 @@ Because Part1 already prepared some labeled data, you should be fine to continue
 
 ### Cleanup Instruction:
 The following resource are created either by you are by Aamazon as a side effect of the exercise:
-1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week.
+1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, run "drop database `ml-workshop-db`" in Athena Query Editor.
 2. S3 bucket: You can delete the notebood at the end of week.
 3. GroundTruth jobs: AWS does not have a mechanism to delete the jobs, but you can stop them and you should not incur any charge after that.
 4. SageMaker notebook instance:
