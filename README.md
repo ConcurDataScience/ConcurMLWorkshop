@@ -68,7 +68,7 @@ This workshop series is designed so that you can jump in on any session if you m
 
 ## What to Prep Before the Workshop
 
-### Have a Google Account logged in through Browser,
+### Set up a Google Colab account in your browser
 
 Due to Anaconda community edition not approved by SAP we will be using Google Colab, so make sure to have Google Colab set up (https://colab.research.google.com/)
 
@@ -131,6 +131,14 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 
 #### Python environment
 - Make sure your local python environment is 3.8
+  If you are unable to install Anaconda due to licensing issue, please follow the instructions below to set up your python environment:
+  - For linux, install using apt-get install python3: https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
+  - Fpr mac, install using brew. https://docs.python-guide.org/starting/install3/osx/
+  - For windows, install the binary from https://www.python.org/downloads/ and add that into PATH
+  - After installing Python, use venv to create an empty python environemnt:
+    `pip install virtualenv
+     python3 -m venv env
+     source env/bin/activate`
 - Your preferred Python IDE, such as VSCode, PyCharm etc
 
 #### Install Docker
