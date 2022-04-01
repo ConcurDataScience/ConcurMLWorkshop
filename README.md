@@ -1,4 +1,4 @@
-:pushpin: 
+:pushpin:
 # Hands-on ML Workshop by SAP Concur Data Science Team
 
 ## Welcome
@@ -79,12 +79,12 @@ Please clone https://github.com/ConcurDataScience/ConcurMLWorkshop.git to your l
 
 ### Create an AWS account
 
-Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.  
+Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.
 
 After creating, you can go to Billing Dashboard to see your current running instances.
 ![Screen Shot 2022-03-28 at 1 06 53 PM](https://user-images.githubusercontent.com/102556995/160551518-795c3062-4125-4a12-b053-8c1ae1c51962.png)
 
-### Set up your AWS environment 
+### Set up your AWS environment
 We will also cover this in Session 2 of Day 1. If you can't make it to the session, please complete this before starting D2 or Session 3.
 
 #### Set up IAM role
@@ -132,7 +132,7 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 - Your preferred Python IDE, such as VSCode, PyCharm etc
 
 #### Install Docker
-Install Docker from `https://docs.docker.com/get-docker/`   
+Install Docker from `https://docs.docker.com/get-docker/`
 
 **Note: Docker now needs licenses to run on SAP laptops. If you don't currently have a Docker license through SAP, you can download the docker to your own personal laptop for personal use for free. See `https://www.docker.com/pricing/` for more information. For this workshop, you will need Docker on Day 4 and it needs to on the same laptop with Python 3.8 environment, IDE and Postman.**
 
@@ -145,7 +145,7 @@ During the workshop, we will walk you through all the steps needed to delete all
 
 If you are following this tutorial on your own pace, please make sure to delete all the following resources:
 - After Session 3: delete Glue devpoint, Glue notebook
-- After Session 4: delete Ground Truth job and associated IAM roles and IAM policies
+- After Session 4: stopped Ground Truth job and deleted the associated IAM roles and IAM policies
 - After Session 5: delete Quicksight account and associated IAM roles and IAM policies
 - After Session 6: stop and delete Sagemaker instances, Athena tables, S3 bucket and IAM role created during session 2.
 
