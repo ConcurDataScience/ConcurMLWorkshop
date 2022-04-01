@@ -68,8 +68,10 @@ This workshop series is designed so that you can jump in on any session if you m
 
 ## What to Prep Before the Workshop
 
-### Install Anaconda
-Please install Anaconda environment from `https://www.anaconda.com/products/distribution`.
+### Have a Google Account logged in through Browser,
+
+Due to Anaconda community edition not approved by SAP we will be using Google Colab, so make sure to have Google Colab set up (https://colab.research.google.com/)
+
 
 ### Github repo
 
