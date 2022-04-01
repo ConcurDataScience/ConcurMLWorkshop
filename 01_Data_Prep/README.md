@@ -34,7 +34,7 @@ By the end of this section, you should have a good idea on
 ### Missed it? Dont Worry 
 If you missed this session:
 Please follow below steps:
-1. Download the Final Dataset from enriched_data.tar.gz
+1. Download the Final Dataset enriched_data.tar.gz from https://github.com/ConcurDataScience/ConcurMLWorkshop/blob/main/01_Data_Prep/enriched_data.tar.gz
 2. Untar it using either a UI unzip software or below command:
 `tar -xf enriched_data.tar.gz`
 As shown below:
