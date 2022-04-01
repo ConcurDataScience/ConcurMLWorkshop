@@ -5,9 +5,10 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 
 ### Pre-Requisites:
 1.	You should have created an AWS account and verified some of the key access to key resources we will be using in this 4 day’s workshop
-2.	You have created an IAM role that you will be using in this series, with the necessary permissions
-3.	You have created an S3 bucket and can access the git repo shared earlier.
-4.	You have created and started your notebook instance (Make sure that the notebook was create in the us-west-2 region)
+2.	You have followed the general instruction in the project git home to
+* create the IAM role: <b>ConcurMLWorkshopUse</b>.
+* create your S3 bucket.
+* created and started your notebook instance (Make sure that the notebook was create in the us-west-2 region and assigned the above IAM role)
 
 ### Key Objectives:
 By the end of this section, you should have a good idea on
