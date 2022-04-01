@@ -23,11 +23,11 @@ By the end of this section, you should have a good idea on
 4.	(HO) We will learn how to process the labeling output for consumption by a model
 7.	(P) Finally, we will show what is possible with a quick demo of our labeling pipeline and our custome Bounding-box NER liquid template.
 
-*HO-Hands On
-*P-Presentation Slides
+* HO-Hands On
+* P-Presentation Slides
 
 ### Post-Requisites:
-•	After the session’s completion, you should have some data labeled and ready to be used for Model Training.
+After the session’s completion, you should have some data labeled and ready to be used for Model Training.
 
 
 ### Missed it ? Dont Worry
