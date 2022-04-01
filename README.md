@@ -154,7 +154,35 @@ Install Postman from `https://www.postman.com/downloads/`
 During the workshop, we will walk you through all the steps needed to delete all the AWS resources so that you don't get charged accidently.
 
 If you are following this tutorial on your own pace, please make sure to delete all the following resources:
-- After Session 3: delete Glue devpoint, Glue notebook
+
+**( For AWS CLI commands you can either use Sagemaker Terminal, Sagemaker Notebook by adding `!` infront of the commands, or launching a AWS cloudshell)**
+
+For cloud shell see how to launch that below:
+
+  From the top right you should see this shell like icon ( in red box)
+![Screen Shot 2022-04-01 at 3 05 26 PM](https://user-images.githubusercontent.com/101754067/161347316-6c786c44-9c67-48fc-b3e0-e26d8beae1fd.png)
+
+click on that, this should launch a cloudshell env like this, here you can run your aws cli commands.
+
+![Screen Shot 2022-04-01 at 2 42 26 PM](https://user-images.githubusercontent.com/101754067/161347170-5b4043a3-c357-4292-b222-7b2370d90bc8.png)
+
+  - After Session 3: delete Glue dev end-point, Glue notebook
+    - [x] Delete Glue Dev Endpoint
+          - `aws glue delete-dev-endpoint --endpoint-name {endpoint_name}`
+    - [x] Delete Glue Notebook
+          - `aws sagemaker delete-notebook-instance --notebook-instance-name {glue_notebook_name}`
+    - [x] Delete Glue Job(if created)
+          - `aws glue   delete-job --job-name {glue_job_name}`
+    - [x] Delete Glue Job Trigger(if created)
+          - `aws glue delete-trigger --name {glue_trigger_name}`
+    - [x] Delete Glue Table
+          - `aws glue delete-table --database-name {database_name} --name {table_name}`
+    - [x] Delete Glue DB
+          - `aws glue delete-database --name {database_name}`
+    - [x] Delete Glue Crawler
+          - `aws glue delete-crawler --name {crawler_name}`
+
+
 - After Session 4: stop Ground Truth job and delete the associated IAM roles and IAM policies
 - After Session 5: delete Quicksight account and associated IAM roles and IAM policies
 - After Session 6: stop and delete Sagemaker instances, Athena tables, S3 bucket and IAM role created during session 2.
