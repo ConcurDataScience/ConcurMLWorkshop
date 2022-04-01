@@ -19,9 +19,9 @@ By the end of this section, you should have a good idea on
 ### Steps We will go through:
 1.	(HO) Before we start, we need to create the notebook instance first in SageMaker.
 2.	(HO) We will learn how to prepare the data needed for creating a labeling job in AWS.
-3.	(HO) We will learn create a new labeling job in AWS console and do it from code.
+3.	(HO) We will learn how to create a new labeling job in AWS console and how to automate it with code.
 4.	(HO) We will learn how to process the labeling output for consumption by a model
-7.	(P) Finally, we do a quick demo of our labeling pipeline a labeling UI using our custome Bounding-box NER liquid template.
+7.	(P) Finally, we will show what is possible with a quick demo of our labeling pipeline and our custome Bounding-box NER liquid template.
 
 *HO-Hands On
 *P-Presentation Slides
