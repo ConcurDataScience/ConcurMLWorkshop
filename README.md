@@ -145,7 +145,7 @@ During the workshop, we will walk you through all the steps needed to delete all
 
 If you are following this tutorial on your own pace, please make sure to delete all the following resources:
 - After Session 3: delete Glue devpoint, Glue notebook
-- After Session 4: stopped Ground Truth job and deleted the associated IAM roles and IAM policies
+- After Session 4: stop Ground Truth job and delete the associated IAM roles and IAM policies
 - After Session 5: delete Quicksight account and associated IAM roles and IAM policies
 - After Session 6: stop and delete Sagemaker instances, Athena tables, S3 bucket and IAM role created during session 2.
 
