@@ -14271,7 +14271,17 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="0.0-Initial-check/setup">0.0 Initial check/setup<a class="anchor-link" href="#0.0-Initial-check/setup">&#182;</a></h3>
+<h3 id="0.1-Upload/unzip-sentiment-modularized.tar.gz-to-your-Sagemaker-notebook-instance">0.1 Upload/unzip sentiment-modularized.tar.gz to your Sagemaker notebook instance<a class="anchor-link" href="#0.1-Upload/unzip-sentiment-modularized.tar.gz-to-your-Sagemaker-notebook-instance">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="c1"># After uploading the sentiment-modularized.tar.gz file to your Sagemaker notebook instance,</span>
+<span class="c1"># open a Terminal in JupyterLab and unzip the tar.gz file using the command below</span>
+
+<span class="nb">cd</span> Sagemaker <span class="o">&amp;&amp;</span> tar -xvf sentiment-modularized.tar.gz
+</pre></div>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14282,12 +14292,67 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="c1"># After uploading the sentiment-modularized.tar.gz file to your Sagemaker notebook instance,</span>
-<span class="c1"># open a Terminal in JupyterLab and unzip the tar.gz file using the command below</span>
+<p>You should see the following after unzipping the tar file
+<img src="images/unzipped-list.png" alt=""></p>
 
-tar -xvf sentiment-modularized.tar.gz
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="0.2-Check-if-your-bucket-exists">0.2 Check if your bucket exists<a class="anchor-link" href="#0.2-Check-if-your-bucket-exists">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">BUCKET</span> <span class="o">=</span> <span class="s1">&#39;dsml-chrisi-bucket&#39;</span>
 </pre></div>
 
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If your bucket does not exist, you can run the cell below to create it (remove comment)</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!aws s3 mb s3://{BUCKET}</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="0.3-Create-the-athena_log-folder-in-your-S3-bucket">0.3 Create the <code>athena_log</code> folder in your S3 bucket<a class="anchor-link" href="#0.3-Create-the-athena_log-folder-in-your-S3-bucket">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -14295,10 +14360,7 @@ tar -xvf sentiment-modularized.tar.gz
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Type your bucket name and run this cell</span>
-
-<span class="n">BUCKET</span> <span class="o">=</span> <span class="s1">&#39;dsml-chrisi-bucket&#39;</span>
-<span class="o">!</span>aws s3 cp dummy.log s3://<span class="o">{</span>BUCKET<span class="o">}</span>/athena_log/dummy.log
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp dummy.log s3://<span class="o">{</span>BUCKET<span class="o">}</span>/athena_log/dummy.log
 </pre></div>
 
      </div>
@@ -16127,10 +16189,15 @@ variables/variables.data-00000-of-00001
 <p><img src="images/AWLMLStack.png" alt=""></p>
 
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Create-html-from-notebook">Create html from notebook<a class="anchor-link" href="#Create-html-from-notebook">&#182;</a></h3>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
@@ -16155,7 +16222,7 @@ variables/variables.data-00000-of-00001
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
 [NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
-[NbConvertApp] Writing 701245 bytes to sentiment-classification-twitter-modularize.html
+[NbConvertApp] Writing 707574 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
@@ -16208,7 +16275,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm sentiment-modularized.tar.gz
@@ -16222,7 +16289,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar --exclude<span class="o">=</span><span class="s2">&quot;.ipynb_checkpoints*&quot;</span> -zcvf sentiment-modularized.tar.gz .
@@ -16265,6 +16332,9 @@ variables/variables.data-00000-of-00001
 ./dummy.log
 ./images/
 ./images/Processing-1.png
+./images/stop-notebook.png
+./images/unzipped-list.png
+./images/Terminal.png
 ./images/AWLMLStack.png
 ./sentiment-classification-twitter-modularize.ipynb
 tar: .: file changed as we read it
@@ -16281,6 +16351,20 @@ tar: .: file changed as we read it
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Delete-step">Delete step<a class="anchor-link" href="#Delete-step">&#182;</a></h3>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf README.md images resources delete_resources.py dummy.log sentiment-classification-twitter-modularize.html sentiment-modularized.tar.gz
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
