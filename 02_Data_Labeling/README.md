@@ -11,6 +11,10 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 * create your S3 bucket. <b>Verify that in the Properties tab, you see us-west-2 as the region.</b>
 * create and start your notebook instance. <b>Verify that it has the role <i>ConcurMLWorkshopUse</i> and it is listed under us-west-2 region.</b>
 
+<img width="622" alt="iamrole" src="https://user-images.githubusercontent.com/769011/161399924-dbe2b37a-39fe-438c-b35f-f090d646fecf.png">
+<img width="200" alt="Screen Shot 2022-04-02 at 1 24 47 PM" src="https://user-images.githubusercontent.com/769011/161400029-88ae24d4-bf57-4436-bac5-28ba6e520df3.png">
+<img width="800" alt="Screen Shot 2022-04-02 at 1 27 31 PM" src="https://user-images.githubusercontent.com/769011/161400105-097f31f5-4c4f-4262-b733-94f9716b8158.png">
+
 
 Doing these preparation is important because some of the steps such as creating the notebook instance can take up to 10 minutes.
 
