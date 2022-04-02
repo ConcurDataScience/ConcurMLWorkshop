@@ -3,7 +3,7 @@
 
 Welcome to the Data Labeling section of the ML Workshop. This morning we have gone through the process of how to aquire some already labeled data. However, in real life, you don't always get lucky to have labeled data. Very often, you will need to get your own data labeled. In this section, we will go through the process of setting up a labeling job using GroundTruth in AWS Sagemaker and preparing it for consumption by our Model.
 
-### ![exclaimation](https://user-images.githubusercontent.com/769011/161400643-c2242bd9-75e7-4fcd-a9e2-2c5174c67b97.png)Pre-Requisites:
+### !<img width="20" src="https://user-images.githubusercontent.com/769011/161400643-c2242bd9-75e7-4fcd-a9e2-2c5174c67b97.png">Pre-Requisites:
 1.	You should have created an AWS account.
 2.  You have checked out this github project to your local disk
 3.	If you missed the prior classes, please make sure that you have followed the general instruction in the github project home to
