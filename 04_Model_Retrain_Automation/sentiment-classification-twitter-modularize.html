@@ -14259,7 +14259,7 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Using-Sagemaker-ScriptProcessor-and-Estimator">Using Sagemaker ScriptProcessor and Estimator<a class="anchor-link" href="#Using-Sagemaker-ScriptProcessor-and-Estimator">&#182;</a></h1><h3 id="Preprocess-data-and-train-models">Preprocess data and train models<a class="anchor-link" href="#Preprocess-data-and-train-models">&#182;</a></h3>
+<h1 id="Using-Sagemaker-ScriptProcessors-and-Estimators">Using Sagemaker ScriptProcessors and Estimators<a class="anchor-link" href="#Using-Sagemaker-ScriptProcessors-and-Estimators">&#182;</a></h1><h3 id="Preprocess-data-and-train-models">Preprocess data and train models<a class="anchor-link" href="#Preprocess-data-and-train-models">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14271,12 +14271,71 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="0.0-Initial-check/setup">0.0 Initial check/setup<a class="anchor-link" href="#0.0-Initial-check/setup">&#182;</a></h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="images/Terminal.png" alt=""></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="c1"># After uploading the sentiment-modularized.tar.gz file to your Sagemaker notebook instance,</span>
+<span class="c1"># open a Terminal in JupyterLab and unzip the tar.gz file using the command below</span>
+
+tar -xvf sentiment-modularized.tar.gz
+</pre></div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Type your bucket name and run this cell</span>
+
+<span class="n">BUCKET</span> <span class="o">=</span> <span class="s1">&#39;dsml-chrisi-bucket&#39;</span>
+<span class="o">!</span>aws s3 cp dummy.log s3://<span class="o">{</span>BUCKET<span class="o">}</span>/athena_log/dummy.log
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>upload: ./dummy.log to s3://dsml-chrisi-bucket/athena_log/dummy.log
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="1.0-Get-data-via-PyAthena">1.0 Get data via PyAthena<a class="anchor-link" href="#1.0-Get-data-via-PyAthena">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install pyathena
@@ -14299,18 +14358,15 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Collecting pyathena
-  Downloading PyAthena-2.3.2-py3-none-any.whl (37 kB)
-Requirement already satisfied: botocore&gt;=1.5.52 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (1.24.25)
-Requirement already satisfied: tenacity&gt;=4.1.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (8.0.1)
+<pre>Requirement already satisfied: pyathena in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (2.3.2)
 Requirement already satisfied: boto3&gt;=1.4.4 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (1.21.25)
-Requirement already satisfied: s3transfer&lt;0.6.0,&gt;=0.5.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.5.0)
+Requirement already satisfied: tenacity&gt;=4.1.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (8.0.1)
+Requirement already satisfied: botocore&gt;=1.5.52 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (1.24.25)
 Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.10.0)
-Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (2.8.1)
+Requirement already satisfied: s3transfer&lt;0.6.0,&gt;=0.5.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.5.0)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.25.4 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (1.26.8)
+Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (2.8.1)
 Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from python-dateutil&lt;3.0.0,&gt;=2.1-&gt;botocore&gt;=1.5.52-&gt;pyathena) (1.15.0)
-Installing collected packages: pyathena
-Successfully installed pyathena-2.3.2
 </pre>
 </div>
 </div>
@@ -14322,13 +14378,13 @@ Successfully installed pyathena-2.3.2
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyathena</span> <span class="kn">import</span> <span class="n">connect</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">s3_staging_dir</span><span class="o">=</span><span class="s2">&quot;s3://aws-athena-query-results-us-west-2-995383923238/ &quot;</span><span class="p">,</span> <span class="c1">#update to personal athena _ log</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">s3_staging_dir</span><span class="o">=</span><span class="s2">&quot;s3://</span><span class="si">{BUCKET}</span><span class="s2">/athena_log/ &quot;</span><span class="p">,</span> 
                <span class="n">region_name</span><span class="o">=</span><span class="s2">&quot;us-west-2&quot;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;&quot;&quot; SELECT * FROM &quot;ml-workshop-db&quot;.&quot;enriched_data&quot; &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
@@ -14352,21 +14408,21 @@ Successfully installed pyathena-2.3.2
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>      id dp_unique_key      target  \
-0  12934   uq_id_10078     Neutral   
-1  12945   uq_id_10136     Neutral   
-2  12983   uq_id_10356  Irrelevant   
-3  12999   uq_id_10456    Positive   
-4  13009   uq_id_10514    Negative   
+0   2579    uq_id_1010  Irrelevant   
+1  12947   uq_id_10146     Neutral   
+2  12959   uq_id_10217    Negative   
+3  12964   uq_id_10246    Positive   
+4  13007   uq_id_10501    Positive   
 
                                                 text updated_date  \
-0  Xbox Edition Series Super X WINS Up Again! | a...   21-03-2022   
-1  Price delay for PS5 and Xbox Series X: more BA...   21-03-2022   
-2  If you haven&#39;t gotten Game Pass yet, you serio...   21-03-2022   
-3  _.. The faster to more energy efficient AMD Ze...   21-03-2022   
-4  @ IdleSloth1984, what the hell do you mean? Xb...   21-03-2022   
+0  I had to repaint another gun for Tiny Tina&#39;s c...   21-03-2022   
+1  Nvidia’s RTX 3080 is more exciting than PlaySt...   21-03-2022   
+2                                                the   21-03-2022   
+3                   This price is simply incredible.   21-03-2022   
+4                                        Can&#39;t wait!   21-03-2022   
 
           entity  
-0  Xbox(Xseries)  
+0    Borderlands  
 1  Xbox(Xseries)  
 2  Xbox(Xseries)  
 3  Xbox(Xseries)  
@@ -14387,7 +14443,7 @@ Successfully installed pyathena-2.3.2
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14422,7 +14478,7 @@ Successfully installed pyathena-2.3.2
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -14441,7 +14497,7 @@ Successfully installed pyathena-2.3.2
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -14476,53 +14532,53 @@ Successfully installed pyathena-2.3.2
   <tbody>
     <tr>
       <th>74675</th>
-      <td>9589</td>
-      <td>uq_id_9244</td>
-      <td>Neutral</td>
-      <td>The fuck it. we doin overwatch twitch.tv/Nikkaela</td>
+      <td>9475</td>
+      <td>uq_id_8603</td>
+      <td>Negative</td>
+      <td>it myself and its @PlayOverwatch my fault. Fuc...</td>
       <td>21-03-2022</td>
       <td>Overwatch</td>
-      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>74676</th>
-      <td>9599</td>
-      <td>uq_id_9300</td>
+      <td>9524</td>
+      <td>uq_id_8885</td>
       <td>Irrelevant</td>
-      <td>My gorgeous and hilarious girlfriend is stream...</td>
+      <td>LEGO probably won’t have anything for the Over...</td>
       <td>21-03-2022</td>
       <td>Overwatch</td>
       <td>1</td>
     </tr>
     <tr>
       <th>74677</th>
-      <td>12817</td>
-      <td>uq_id_9411</td>
-      <td>Negative</td>
-      <td>Did n just have really high expectations for the</td>
-      <td>21-03-2022</td>
-      <td>Xbox(Xseries)</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>74678</th>
-      <td>12826</td>
-      <td>uq_id_9461</td>
+      <td>12868</td>
+      <td>uq_id_9682</td>
       <td>Positive</td>
-      <td>i want gold.</td>
+      <td>£28. 99 won a month for an Xbox series 1 x eng...</td>
       <td>21-03-2022</td>
       <td>Xbox(Xseries)</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>74679</th>
-      <td>2417</td>
-      <td>uq_id_99</td>
-      <td>Negative</td>
-      <td>Grounded almost looked pretty cool here despit...</td>
+      <th>74678</th>
+      <td>12901</td>
+      <td>uq_id_9876</td>
+      <td>Neutral</td>
+      <td>Best upcoming Xbox Series X games: The top nex...</td>
       <td>21-03-2022</td>
-      <td>Borderlands</td>
-      <td>2</td>
+      <td>Xbox(Xseries)</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>74679</th>
+      <td>12906</td>
+      <td>uq_id_9906</td>
+      <td>Positive</td>
+      <td>Crazy hyped to pre-order my Series X!! .</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -14538,7 +14594,7 @@ Successfully installed pyathena-2.3.2
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14557,7 +14613,7 @@ Successfully installed pyathena-2.3.2
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
@@ -14579,7 +14635,7 @@ Name: sentiment, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14632,7 +14688,7 @@ memory usage: 4.0+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fiter data where tweet is present</span>
@@ -14653,7 +14709,7 @@ memory usage: 4.0+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">number_of_rows_each_class</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -14674,7 +14730,7 @@ memory usage: 4.0+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14693,16 +14749,16 @@ memory usage: 4.0+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Positive      2000
+<pre>Negative      2000
 Irrelevant    2000
-Negative      2000
 Neutral       2000
+Positive      2000
 Name: sentiment, dtype: int64</pre>
 </div>
 
@@ -14769,7 +14825,7 @@ Name: sentiment, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> process_tweets.py
@@ -14853,7 +14909,7 @@ Name: sentiment, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>python process_tweets.py
@@ -14896,7 +14952,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14917,7 +14973,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
@@ -14948,182 +15004,182 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
   <tbody>
     <tr>
       <th>0</th>
-      <td>I’m just gonna say it - Overwatch game being n...</td>
-      <td>gonna say overwatch game nominated lgbtq game ...</td>
+      <td>im sorry but valorant looks such an exact flip...</td>
+      <td>im sorry valorant look exact flip unity game h...</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>A company that has the ability to design and p...</td>
-      <td>company ability design produce top line graphi...</td>
+      <td>Wow, I no longer google photos, now I am sad a...</td>
+      <td>wow longer google photo sad</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Everything is better when it's black</td>
-      <td>everything better black</td>
+      <td>Kena is Easily another of my top 5 most antici...</td>
+      <td>kena easily another top anticipated</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RIP Battlefield V</td>
-      <td>rip battlefield v</td>
+      <td>bitch i did not play call of duty all these ye...</td>
+      <td>bitch play call duty year back got call duty y...</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Borderlands 3 Chapter 1 youtu.be / 0SKu6Vr4iXU...</td>
-      <td>borderland chapter youtu sku vr ixu via youtub...</td>
+      <td>I just want you all to know that you are loved...</td>
+      <td>want know loved besides live something twitch ...</td>
       <td>Neutral</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>johnson &amp; johnson about a purchase COVID but s...</td>
-      <td>johnson johnson purchase covid still fix</td>
+      <td>And bro what?. lmaooo may ima be been mad as hell</td>
+      <td>bro lmaooo may ima mad hell</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>The World&lt;unk&gt; Warcraft category on play is so...</td>
-      <td>world unk warcraft category play sooo congeste...</td>
+      <td>Xbox office : E3 IS CANCELLED, AND WHAT ARE WE...</td>
+      <td>xbox office e cancelled gonna sl show new cons...</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>@joem135... You know what's bloody stupid? Som...</td>
-      <td>joem know bloody stupid someone stupid profit ...</td>
+      <td>A lot of dumb people in the world giving out a</td>
+      <td>lot dumb people world giving</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>from me is slightly disappointed being my sche...</td>
-      <td>slightly disappointed schedule explicitly appr...</td>
+      <td>When you have to leave your teammate because i...</td>
+      <td>leave teammate ranked playapex</td>
       <td>Neutral</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>@ Xfinity The Call of Duty: Black Ops Cold War...</td>
-      <td>xfinity call duty black ops cold war open beta...</td>
+      <td>Microsoft Azure fell today, probably why.</td>
+      <td>microsoft azure fell today probably</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>Thanks to @ R _ 3X last night for a huge raid....</td>
-      <td>thanks r x last night huge raid made night</td>
+      <td>Gonna jump ahead will say this is a Clip-and-S...</td>
+      <td>gonna jump ahead say clip save piece content b...</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>@Borderlands. Can we please have a big hot fix...</td>
-      <td>borderland please big hot fix basic factory ch...</td>
+      <td>Smh this is in NASTY</td>
+      <td>smh nasty</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>@amazon @amazonIN @AmazonHelp I purchased pre ...</td>
-      <td>amazon amazonin amazonhelp purchased pre booke...</td>
+      <td>@EAHelp I just ordered 19:99 and fifa points 2...</td>
+      <td>eahelp ordered fifa point showing</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Yo&lt;unk&gt; headed to top 5 S5 Watson kills &lt;unk&gt;</td>
-      <td>yo unk headed top watson kill unk</td>
+      <td>Watch StrapxAxHolic on Twitch! But I think tha...</td>
+      <td>watch strapxaxholic twitch think pretty fuckin...</td>
       <td>Neutral</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>making hoes mad in CSGO since 2014 pic.twitter...</td>
-      <td>making hoe mad csgo since pic twitter com ia q...</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>.... Read More to Here :. en cnweekly.... com ...</td>
-      <td>read en cnweekly com national news state sat</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Borderlands 3 Ps4 the Anointed Fox 3 Pistol. T...</td>
-      <td>borderland p anointed fox pistol stuff dlvr rpl</td>
-      <td>Positive</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>accidental tk apology 3 piece</td>
-      <td>accidental tk apology piece</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Just drop off the correct token on market upda...</td>
-      <td>drop correct token market update nba k myteam ...</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>With tricks from FB they have to be regulated....</td>
-      <td>trick fb regulated people believe everything s...</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Bro @ NBA2K why tf 2K21 demo is worse than the...</td>
-      <td>bro nba k tf k demo worse whole game k</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>21</th>
       <td>VACCINE PAUSED: Johnson &amp; Johnson further paus...</td>
       <td>vaccine paused johnson johnson paused covid va...</td>
       <td>Neutral</td>
     </tr>
     <tr>
+      <th>15</th>
+      <td>Today’s Best Game Deals: FIFA 20 $18, Borderla...</td>
+      <td>today best game deal fifa borderland handsome ...</td>
+      <td>Neutral</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>@ Rainbow6Game Feels good when you get a full ...</td>
+      <td>rainbow game feel good get full stack win game...</td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Threat neutralized</td>
+      <td>threat neutralized</td>
+      <td>Neutral</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>This FUCKING HURT to read, I can't wait for Se...</td>
+      <td>fucking hurt read wait september bro</td>
+      <td>Negative</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Hey @VZWSupport – response?</td>
+      <td>hey vzwsupport response</td>
+      <td>Negative</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Thousands of lawsuits have been filed against ...</td>
+      <td>thousand lawsuit filed django pharmaceutical p...</td>
+      <td>Negative</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Cowboy Ursa Major died for this</td>
+      <td>cowboy ursa major died</td>
+      <td>Neutral</td>
+    </tr>
+    <tr>
       <th>22</th>
-      <td>do i really want more call of duty finsubs... ...</td>
-      <td>really want call duty finsubs unk little fun f...</td>
+      <td>HOME DEPOT Blessed!!!!!!!!!!!!!</td>
+      <td>home depot blessed</td>
       <td>Positive</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>NVIDIA SHIELD UPDATE - NEW FEATURE ! This is A...</td>
-      <td>nvidia shield update new feature awesome docsq...</td>
+      <td>Best game ever!!. @ MrJCorbs @ PlayApex pic.fm...</td>
+      <td>best game ever mrjcorbs playapex pic fm exzb ggk</td>
       <td>Positive</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>From Me : That hasn ’ t watched a whole single...</td>
-      <td>watched whole single game season also wtf siak...</td>
+      <td>if you go to the middle of Baghdad for any rea...</td>
+      <td>go middle baghdad reason trickshot</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>@Ronnie2K @NBA2K - I was just about to win my ...</td>
-      <td>ronnie k nba k win fourth game rush point grad...</td>
+      <td>Dead ass bro.</td>
+      <td>dead as bro</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>This ar switch definitely saved the squad, bur...</td>
-      <td>ar switch definitely saved squad burst ftw</td>
+      <td>funny, did laugh thank you blue fortnite though</td>
+      <td>funny laugh thank blue fortnite though</td>
       <td>Positive</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>It only took them 16, 91 000 million lawsuits lol</td>
-      <td>took million lawsuit lol</td>
+      <td>Can't seem to connect to any ranked matche reg...</td>
+      <td>seem connect ranked matche region sea ubisoft ...</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>Great piece of music from the futbal legend. T...</td>
-      <td>great piece music futbal legend african win fi...</td>
+      <td>The ban for Battlefield 4 911 _ kbbbbbbb.com p...</td>
+      <td>ban battlefield kbbbbbbb com player due detail...</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>@GoI_MeitY whenever those PUBG numbers are run...</td>
-      <td>goi meity whenever pubg number running high in...</td>
+      <td>Am I actually the only adult one experiencing ...</td>
+      <td>actually adult one experiencing many issue bug...</td>
       <td>Negative</td>
     </tr>
   </tbody>
@@ -15145,7 +15201,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
@@ -15175,7 +15231,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do it</span>
@@ -15194,7 +15250,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp tweets.csv s3://dsml-chrisi-bucket/workshop/tweets.csv
@@ -15235,7 +15291,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -15276,20 +15332,20 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
-Job Name:  sagemaker-scikit-learn-2022-03-31-04-37-27-621
-Inputs:  [{&#39;InputName&#39;: &#39;input-1&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://dsml-chrisi-bucket/workshop/tweets.csv&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}, {&#39;InputName&#39;: &#39;code&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://sagemaker-us-west-2-995383923238/sagemaker-scikit-learn-2022-03-31-04-37-27-621/input/code/process_tweets.py&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input/code&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}]
+Job Name:  sagemaker-scikit-learn-2022-04-01-21-17-02-136
+Inputs:  [{&#39;InputName&#39;: &#39;input-1&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://dsml-chrisi-bucket/workshop/tweets.csv&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}, {&#39;InputName&#39;: &#39;code&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://sagemaker-us-west-2-995383923238/sagemaker-scikit-learn-2022-04-01-21-17-02-136/input/code/process_tweets.py&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input/code&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}]
 Outputs:  [{&#39;OutputName&#39;: &#39;tweet_output&#39;, &#39;AppManaged&#39;: False, &#39;S3Output&#39;: {&#39;S3Uri&#39;: &#39;s3://dsml-chrisi-bucket/workshop&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/output&#39;, &#39;S3UploadMode&#39;: &#39;EndOfJob&#39;}}]
-........................<span class="ansi-blue-fg">Collecting nltk
+.........................<span class="ansi-blue-fg">Collecting nltk
   Downloading nltk-3.7-py3-none-any.whl (1.5 MB)</span>
+<span class="ansi-blue-fg">Requirement already satisfied: tqdm in /miniconda3/lib/python3.7/site-packages (from nltk) (4.62.3)</span>
+<span class="ansi-blue-fg">Collecting regex&gt;=2021.8.3
+  Downloading regex-2022.3.15-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (749 kB)</span>
 <span class="ansi-blue-fg">Collecting joblib
   Downloading joblib-1.1.0-py2.py3-none-any.whl (306 kB)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: click in /miniconda3/lib/python3.7/site-packages (from nltk) (8.0.3)</span>
-<span class="ansi-blue-fg">Collecting regex&gt;=2021.8.3
-  Downloading regex-2022.3.15-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (749 kB)</span>
-<span class="ansi-blue-fg">Requirement already satisfied: tqdm in /miniconda3/lib/python3.7/site-packages (from nltk) (4.62.3)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: importlib-metadata in /miniconda3/lib/python3.7/site-packages (from click-&gt;nltk) (4.8.1)</span>
-<span class="ansi-blue-fg">Requirement already satisfied: typing-extensions&gt;=3.6.4 in /miniconda3/lib/python3.7/site-packages (from importlib-metadata-&gt;click-&gt;nltk) (3.10.0.2)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: zipp&gt;=0.5 in /miniconda3/lib/python3.7/site-packages (from importlib-metadata-&gt;click-&gt;nltk) (3.6.0)</span>
+<span class="ansi-blue-fg">Requirement already satisfied: typing-extensions&gt;=3.6.4 in /miniconda3/lib/python3.7/site-packages (from importlib-metadata-&gt;click-&gt;nltk) (3.10.0.2)</span>
 <span class="ansi-blue-fg">Installing collected packages: regex, joblib, nltk</span>
 <span class="ansi-blue-fg">Successfully installed joblib-1.1.0 nltk-3.7 regex-2022.3.15</span>
 <span class="ansi-blue-fg">/miniconda3/lib/python3.7/site-packages/sklearn/externals/joblib/externals/cloudpickle/cloudpickle.py:47: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module&#39;s documentation for alternative uses
@@ -15301,8 +15357,8 @@ Outputs:  [{&#39;OutputName&#39;: &#39;tweet_output&#39;, &#39;AppManaged&#39;: 
 <span class="ansi-blue-fg">[nltk_data] Downloading package omw-1.4 to /root/nltk_data...</span>
 <span class="ansi-blue-fg">[nltk_data]   Unzipping corpora/omw-1.4.zip.</span>
 
-CPU times: user 625 ms, sys: 40.2 ms, total: 666 ms
-Wall time: 4min 45s
+CPU times: user 652 ms, sys: 18 ms, total: 670 ms
+Wall time: 4min 43s
 </pre>
 </div>
 </div>
@@ -15597,6 +15653,20 @@ Wall time: 4min 45s
 
 <span class="n">role</span> <span class="o">=</span> <span class="n">get_execution_role</span><span class="p">()</span>
 <span class="n">region</span> <span class="o">=</span> <span class="n">sagemaker_session</span><span class="o">.</span><span class="n">boto_session</span><span class="o">.</span><span class="n">region_name</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Add link to mapping </span>
 </pre></div>
 
      </div>
@@ -16060,10 +16130,10 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to pdf sentiment-classification-twitter-modularize.ipynb
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
 </pre></div>
 
      </div>
@@ -16084,35 +16154,8 @@ variables/variables.data-00000-of-00001
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
-[NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to pdf
-[NbConvertApp] Writing 119225 bytes to notebook.tex
-[NbConvertApp] Building PDF
-Traceback (most recent call last):
-  File &#34;/home/ec2-user/anaconda3/envs/python3/bin/jupyter-nbconvert&#34;, line 11, in &lt;module&gt;
-    sys.exit(main())
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/jupyter_core/application.py&#34;, line 254, in launch_instance
-    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/traitlets/config/application.py&#34;, line 664, in launch_instance
-    app.start()
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 350, in start
-    self.convert_notebooks()
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 524, in convert_notebooks
-    self.convert_single_notebook(notebook_filename)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 489, in convert_single_notebook
-    output, resources = self.export_single_notebook(notebook_filename, resources, input_buffer=input_buffer)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/nbconvertapp.py&#34;, line 418, in export_single_notebook
-    output, resources = self.exporter.from_filename(notebook_filename, resources=resources)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/exporter.py&#34;, line 181, in from_filename
-    return self.from_file(f, resources=resources, **kw)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/exporter.py&#34;, line 199, in from_file
-    return self.from_notebook_node(nbformat.read(file_stream, as_version=4), resources=resources, **kw)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/pdf.py&#34;, line 183, in from_notebook_node
-    self.run_latex(tex_file)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/pdf.py&#34;, line 154, in run_latex
-    self.latex_count, log_error, raise_on_failure)
-  File &#34;/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/nbconvert/exporters/pdf.py&#34;, line 112, in run_command
-    &#34;at {link}.&#34;.format(formatter=command_list[0], link=link))
-OSError: xelatex not found on PATH, if you have not installed xelatex you may need to do so. Find further instructions at https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex.
+[NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
+[NbConvertApp] Writing 701245 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
@@ -16121,13 +16164,14 @@ OSError: xelatex not found on PATH, if you have not installed xelatex you may ne
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>find / -name <span class="s1">&#39;xelatex&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> .gitignore
+<span class="o">.</span><span class="n">ipynb_checkpoints</span>
 </pre></div>
 
      </div>
@@ -16135,13 +16179,118 @@ OSError: xelatex not found on PATH, if you have not installed xelatex you may ne
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Writing .gitignore
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Zip-up-files">Zip up files<a class="anchor-link" href="#Zip-up-files">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm sentiment-modularized.tar.gz
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar --exclude<span class="o">=</span><span class="s2">&quot;.ipynb_checkpoints*&quot;</span> -zcvf sentiment-modularized.tar.gz .
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>./
+./delete_resources.py
+./.gitignore
+./README.md
+./resources/
+./resources/process_tweets.py
+./resources/keras_train_model.py
+./resources/tweets.csv
+./resources/tweets_processed.csv
+./resources/model.tar.gz
+./resources/keras_model_files/
+./resources/keras_model_files/variables/
+./resources/keras_model_files/variables/variables.index
+./resources/keras_model_files/variables/variables.data-00000-of-00001
+./resources/keras_model_files/saved_model.pb
+./resources/keras_model_files/assets/
+./sentiment-classification-twitter-modularize.html
+./dummy.log
+./images/
+./images/Processing-1.png
+./images/AWLMLStack.png
+./sentiment-classification-twitter-modularize.ipynb
+tar: .: file changed as we read it
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Delete-step">Delete step<a class="anchor-link" href="#Delete-step">&#182;</a></h3>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IAMRole</span>
+<span class="n">Sagemaker</span> <span class="n">notebook</span> <span class="n">instance</span>
+<span class="n">S3</span> <span class="n">bucket</span>
+<span class="n">Athena</span> <span class="n">table</span> <span class="p">(</span><span class="mi">3</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
      </div>
