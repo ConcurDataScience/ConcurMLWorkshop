@@ -195,7 +195,7 @@ click on that, this should launch a cloudshell env like this, here you can run y
     - [x] Delete S3 Bucket:
           - Click [here](https://s3.console.aws.amazon.com/s3/buckets?region=us-west-2) to list your S3 buckets
           - Click "Delete" to delete your S3 bucket, as in the image below
-          - ![](./04_Model_Retrain_Automation/images/delete-bucket.png)
+          - ![](./04_Model_Retrain_Automation/images/delete-bucket-01.png)
     - [x] Delete IAM role
 
 
