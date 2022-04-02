@@ -48,7 +48,7 @@ This workshop series is designed so that you can jump in on any session if you m
 ### Session 6 Model Training Automation by Chris Ismael (Day 3)
 
 - Hands-on: make your model training script re-usable using AWS Sagemaker Processing and Estimator jobs
-- Use AWS Lambda for ML training automation
+- Use AWS Sagemaker for ML training automation
 
 ### Session 7 Service Building by Mike Stark (Day 4)
 
@@ -189,6 +189,9 @@ click on that, this should launch a cloudshell env like this, here you can run y
           - `aws glue delete-crawler --name {crawler_name}`
     - [x] Delete Athena Tables:
     - [x] Delete/Stop All Sagemaker Instances
+          - Click [here](https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/notebook-instances) to show your notebook instances
+          - Click "Stop" to stop your notebook instance, as in the image below
+          - ![](./04_Model_Retrain_Automation/images/stop-notebook.png)
     - [x] Delete S3 Bucket:
     - [x] Delete IAM role
 
