@@ -1,30 +1,31 @@
-Day 2 Part2:
-Welcome to the ML Automation section of the ML Workshop. This morning we have gone through the process of how to create a trained model. However, in real life, you want easy and fast retraining cycle and automate the process once it has gone through initial training
+ :calendar: 
+## Day 4 Part 2:
+
+Welcome to the Model Training Automation section of the ML Workshop. This section is divided into 2 parts
+
+-  Running your data-preprocessing code in a Sagemaker Processing Job
+-  Running your model training code in a Sagemaker Estimator
 
 ## Pre-Requisites:
-You should have created an AWS account.
-You have checked out this github project to your local disk
-If you missed the prior classes, please make sure that you have followed the general instruction in the github project home to
-create the IAM role: ConcurMLWorkshopUse.
-created your S3 bucket.
-created and start your notebook instance (Make sure that the notebook was create in the us-west-2 region and assigned the above IAM role)
-Doing these preparation is important because some of the steps such as creating the notebook instance can take upto 10 minutes.
+1.	You should have created an AWS account and verified some of the key access to key resources we will be using in this 4 day’s workshop
+2.	You have created an IAM role that you will be using in this series, with the necessary permissions
+3.	You have created an S3 bucket and can access the git repo shared earlier.
 
 ## Key Objectives:
-By the end of this section, you should have a good idea on
+By the end of this section, you should have a good idea on 
+1.	How to move your notebook code into scripts to be used in a Sagemaker container (ScriptProcessor + Estimator)
+2. Hosting your input/output data in S3 so the containers can retrieve them
+3. Running your scripts in the containers
 
-< FILL IN DETAILS >
-HO-Hands On
-P-Presentation Slides
 
 ## Post-Requisites:
-After the session’s completion, you should have a good idea on how to run an automation pipleine using Sagemaker Estimators.
+- 
+- 
 
-## Missed it ? Dont Worry
 
-<FILL IN DETAILS>
+## Missed it? Dont Worry 
+If you missed this session:
+Please follow below steps:
 
-## Cleanup Instruction:
-The following resources are created after this session. Please follow the cleanup instructions to avoid incur any unnecessary charges on you.
-
-<FILL IN DETAILS>
+## Contact
+For any questions, please feel free to email me at chris.ismael@sap.com
