@@ -14286,15 +14286,22 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><img src="images/Terminal.png" alt=""></p>
+<div>
+<img src="images/Terminal.png" width="400"/>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>You should see the following after unzipping the tar file</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>You should see the following after unzipping the tar file
-<img src="images/unzipped-list.png" alt=""></p>
-
+<div>
+<img src="images/unzipped-list.png" width="350"/>
+</div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14352,41 +14359,21 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="0.3-Create-the-athena_log-folder-in-your-S3-bucket">0.3 Create the <code>athena_log</code> folder in your S3 bucket<a class="anchor-link" href="#0.3-Create-the-athena_log-folder-in-your-S3-bucket">&#182;</a></h3>
+<h3 id="0.3-Create-the-workshop-and-athena_log-folders-in-your-S3-bucket">0.3 Create the <code>workshop</code> and <code>athena_log</code> folders in your S3 bucket<a class="anchor-link" href="#0.3-Create-the-workshop-and-athena_log-folders-in-your-S3-bucket">&#182;</a></h3>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp dummy.log s3://<span class="o">{</span>BUCKET<span class="o">}</span>/athena_log/dummy.log
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp dummy.log s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/dummy.log
+<span class="o">!</span>aws s3 cp dummy.log s3://<span class="o">{</span>BUCKET<span class="o">}</span>/athena_log/dummy.log
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>upload: ./dummy.log to s3://dsml-chrisi-bucket/athena_log/dummy.log
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14495,6 +14482,27 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 
 </div>
 
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.01-(OPTIONAL)-If-Athena-above-is-not-available...">1.01 (OPTIONAL) If Athena above is not available...<a class="anchor-link" href="#1.01-(OPTIONAL)-If-Athena-above-is-not-available...">&#182;</a></h3><p>...you can load the dataframe manually from a csv file</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import pandas as pd</span>
+<span class="c1">#df = pd.read_csv(&#39;resources/tweets.csv&#39;)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
@@ -15315,7 +15323,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp tweets.csv s3://dsml-chrisi-bucket/workshop/tweets.csv
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp tweets.csv s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets.csv
 </pre></div>
 
      </div>
@@ -15362,7 +15370,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 <span class="n">sklearn_processor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s1">&#39;process_tweets.py&#39;</span><span class="p">,</span>
     <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
         <span class="n">ProcessingInput</span><span class="p">(</span>
-            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;s3://dsml-chrisi-bucket/workshop/tweets.csv&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop/tweets.csv&#39;</span><span class="p">,</span>
             <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;/opt/ml/processing/input&#39;</span>
         <span class="p">)</span>
     <span class="p">],</span>
@@ -15370,7 +15378,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
         <span class="n">ProcessingOutput</span><span class="p">(</span>
             <span class="n">output_name</span><span class="o">=</span><span class="s1">&#39;tweet_output&#39;</span><span class="p">,</span>
             <span class="n">source</span><span class="o">=</span><span class="s1">&#39;/opt/ml/processing/output&#39;</span><span class="p">,</span>
-            <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;s3://dsml-chrisi-bucket/workshop&#39;</span>
+            <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop&#39;</span>
         <span class="p">)</span>
     <span class="p">]</span>
 <span class="p">)</span>
@@ -15452,7 +15460,7 @@ Wall time: 4min 43s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://dsml-chrisi-bucket/workshop/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/
 </pre></div>
 
      </div>
@@ -15750,7 +15758,7 @@ Wall time: 4min 43s
                  <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span>
                  <span class="n">framework_version</span><span class="o">=</span><span class="s1">&#39;2.3.2&#39;</span><span class="p">,</span>
                  <span class="n">py_version</span><span class="o">=</span><span class="s1">&#39;py37&#39;</span><span class="p">,</span>
-                 <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;s3://dsml-chrisi-bucket/workshop&#39;</span><span class="p">,</span>
+                 <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop&#39;</span><span class="p">,</span>
                  <span class="n">hyperparameters</span><span class="o">=</span><span class="p">{</span>
                      <span class="c1">#&#39;embedding&#39;: True,</span>
                      <span class="c1">#&#39;modelstart&#39;: 1,</span>
@@ -15781,7 +15789,7 @@ Wall time: 4min 43s
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
 <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">({</span>
-    <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="s1">&#39;s3://dsml-chrisi-bucket/workshop/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop/&#39;</span><span class="p">,</span>
 <span class="p">},</span> <span class="n">job_name</span><span class="o">=</span><span class="s1">&#39;tweets-chris04&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -15972,7 +15980,7 @@ Wall time: 5min 46s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://dsml-chrisi-bucket/workshop/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/
 </pre></div>
 
      </div>
@@ -16009,7 +16017,7 @@ Wall time: 5min 46s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://dsml-chrisi-bucket/workshop/tweets-chris04/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets-chris04/
 </pre></div>
 
      </div>
@@ -16047,7 +16055,7 @@ Wall time: 5min 46s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://dsml-chrisi-bucket/workshop/tweets-chris04/output/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets-chris04/output/
 </pre></div>
 
      </div>
@@ -16087,7 +16095,7 @@ Wall time: 5min 46s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp s3://dsml-chrisi-bucket/workshop/tweets-chris04/output/model.tar.gz ./model.tar.gz
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets-chris04/output/model.tar.gz ./model.tar.gz
 </pre></div>
 
      </div>
@@ -16197,7 +16205,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
@@ -16222,7 +16230,7 @@ variables/variables.data-00000-of-00001
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
 [NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
-[NbConvertApp] Writing 707574 bytes to sentiment-classification-twitter-modularize.html
+[NbConvertApp] Writing 711713 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
@@ -16272,10 +16280,10 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Zip-up-files">Zip up files<a class="anchor-link" href="#Zip-up-files">&#182;</a></h3>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm sentiment-modularized.tar.gz
@@ -16286,10 +16294,31 @@ variables/variables.data-00000-of-00001
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>rm: cannot remove ‘sentiment-modularized.tar.gz’: No such file or directory
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar --exclude<span class="o">=</span><span class="s2">&quot;.ipynb_checkpoints*&quot;</span> -zcvf sentiment-modularized.tar.gz .
