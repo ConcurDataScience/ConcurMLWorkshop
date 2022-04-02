@@ -7,9 +7,9 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 1.	You should have created an AWS account.
 2.  You have checked out this github project to your local disk
 3.	If you missed the prior classes, please make sure that you have followed the general instruction in the github project home to
-* create the IAM role: <b>ConcurMLWorkshopUse</b>.
-* create your S3 bucket.
-* create and start your notebook instance (Make sure that the notebook was created in the us-west-2 region and assigned the above IAM role)
+* create the IAM role: <i>ConcurMLWorkshopUse</i>. <b>Check the IAM to make sure that you have acces to S3, Athena and SageMaker.</b>
+* create your S3 bucket. <b>Verify that in the Properties tab, you see us-west-2 as the region.</b>
+* create and start your notebook instance. <b>Verify that it has the role <i>ConcurMLWorkshopUse</i> and it is listed under us-west-2 region.</b>
 
 Doing these preparation is important because some of the steps such as creating the notebook instance can take up to 10 minutes.
 
