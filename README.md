@@ -68,7 +68,7 @@ This workshop series is designed so that you can jump in on any session if you m
 
 ## What to Prep Before the Workshop
 
-### Have a Google Account logged in through Browser,
+### Set up a Google Colab account in your browser
 
 Due to Anaconda community edition not approved by SAP we will be using Google Colab, so make sure to have Google Colab set up (https://colab.research.google.com/)
 
@@ -131,6 +131,14 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 
 #### Python environment
 - Make sure your local python environment is 3.8
+  If you are unable to install Anaconda due to licensing issue, please follow the instructions below to set up your python environment:
+  - For linux, install using apt-get install python3: https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
+  - Fpr mac, install using brew. https://docs.python-guide.org/starting/install3/osx/
+  - For windows, install the binary from https://www.python.org/downloads/ and add that into PATH
+  - After installing Python, use venv to create an empty python environemnt:
+    `pip install virtualenv
+     python3 -m venv env
+     source env/bin/activate`
 - Your preferred Python IDE, such as VSCode, PyCharm etc
 
 #### Install Docker
@@ -146,10 +154,43 @@ Install Postman from `https://www.postman.com/downloads/`
 During the workshop, we will walk you through all the steps needed to delete all the AWS resources so that you don't get charged accidently.
 
 If you are following this tutorial on your own pace, please make sure to delete all the following resources:
-- After Session 3: delete Glue devpoint, Glue notebook
+
+**( For AWS CLI commands you can either use Sagemaker Terminal, Sagemaker Notebook by adding `!` infront of the commands, or launching a AWS cloudshell)**
+
+For cloud shell see how to launch that below:
+
+  From the top right you should see this shell like icon ( in red box)
+![Screen Shot 2022-04-01 at 3 05 26 PM](https://user-images.githubusercontent.com/101754067/161347316-6c786c44-9c67-48fc-b3e0-e26d8beae1fd.png)
+
+click on that, this should launch a cloudshell env like this, here you can run your aws cli commands.
+
+![Screen Shot 2022-04-01 at 2 42 26 PM](https://user-images.githubusercontent.com/101754067/161347170-5b4043a3-c357-4292-b222-7b2370d90bc8.png)
+
+  - After Session 3: delete Glue dev end-point, Glue notebook
+    - [x] Delete Glue Dev Endpoint
+          - `aws glue delete-dev-endpoint --endpoint-name {endpoint_name}`
+    - [x] Delete Glue Notebook
+          - `aws sagemaker delete-notebook-instance --notebook-instance-name {glue_notebook_name}`
+    - [x] Delete Glue Job(if created)
+          - `aws glue   delete-job --job-name {glue_job_name}`
+    - [x] Delete Glue Job Trigger(if created)
+          - `aws glue delete-trigger --name {glue_trigger_name}`
+          
 - After Session 4: stop Ground Truth job and delete the associated IAM roles and IAM policies
+
 - After Session 5: delete Quicksight account and associated IAM roles and IAM policies
-- After Session 6: stop and delete Sagemaker instances, Athena tables, S3 bucket and IAM role created during session 2.
+
+- After Session 6: Glue DB/Tabl/Crawler, Athena tables , stop and delete Sagemaker instances, S3 bucket and IAM role created during session 2
+    - [x] Delete Glue Table
+          - `aws glue delete-table --database-name {database_name} --name {table_name}`
+    - [x] Delete Glue DB
+          - `aws glue delete-database --name {database_name}`
+    - [x] Delete Glue Crawler
+          - `aws glue delete-crawler --name {crawler_name}`
+    - [x] Delete Athena Tables:
+    - [x] Delete/Stop All Sagemaker Instances
+    - [x] Delete S3 Bucket:
+    - [x] Delete IAM role
 
 
 
