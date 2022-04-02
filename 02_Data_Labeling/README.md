@@ -11,6 +11,7 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 * create your S3 bucket. <b>Verify that in the Properties tab, you see us-west-2 as the region.</b>
 * create and start your notebook instance. <b>Verify that it has the role <i>ConcurMLWorkshopUse</i> and it is listed under us-west-2 region.</b>
 
+
 Doing these preparation is important because some of the steps such as creating the notebook instance can take up to 10 minutes.
 
 ### Key Objectives:
@@ -45,7 +46,7 @@ The following resources are created after this session. Please follow the cleanu
 4. SageMaker notebook instance:
 * You can stop the instance at the end of each day.
 * Start the notebook before the first session of the day. It can take up to 5 to 10 minutes to start your notebook instance.
-* Delete the notebook instance when the class is finished.
+* Delete the notebook instance when the class is finished by the end of the week.
 5. Cognito User Pool (created by Amazon automatically): <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
 
-<strong>Disclaimer, the instruction here does not supersede the AWS pricing policy. When in doubt about what cost it might incur, please check the corresponding pricing page from Amazon.</strong>
+<strong>Disclaimer, the instruction here does not supersede the AWS pricing policy. When in doubt about what cost it might incur, please check the corresponding service pricing page from Amazon.</strong>
