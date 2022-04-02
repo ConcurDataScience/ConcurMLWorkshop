@@ -30,7 +30,7 @@ By the end of this section, you should have a good idea on
 * HO-Hands On
 * P-Presentation Slides
 
-### Post-Requisites:
+### <span style="color: red">Post-Requisites:</span>
 After the session’s completion, you should have some data labeled and ready to be used for Model Training.
 
 
