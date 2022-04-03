@@ -14322,10 +14322,10 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">BUCKET</span> <span class="o">=</span> <span class="s1">&#39;dsml-chrisi-bucket01&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">BUCKET</span> <span class="o">=</span> <span class="s1">&#39;dsml-chrisi-bucket&#39;</span>
 </pre></div>
 
      </div>
@@ -14333,10 +14333,10 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>
@@ -14345,28 +14345,6 @@ a.anchor-link {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The specified bucket does not exist
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14394,10 +14372,10 @@ An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The s
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="0.3-Create-the-workshop-and-athena_log-folders-in-your-S3-bucket">0.3 Create the <code>workshop</code> and <code>athena_log</code> folders in your S3 bucket<a class="anchor-link" href="#0.3-Create-the-workshop-and-athena_log-folders-in-your-S3-bucket">&#182;</a></h3>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp resources/dummy.txt s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/dummy.txt
@@ -14409,6 +14387,28 @@ An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The s
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>upload: resources/dummy.txt to s3://dsml-chrisi-bucket/workshop/dummy.txt
+upload: resources/dummy.txt to s3://dsml-chrisi-bucket/athena_log/dummy.txt
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14417,7 +14417,7 @@ An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install pyathena
@@ -14446,8 +14446,8 @@ Requirement already satisfied: tenacity&gt;=4.1.0 in /home/ec2-user/anaconda3/en
 Requirement already satisfied: botocore&gt;=1.5.52 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pyathena) (1.24.25)
 Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.10.0)
 Requirement already satisfied: s3transfer&lt;0.6.0,&gt;=0.5.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from boto3&gt;=1.4.4-&gt;pyathena) (0.5.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.25.4 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (1.26.8)
 Requirement already satisfied: python-dateutil&lt;3.0.0,&gt;=2.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (2.8.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.25.4 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from botocore&gt;=1.5.52-&gt;pyathena) (1.26.8)
 Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from python-dateutil&lt;3.0.0,&gt;=2.1-&gt;botocore&gt;=1.5.52-&gt;pyathena) (1.15.0)
 </pre>
 </div>
@@ -14460,16 +14460,17 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyathena</span> <span class="kn">import</span> <span class="n">connect</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="kn">from</span> <span class="nn">pyathena</span> <span class="kn">import</span> <span class="n">connect</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">s3_staging_dir</span><span class="o">=</span><span class="s2">&quot;s3://</span><span class="si">{BUCKET}</span><span class="s2">/athena_log/ &quot;</span><span class="p">,</span> 
+<span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">s3_staging_dir</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;s3://</span><span class="si">{</span><span class="n">BUCKET</span><span class="si">}</span><span class="s2">/athena_log/&quot;</span><span class="p">,</span> 
                <span class="n">region_name</span><span class="o">=</span><span class="s2">&quot;us-west-2&quot;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;&quot;&quot; SELECT * FROM &quot;ml-workshop-db&quot;.&quot;enriched_data&quot; &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14489,48 +14490,111 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>      id dp_unique_key      target  \
-0   2579    uq_id_1010  Irrelevant   
-1  12947   uq_id_10146     Neutral   
-2  12959   uq_id_10217    Negative   
-3  12964   uq_id_10246    Positive   
-4  13007   uq_id_10501    Positive   
-
-                                                text updated_date  \
-0  I had to repaint another gun for Tiny Tina&#39;s c...   21-03-2022   
-1  Nvidia’s RTX 3080 is more exciting than PlaySt...   21-03-2022   
-2                                                the   21-03-2022   
-3                   This price is simply incredible.   21-03-2022   
-4                                        Can&#39;t wait!   21-03-2022   
-
-          entity  
-0    Borderlands  
-1  Xbox(Xseries)  
-2  Xbox(Xseries)  
-3  Xbox(Xseries)  
-4  Xbox(Xseries)  
+<pre>CPU times: user 3.53 s, sys: 117 ms, total: 3.65 s
+Wall time: 18.4 s
 </pre>
 </div>
 </div>
 
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>dp_unique_key</th>
+      <th>target</th>
+      <th>text</th>
+      <th>updated_date</th>
+      <th>entity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2579</td>
+      <td>uq_id_1010</td>
+      <td>Irrelevant</td>
+      <td>I had to repaint another gun for Tiny Tina's c...</td>
+      <td>21-03-2022</td>
+      <td>Borderlands</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12947</td>
+      <td>uq_id_10146</td>
+      <td>Neutral</td>
+      <td>Nvidia’s RTX 3080 is more exciting than PlaySt...</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12959</td>
+      <td>uq_id_10217</td>
+      <td>Negative</td>
+      <td>the</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12964</td>
+      <td>uq_id_10246</td>
+      <td>Positive</td>
+      <td>This price is simply incredible.</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>13007</td>
+      <td>uq_id_10501</td>
+      <td>Positive</td>
+      <td>Can't wait!</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="1.01-(OPTIONAL)-If-Athena-above-is-not-available...">1.01 (OPTIONAL) If Athena above is not available...<a class="anchor-link" href="#1.01-(OPTIONAL)-If-Athena-above-is-not-available...">&#182;</a></h3><p>...you can load the dataframe manually from a csv file</p>
 
 </div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import pandas as pd</span>
-<span class="c1">#df = pd.read_csv(&#39;resources/tweets.csv&#39;)</span>
+<span class="c1">#df.to_csv(&#39;resources/tweets_start.csv&#39;, index=False)</span>
 </pre></div>
 
      </div>
@@ -14541,12 +14605,130 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.01-(OPTIONAL)-If-Athena-above-is-not-available...">1.01 (OPTIONAL) If Athena above is not available...<a class="anchor-link" href="#1.01-(OPTIONAL)-If-Athena-above-is-not-available...">&#182;</a></h3><p>...you can load the dataframe manually from a csv file</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/tweets_start.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>dp_unique_key</th>
+      <th>target</th>
+      <th>text</th>
+      <th>updated_date</th>
+      <th>entity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2579</td>
+      <td>uq_id_1010</td>
+      <td>Irrelevant</td>
+      <td>I had to repaint another gun for Tiny Tina's c...</td>
+      <td>21-03-2022</td>
+      <td>Borderlands</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12947</td>
+      <td>uq_id_10146</td>
+      <td>Neutral</td>
+      <td>Nvidia’s RTX 3080 is more exciting than PlaySt...</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12959</td>
+      <td>uq_id_10217</td>
+      <td>Negative</td>
+      <td>the</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12964</td>
+      <td>uq_id_10246</td>
+      <td>Positive</td>
+      <td>This price is simply incredible.</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>13007</td>
+      <td>uq_id_10501</td>
+      <td>Positive</td>
+      <td>Can't wait!</td>
+      <td>21-03-2022</td>
+      <td>Xbox(Xseries)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="1.1-Load-DataSet-and-rename-columns">1.1 Load DataSet and rename columns<a class="anchor-link" href="#1.1-Load-DataSet-and-rename-columns">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14581,7 +14763,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -14600,7 +14782,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -14635,53 +14817,53 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
   <tbody>
     <tr>
       <th>74675</th>
+      <td>9436</td>
+      <td>uq_id_8371</td>
+      <td>Positive</td>
+      <td>I like this new</td>
+      <td>21-03-2022</td>
+      <td>Overwatch</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>74676</th>
       <td>9475</td>
-      <td>uq_id_8603</td>
+      <td>uq_id_8601</td>
       <td>Negative</td>
-      <td>it myself and its @PlayOverwatch my fault. Fuc...</td>
+      <td>killing ISIS and its @PlayOverwatch ‘s fault. ...</td>
       <td>21-03-2022</td>
       <td>Overwatch</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>74676</th>
-      <td>9524</td>
-      <td>uq_id_8885</td>
-      <td>Irrelevant</td>
-      <td>LEGO probably won’t have anything for the Over...</td>
+      <th>74677</th>
+      <td>9544</td>
+      <td>uq_id_8994</td>
+      <td>Positive</td>
+      <td>I maybe went a little overboard with the fanta...</td>
       <td>21-03-2022</td>
       <td>Overwatch</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>74677</th>
-      <td>12868</td>
-      <td>uq_id_9682</td>
-      <td>Positive</td>
-      <td>£28. 99 won a month for an Xbox series 1 x eng...</td>
-      <td>21-03-2022</td>
-      <td>Xbox(Xseries)</td>
       <td>3</td>
     </tr>
     <tr>
       <th>74678</th>
-      <td>12901</td>
-      <td>uq_id_9876</td>
-      <td>Neutral</td>
-      <td>Best upcoming Xbox Series X games: The top nex...</td>
+      <td>9596</td>
+      <td>uq_id_9285</td>
+      <td>Positive</td>
+      <td>Overwatch makes me die grrr</td>
       <td>21-03-2022</td>
-      <td>Xbox(Xseries)</td>
-      <td>0</td>
+      <td>Overwatch</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>74679</th>
-      <td>12906</td>
-      <td>uq_id_9906</td>
-      <td>Positive</td>
-      <td>Crazy hyped to pre-order my Series X!! .</td>
+      <td>12905</td>
+      <td>uq_id_9900</td>
+      <td>Neutral</td>
+      <td>Xbox Series X graphics source code stolen and ...</td>
       <td>21-03-2022</td>
       <td>Xbox(Xseries)</td>
-      <td>3</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -14697,10 +14879,10 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14716,67 +14898,22 @@ Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/pyth
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Negative      22542
-Positive      20830
-Neutral       18318
-Irrelevant    12990
-Name: sentiment, dtype: int64</pre>
+<pre>tweet_id           74680
+dp_unique_key      74680
+sentiment          74680
+tweet_text         74680
+updated_date       74680
+entity             74680
+sentiment_index    74680
+dtype: int64</pre>
 </div>
 
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 74680 entries, 0 to 74679
-Data columns (total 7 columns):
- #   Column           Non-Null Count  Dtype 
----  ------           --------------  ----- 
- 0   tweet_id         74680 non-null  int64 
- 1   dp_unique_key    74680 non-null  object
- 2   sentiment        74680 non-null  object
- 3   tweet_text       74680 non-null  object
- 4   updated_date     74680 non-null  object
- 5   entity           74680 non-null  object
- 6   sentiment_index  74680 non-null  int64 
-dtypes: int64(2), object(5)
-memory usage: 4.0+ MB
-</pre>
-</div>
 </div>
 
 </div>
@@ -14791,7 +14928,7 @@ memory usage: 4.0+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fiter data where tweet is present</span>
@@ -14812,7 +14949,7 @@ memory usage: 4.0+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">number_of_rows_each_class</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -14833,7 +14970,7 @@ memory usage: 4.0+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14852,16 +14989,16 @@ memory usage: 4.0+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Negative      2000
+<pre>Positive      2000
 Irrelevant    2000
+Negative      2000
 Neutral       2000
-Positive      2000
 Name: sentiment, dtype: int64</pre>
 </div>
 
@@ -14871,11 +15008,6 @@ Name: sentiment, dtype: int64</pre>
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="(Skip-wordcloud)">(Skip wordcloud)<a class="anchor-link" href="#(Skip-wordcloud)">&#182;</a></h3>
-</div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14909,7 +15041,7 @@ Name: sentiment, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;tweets.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -14928,7 +15060,7 @@ Name: sentiment, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> process_tweets.py
@@ -14970,10 +15102,10 @@ Name: sentiment, dtype: int64</pre>
     
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 
-    <span class="n">input_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/opt/ml/processing/input&#39;</span><span class="p">,</span> <span class="s1">&#39;tweets.csv&#39;</span><span class="p">)</span>
-    <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/opt/ml/processing/output&#39;</span><span class="p">,</span> <span class="s1">&#39;tweets_processed.csv&#39;</span><span class="p">)</span>
-    <span class="c1">#input_file = os.path.join(&#39;.&#39;, &#39;tweets.csv&#39;)</span>
-    <span class="c1">#output_file = os.path.join(&#39;.&#39;, &#39;tweets_processed.csv&#39;)</span>
+    <span class="c1">#input_file = os.path.join(&#39;/opt/ml/processing/input&#39;, &#39;tweets.csv&#39;)</span>
+    <span class="c1">#output_file = os.path.join(&#39;/opt/ml/processing/output&#39;, &#39;tweets_processed.csv&#39;)</span>
+    <span class="n">input_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;tweets.csv&#39;</span><span class="p">)</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;tweets_processed.csv&#39;</span><span class="p">)</span>
     
     <span class="n">main</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">)</span>
 </pre></div>
@@ -15012,7 +15144,7 @@ Name: sentiment, dtype: int64</pre>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>python process_tweets.py
@@ -15055,12 +15187,12 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;tweets_processed.csv&#39;</span><span class="p">)[[</span><span class="s1">&#39;tweet_text&#39;</span><span class="p">,</span><span class="s1">&#39;tweet_text_preprocessed&#39;</span><span class="p">,</span> <span class="s1">&#39;sentiment&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;tweets_processed.csv&#39;</span><span class="p">)[[</span><span class="s1">&#39;tweet_text&#39;</span><span class="p">,</span><span class="s1">&#39;tweet_text_preprocessed&#39;</span><span class="p">,</span> <span class="s1">&#39;sentiment&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15076,7 +15208,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
@@ -15107,183 +15239,93 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
   <tbody>
     <tr>
       <th>0</th>
-      <td>im sorry but valorant looks such an exact flip...</td>
-      <td>im sorry valorant look exact flip unity game h...</td>
+      <td>I support @ whichuk's campaign to end price go...</td>
+      <td>support whichuk campaign end price gouging als...</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Wow, I no longer google photos, now I am sad a...</td>
-      <td>wow longer google photo sad</td>
+      <td>In multiplayer mode, I can't see any player be...</td>
+      <td>multiplayer mode see player similar color cost...</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Kena is Easily another of my top 5 most antici...</td>
-      <td>kena easily another top anticipated</td>
+      <td>My family bad..</td>
+      <td>family bad</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>bitch i did not play call of duty all these ye...</td>
-      <td>bitch play call duty year back got call duty y...</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>I just want you all to know that you are loved...</td>
-      <td>want know loved besides live something twitch ...</td>
+      <td>. It'r s Snow Much My Fun! Enter me to finally...</td>
+      <td>r snow much fun enter finally win amazon store...</td>
       <td>Neutral</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>And bro what?. lmaooo may ima be been mad as hell</td>
-      <td>bro lmaooo may ima mad hell</td>
+      <th>4</th>
+      <td>I thought going after workers for safety whist...</td>
+      <td>thought going worker safety whistleblowing pro...</td>
       <td>Negative</td>
     </tr>
     <tr>
+      <th>5</th>
+      <td>I did this trick couple months ago hahahaha. I...</td>
+      <td>trick couple month ago hahahaha dumb</td>
+      <td>Irrelevant</td>
+    </tr>
+    <tr>
       <th>6</th>
-      <td>Xbox office : E3 IS CANCELLED, AND WHAT ARE WE...</td>
-      <td>xbox office e cancelled gonna sl show new cons...</td>
+      <td>One of the best tactical valorant players in M...</td>
+      <td>one best tactical valorant player middle east ...</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>A lot of dumb people in the world giving out a</td>
-      <td>lot dumb people world giving</td>
-      <td>Irrelevant</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>When you have to leave your teammate because i...</td>
-      <td>leave teammate ranked playapex</td>
+      <td>Microsoft: ‘carbon-negative’ by 2030 even for ...</td>
+      <td>microsoft carbon negative even supply chain an...</td>
       <td>Neutral</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>Microsoft Azure fell today, probably why.</td>
-      <td>microsoft azure fell today probably</td>
+      <th>8</th>
+      <td>In multiplayer play, I can't see any player be...</td>
+      <td>multiplayer play see player similar color cost...</td>
       <td>Negative</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>Gonna jump ahead will say this is a Clip-and-S...</td>
-      <td>gonna jump ahead say clip save piece content b...</td>
+      <th>9</th>
+      <td>There are only 2 days left until the start of ...</td>
+      <td>day left start psl elisa viihde pubg autumn ch...</td>
       <td>Irrelevant</td>
     </tr>
     <tr>
+      <th>10</th>
+      <td>@UbisoftSupport @GhostRecon I just can't chang...</td>
+      <td>ubisoftsupport ghostrecon change select class ...</td>
+      <td>Negative</td>
+    </tr>
+    <tr>
       <th>11</th>
-      <td>Smh this is in NASTY</td>
-      <td>smh nasty</td>
+      <td>If the @ Rainbow6Game servers failed for every...</td>
+      <td>rainbow game server failed everyone else recei...</td>
       <td>Negative</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>@EAHelp I just ordered 19:99 and fifa points 2...</td>
-      <td>eahelp ordered fifa point showing</td>
-      <td>Negative</td>
+      <td>.. store. be playstation. com /</td>
+      <td>store playstation com</td>
+      <td>Neutral</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Watch StrapxAxHolic on Twitch! But I think tha...</td>
-      <td>watch strapxaxholic twitch think pretty fuckin...</td>
+      <td>New Titan Fall to Xbox Live on Ebay UK Titanfa...</td>
+      <td>new titan fall xbox live ebay uk titanfall mic...</td>
       <td>Neutral</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>VACCINE PAUSED: Johnson &amp; Johnson further paus...</td>
-      <td>vaccine paused johnson johnson paused covid va...</td>
+      <td>Are  . buff.ly/3jdEiGn https://t.co/CdCiSpUNOy</td>
+      <td>buff ly jdeign http co cdcispunoy</td>
       <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Today’s Best Game Deals: FIFA 20 $18, Borderla...</td>
-      <td>today best game deal fifa borderland handsome ...</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>@ Rainbow6Game Feels good when you get a full ...</td>
-      <td>rainbow game feel good get full stack win game...</td>
-      <td>Positive</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Threat neutralized</td>
-      <td>threat neutralized</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>This FUCKING HURT to read, I can't wait for Se...</td>
-      <td>fucking hurt read wait september bro</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Hey @VZWSupport – response?</td>
-      <td>hey vzwsupport response</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Thousands of lawsuits have been filed against ...</td>
-      <td>thousand lawsuit filed django pharmaceutical p...</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Cowboy Ursa Major died for this</td>
-      <td>cowboy ursa major died</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>HOME DEPOT Blessed!!!!!!!!!!!!!</td>
-      <td>home depot blessed</td>
-      <td>Positive</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Best game ever!!. @ MrJCorbs @ PlayApex pic.fm...</td>
-      <td>best game ever mrjcorbs playapex pic fm exzb ggk</td>
-      <td>Positive</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>if you go to the middle of Baghdad for any rea...</td>
-      <td>go middle baghdad reason trickshot</td>
-      <td>Irrelevant</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Dead ass bro.</td>
-      <td>dead as bro</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>funny, did laugh thank you blue fortnite though</td>
-      <td>funny laugh thank blue fortnite though</td>
-      <td>Positive</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Can't seem to connect to any ranked matche reg...</td>
-      <td>seem connect ranked matche region sea ubisoft ...</td>
-      <td>Negative</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>The ban for Battlefield 4 911 _ kbbbbbbb.com p...</td>
-      <td>ban battlefield kbbbbbbb com player due detail...</td>
-      <td>Irrelevant</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Am I actually the only adult one experiencing ...</td>
-      <td>actually adult one experiencing many issue bug...</td>
-      <td>Negative</td>
     </tr>
   </tbody>
 </table>
@@ -15321,7 +15363,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
@@ -15351,7 +15393,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp tweets.csv s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets.csv
@@ -15392,7 +15434,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -15401,7 +15443,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 <span class="n">sklearn_processor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s1">&#39;process_tweets.py&#39;</span><span class="p">,</span>
     <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
         <span class="n">ProcessingInput</span><span class="p">(</span>
-            <span class="n">source</span><span class="o">=</span><span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop/tweets.csv&#39;</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;s3://</span><span class="si">{</span><span class="n">BUCKET</span><span class="si">}</span><span class="s1">/workshop/tweets.csv&#39;</span><span class="p">,</span>
             <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;/opt/ml/processing/input&#39;</span>
         <span class="p">)</span>
     <span class="p">],</span>
@@ -15409,7 +15451,7 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
         <span class="n">ProcessingOutput</span><span class="p">(</span>
             <span class="n">output_name</span><span class="o">=</span><span class="s1">&#39;tweet_output&#39;</span><span class="p">,</span>
             <span class="n">source</span><span class="o">=</span><span class="s1">&#39;/opt/ml/processing/output&#39;</span><span class="p">,</span>
-            <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop&#39;</span>
+            <span class="n">destination</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;s3://</span><span class="si">{</span><span class="n">BUCKET</span><span class="si">}</span><span class="s1">/workshop&#39;</span>
         <span class="p">)</span>
     <span class="p">]</span>
 <span class="p">)</span>
@@ -15433,17 +15475,17 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
-Job Name:  sagemaker-scikit-learn-2022-04-01-21-17-02-136
-Inputs:  [{&#39;InputName&#39;: &#39;input-1&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://dsml-chrisi-bucket/workshop/tweets.csv&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}, {&#39;InputName&#39;: &#39;code&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://sagemaker-us-west-2-995383923238/sagemaker-scikit-learn-2022-04-01-21-17-02-136/input/code/process_tweets.py&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input/code&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}]
+Job Name:  sagemaker-scikit-learn-2022-04-03-02-32-46-236
+Inputs:  [{&#39;InputName&#39;: &#39;input-1&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://dsml-chrisi-bucket/workshop/tweets.csv&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}, {&#39;InputName&#39;: &#39;code&#39;, &#39;AppManaged&#39;: False, &#39;S3Input&#39;: {&#39;S3Uri&#39;: &#39;s3://sagemaker-us-west-2-995383923238/sagemaker-scikit-learn-2022-04-03-02-32-46-236/input/code/process_tweets.py&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/input/code&#39;, &#39;S3DataType&#39;: &#39;S3Prefix&#39;, &#39;S3InputMode&#39;: &#39;File&#39;, &#39;S3DataDistributionType&#39;: &#39;FullyReplicated&#39;, &#39;S3CompressionType&#39;: &#39;None&#39;}}]
 Outputs:  [{&#39;OutputName&#39;: &#39;tweet_output&#39;, &#39;AppManaged&#39;: False, &#39;S3Output&#39;: {&#39;S3Uri&#39;: &#39;s3://dsml-chrisi-bucket/workshop&#39;, &#39;LocalPath&#39;: &#39;/opt/ml/processing/output&#39;, &#39;S3UploadMode&#39;: &#39;EndOfJob&#39;}}]
-.........................<span class="ansi-blue-fg">Collecting nltk
+..........................<span class="ansi-blue-fg">Collecting nltk
   Downloading nltk-3.7-py3-none-any.whl (1.5 MB)</span>
-<span class="ansi-blue-fg">Requirement already satisfied: tqdm in /miniconda3/lib/python3.7/site-packages (from nltk) (4.62.3)</span>
-<span class="ansi-blue-fg">Collecting regex&gt;=2021.8.3
-  Downloading regex-2022.3.15-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (749 kB)</span>
 <span class="ansi-blue-fg">Collecting joblib
   Downloading joblib-1.1.0-py2.py3-none-any.whl (306 kB)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: click in /miniconda3/lib/python3.7/site-packages (from nltk) (8.0.3)</span>
+<span class="ansi-blue-fg">Requirement already satisfied: tqdm in /miniconda3/lib/python3.7/site-packages (from nltk) (4.62.3)</span>
+<span class="ansi-blue-fg">Collecting regex&gt;=2021.8.3
+  Downloading regex-2022.3.15-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (749 kB)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: importlib-metadata in /miniconda3/lib/python3.7/site-packages (from click-&gt;nltk) (4.8.1)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: zipp&gt;=0.5 in /miniconda3/lib/python3.7/site-packages (from importlib-metadata-&gt;click-&gt;nltk) (3.6.0)</span>
 <span class="ansi-blue-fg">Requirement already satisfied: typing-extensions&gt;=3.6.4 in /miniconda3/lib/python3.7/site-packages (from importlib-metadata-&gt;click-&gt;nltk) (3.10.0.2)</span>
@@ -15458,7 +15500,7 @@ Outputs:  [{&#39;OutputName&#39;: &#39;tweet_output&#39;, &#39;AppManaged&#39;: 
 <span class="ansi-blue-fg">[nltk_data] Downloading package omw-1.4 to /root/nltk_data...</span>
 <span class="ansi-blue-fg">[nltk_data]   Unzipping corpora/omw-1.4.zip.</span>
 
-CPU times: user 652 ms, sys: 18 ms, total: 670 ms
+CPU times: user 528 ms, sys: 31.4 ms, total: 559 ms
 Wall time: 4min 43s
 </pre>
 </div>
@@ -15482,13 +15524,20 @@ Wall time: 4min 43s
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div>
+<img src="images/processing-job.png" width="500"/>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="2.9-View-output-in-S3-bucket">2.9 View output in S3 bucket<a class="anchor-link" href="#2.9-View-output-in-S3-bucket">&#182;</a></h3><p>You should see a new file named <code>tweets_processed.csv</code></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/
@@ -15511,8 +15560,9 @@ Wall time: 4min 43s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2022-03-31 04:37:27    1299233 tweets.csv
-2022-03-31 04:41:25    1830178 tweets_processed.csv
+<pre>2022-04-03 01:53:53          4 dummy.txt
+2022-04-03 02:16:43    1315064 tweets.csv
+2022-04-03 02:37:03    1856856 tweets_processed.csv
 </pre>
 </div>
 </div>
@@ -15610,7 +15660,7 @@ Wall time: 4min 43s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> keras_train_model.py
@@ -15743,7 +15793,7 @@ Wall time: 4min 43s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -15778,7 +15828,7 @@ Wall time: 4min 43s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">estimator</span> <span class="o">=</span> <span class="n">TensorFlow</span><span class="p">(</span>
@@ -15789,7 +15839,7 @@ Wall time: 4min 43s
                  <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span>
                  <span class="n">framework_version</span><span class="o">=</span><span class="s1">&#39;2.3.2&#39;</span><span class="p">,</span>
                  <span class="n">py_version</span><span class="o">=</span><span class="s1">&#39;py37&#39;</span><span class="p">,</span>
-                 <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop&#39;</span><span class="p">,</span>
+                 <span class="n">output_path</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;s3://</span><span class="si">{</span><span class="n">BUCKET</span><span class="si">}</span><span class="s1">/workshop&#39;</span><span class="p">,</span>
                  <span class="n">hyperparameters</span><span class="o">=</span><span class="p">{</span>
                      <span class="c1">#&#39;embedding&#39;: True,</span>
                      <span class="c1">#&#39;modelstart&#39;: 1,</span>
@@ -15815,13 +15865,11 @@ Wall time: 4min 43s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">({</span>
-    <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="s1">&#39;s3://</span><span class="si">{BUCKET}</span><span class="s1">/workshop/&#39;</span><span class="p">,</span>
-<span class="p">},</span> <span class="n">job_name</span><span class="o">=</span><span class="s1">&#39;tweets-chris04&#39;</span><span class="p">)</span>
+<span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">({</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;s3://</span><span class="si">{</span><span class="n">BUCKET</span><span class="si">}</span><span class="s1">/workshop/&#39;</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -15841,17 +15889,17 @@ Wall time: 4min 43s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2022-03-31 05:07:07 Starting - Starting the training job...
-2022-03-31 05:07:33 Starting - Preparing the instances for trainingProfilerReport-1648703227: InProgress
+<pre>2022-04-03 02:41:26 Starting - Starting the training job...
+2022-04-03 02:41:52 Starting - Preparing the instances for trainingProfilerReport-1648953686: InProgress
 .........
-2022-03-31 05:09:06 Downloading - Downloading input data
-2022-03-31 05:09:06 Training - Downloading the training image...............
-2022-03-31 05:11:31 Training - Training image download completed. Training in progress.<span class="ansi-blue-fg">2022-03-31 05:11:27.096939: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:27.103660: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:27.348119: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.2</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:27.437188: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:31,402 sagemaker-training-toolkit INFO     Imported framework sagemaker_tensorflow_container.training</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:32,287 sagemaker-training-toolkit INFO     Invoking user script</span>
+2022-04-03 02:43:21 Downloading - Downloading input data
+2022-04-03 02:43:21 Training - Downloading the training image............
+2022-04-03 02:45:26 Training - Training image download completed. Training in progress..<span class="ansi-blue-fg">2022-04-03 02:45:29.562008: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:29.565735: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:29.757137: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.2</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:29.838569: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:33,056 sagemaker-training-toolkit INFO     Imported framework sagemaker_tensorflow_container.training</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:34,261 sagemaker-training-toolkit INFO     Invoking user script</span>
 <span class="ansi-blue-fg">Training Env:</span>
 <span class="ansi-blue-fg">{
     &#34;additional_framework_parameters&#34;: {},
@@ -15864,7 +15912,7 @@ Wall time: 4min 43s
         &#34;algo-1&#34;
     ],
     &#34;hyperparameters&#34;: {
-        &#34;model_dir&#34;: &#34;s3://dsml-chrisi-bucket/workshop/tweets-chris01/model&#34;
+        &#34;model_dir&#34;: &#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;
     },
     &#34;input_config_dir&#34;: &#34;/opt/ml/input/config&#34;,
     &#34;input_data_config&#34;: {
@@ -15876,11 +15924,11 @@ Wall time: 4min 43s
     },
     &#34;input_dir&#34;: &#34;/opt/ml/input&#34;,
     &#34;is_master&#34;: true,
-    &#34;job_name&#34;: &#34;tweets-chris04&#34;,
+    &#34;job_name&#34;: &#34;tensorflow-training-2022-04-03-02-41-22-638&#34;,
     &#34;log_level&#34;: 20,
     &#34;master_hostname&#34;: &#34;algo-1&#34;,
     &#34;model_dir&#34;: &#34;/opt/ml/model&#34;,
-    &#34;module_dir&#34;: &#34;s3://dsml-chrisi-bucket/tweets-chris04/source/sourcedir.tar.gz&#34;,
+    &#34;module_dir&#34;: &#34;s3://dsml-chrisi-bucket/tensorflow-training-2022-04-03-02-41-22-638/source/sourcedir.tar.gz&#34;,
     &#34;module_name&#34;: &#34;keras_train_model&#34;,
     &#34;network_interface_name&#34;: &#34;eth0&#34;,
     &#34;num_cpus&#34;: 8,
@@ -15911,7 +15959,7 @@ Wall time: 4min 43s
 <span class="ansi-blue-fg">Environment variables:</span>
 <span class="ansi-blue-fg">SM_HOSTS=[&#34;algo-1&#34;]</span>
 <span class="ansi-blue-fg">SM_NETWORK_INTERFACE_NAME=eth0</span>
-<span class="ansi-blue-fg">SM_HPS={&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tweets-chris01/model&#34;}</span>
+<span class="ansi-blue-fg">SM_HPS={&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;}</span>
 <span class="ansi-blue-fg">SM_USER_ENTRY_POINT=keras_train_model.py</span>
 <span class="ansi-blue-fg">SM_FRAMEWORK_PARAMS={}</span>
 <span class="ansi-blue-fg">SM_RESOURCE_CONFIG={&#34;current_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;current_host&#34;:&#34;algo-1&#34;,&#34;current_instance_type&#34;:&#34;ml.p3.2xlarge&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_groups&#34;:[{&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;instance_type&#34;:&#34;ml.p3.2xlarge&#34;}],&#34;network_interface_name&#34;:&#34;eth0&#34;}</span>
@@ -15928,30 +15976,30 @@ Wall time: 4min 43s
 <span class="ansi-blue-fg">SM_NUM_CPUS=8</span>
 <span class="ansi-blue-fg">SM_NUM_GPUS=1</span>
 <span class="ansi-blue-fg">SM_MODEL_DIR=/opt/ml/model</span>
-<span class="ansi-blue-fg">SM_MODULE_DIR=s3://dsml-chrisi-bucket/tweets-chris04/source/sourcedir.tar.gz</span>
-<span class="ansi-blue-fg">SM_TRAINING_ENV={&#34;additional_framework_parameters&#34;:{},&#34;channel_input_dirs&#34;:{&#34;train&#34;:&#34;/opt/ml/input/data/train&#34;},&#34;current_host&#34;:&#34;algo-1&#34;,&#34;framework_module&#34;:&#34;sagemaker_tensorflow_container.training:main&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;hyperparameters&#34;:{&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tweets-chris01/model&#34;},&#34;input_config_dir&#34;:&#34;/opt/ml/input/config&#34;,&#34;input_data_config&#34;:{&#34;train&#34;:{&#34;RecordWrapperType&#34;:&#34;None&#34;,&#34;S3DistributionType&#34;:&#34;FullyReplicated&#34;,&#34;TrainingInputMode&#34;:&#34;File&#34;}},&#34;input_dir&#34;:&#34;/opt/ml/input&#34;,&#34;is_master&#34;:true,&#34;job_name&#34;:&#34;tweets-chris04&#34;,&#34;log_level&#34;:20,&#34;master_hostname&#34;:&#34;algo-1&#34;,&#34;model_dir&#34;:&#34;/opt/ml/model&#34;,&#34;module_dir&#34;:&#34;s3://dsml-chrisi-bucket/tweets-chris04/source/sourcedir.tar.gz&#34;,&#34;module_name&#34;:&#34;keras_train_model&#34;,&#34;network_interface_name&#34;:&#34;eth0&#34;,&#34;num_cpus&#34;:8,&#34;num_gpus&#34;:1,&#34;output_data_dir&#34;:&#34;/opt/ml/output/data&#34;,&#34;output_dir&#34;:&#34;/opt/ml/output&#34;,&#34;output_intermediate_dir&#34;:&#34;/opt/ml/output/intermediate&#34;,&#34;resource_config&#34;:{&#34;current_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;current_host&#34;:&#34;algo-1&#34;,&#34;current_instance_type&#34;:&#34;ml.p3.2xlarge&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_groups&#34;:[{&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;instance_type&#34;:&#34;ml.p3.2xlarge&#34;}],&#34;network_interface_name&#34;:&#34;eth0&#34;},&#34;user_entry_point&#34;:&#34;keras_train_model.py&#34;}</span>
-<span class="ansi-blue-fg">SM_USER_ARGS=[&#34;--model_dir&#34;,&#34;s3://dsml-chrisi-bucket/workshop/tweets-chris01/model&#34;]</span>
+<span class="ansi-blue-fg">SM_MODULE_DIR=s3://dsml-chrisi-bucket/tensorflow-training-2022-04-03-02-41-22-638/source/sourcedir.tar.gz</span>
+<span class="ansi-blue-fg">SM_TRAINING_ENV={&#34;additional_framework_parameters&#34;:{},&#34;channel_input_dirs&#34;:{&#34;train&#34;:&#34;/opt/ml/input/data/train&#34;},&#34;current_host&#34;:&#34;algo-1&#34;,&#34;framework_module&#34;:&#34;sagemaker_tensorflow_container.training:main&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;hyperparameters&#34;:{&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;},&#34;input_config_dir&#34;:&#34;/opt/ml/input/config&#34;,&#34;input_data_config&#34;:{&#34;train&#34;:{&#34;RecordWrapperType&#34;:&#34;None&#34;,&#34;S3DistributionType&#34;:&#34;FullyReplicated&#34;,&#34;TrainingInputMode&#34;:&#34;File&#34;}},&#34;input_dir&#34;:&#34;/opt/ml/input&#34;,&#34;is_master&#34;:true,&#34;job_name&#34;:&#34;tensorflow-training-2022-04-03-02-41-22-638&#34;,&#34;log_level&#34;:20,&#34;master_hostname&#34;:&#34;algo-1&#34;,&#34;model_dir&#34;:&#34;/opt/ml/model&#34;,&#34;module_dir&#34;:&#34;s3://dsml-chrisi-bucket/tensorflow-training-2022-04-03-02-41-22-638/source/sourcedir.tar.gz&#34;,&#34;module_name&#34;:&#34;keras_train_model&#34;,&#34;network_interface_name&#34;:&#34;eth0&#34;,&#34;num_cpus&#34;:8,&#34;num_gpus&#34;:1,&#34;output_data_dir&#34;:&#34;/opt/ml/output/data&#34;,&#34;output_dir&#34;:&#34;/opt/ml/output&#34;,&#34;output_intermediate_dir&#34;:&#34;/opt/ml/output/intermediate&#34;,&#34;resource_config&#34;:{&#34;current_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;current_host&#34;:&#34;algo-1&#34;,&#34;current_instance_type&#34;:&#34;ml.p3.2xlarge&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_groups&#34;:[{&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;instance_type&#34;:&#34;ml.p3.2xlarge&#34;}],&#34;network_interface_name&#34;:&#34;eth0&#34;},&#34;user_entry_point&#34;:&#34;keras_train_model.py&#34;}</span>
+<span class="ansi-blue-fg">SM_USER_ARGS=[&#34;--model_dir&#34;,&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;]</span>
 <span class="ansi-blue-fg">SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate</span>
 <span class="ansi-blue-fg">SM_CHANNEL_TRAIN=/opt/ml/input/data/train</span>
-<span class="ansi-blue-fg">SM_HP_MODEL_DIR=s3://dsml-chrisi-bucket/workshop/tweets-chris01/model</span>
+<span class="ansi-blue-fg">SM_HP_MODEL_DIR=s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model</span>
 <span class="ansi-blue-fg">PYTHONPATH=/opt/ml/code:/usr/local/bin:/usr/local/lib/python37.zip:/usr/local/lib/python3.7:/usr/local/lib/python3.7/lib-dynload:/usr/local/lib/python3.7/site-packages</span>
 <span class="ansi-blue-fg">Invoking script with the following command:</span>
-<span class="ansi-blue-fg">/usr/local/bin/python3.7 keras_train_model.py --model_dir s3://dsml-chrisi-bucket/workshop/tweets-chris01/model</span>
+<span class="ansi-blue-fg">/usr/local/bin/python3.7 keras_train_model.py --model_dir s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model</span>
 <span class="ansi-blue-fg">Input /opt/ml/input/data/train/tweets_processed.csv</span>
 <span class="ansi-blue-fg">Output /opt/ml/model</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:40.354 ip-10-0-198-174.us-west-2.compute.internal:35 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:40.741 ip-10-0-198-174.us-west-2.compute.internal:35 INFO profiler_config_parser.py:102] User has disabled profiler.</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:41.531 ip-10-0-198-174.us-west-2.compute.internal:35 INFO json_config.py:91] Creating hook from json_config at /opt/ml/input/config/debughookconfig.json.</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:41.531 ip-10-0-198-174.us-west-2.compute.internal:35 INFO hook.py:201] tensorboard_dir has not been set for the hook. SMDebug will not be exporting tensorboard summaries.</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:41.532 ip-10-0-198-174.us-west-2.compute.internal:35 INFO hook.py:255] Saving to /opt/ml/output/tensors</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:41.532 ip-10-0-198-174.us-west-2.compute.internal:35 INFO state_store.py:77] The checkpoint config file /opt/ml/input/config/checkpointconfig.json does not exist.</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:41.533 ip-10-0-198-174.us-west-2.compute.internal:35 INFO hook.py:425] Monitoring the collections: sm_metrics, losses, metrics</span>
-<span class="ansi-blue-fg">[2022-03-31 05:11:41.536 ip-10-0-198-174.us-west-2.compute.internal:35 INFO hook.py:425] Monitoring the collections: sm_metrics, losses, metrics</span>
-<span class="ansi-blue-fg">#015  1/221 [..............................] - ETA: 0s - loss: 1.3868 - accuracy: 0.2812 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015  6/221 [..............................] - ETA: 2s - loss: 1.3863 - accuracy: 0.2448 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 11/221 [&gt;.............................] - ETA: 2s - loss: 1.3864 - accuracy: 0.2301 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 17/221 [=&gt;............................] - ETA: 2s - loss: 1.3860 - accuracy: 0.2445 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 23/221 [==&gt;...........................] - ETA: 1s - loss: 1.3850 - accuracy: 0.2704 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 28/221 [==&gt;...........................] - ETA: 1s - loss: 1.3844 - accuracy: 0.2690 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 33/221 [===&gt;..........................] - ETA: 1s - loss: 1.3830 - accuracy: 0.2794 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 38/221 [====&gt;.........................] - ETA: 1s - loss: 1.3841 - accuracy: 0.2722 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 43/221 [====&gt;.........................] - ETA: 1s - loss: 1.3846 - accuracy: 0.2638 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 48/221 [=====&gt;........................] - ETA: 1s - loss: 1.3844 - accuracy: 0.2643 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 53/221 [======&gt;.......................] - ETA: 1s - loss: 1.3842 - accuracy: 0.2618 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 58/221 [======&gt;.......................] - ETA: 1s - loss: 1.3842 - accuracy: 0.2619 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 63/221 [=======&gt;......................] - ETA: 1s - loss: 1.3838 - accuracy: 0.2659 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 67/221 [========&gt;.....................] - ETA: 1s - loss: 1.3833 - accuracy: 0.2654 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 72/221 [========&gt;.....................] - ETA: 1s - loss: 1.3831 - accuracy: 0.2639 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 77/221 [=========&gt;....................] - ETA: 1s - loss: 1.3831 - accuracy: 0.2662 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 82/221 [==========&gt;...................] - ETA: 1s - loss: 1.3826 - accuracy: 0.2717 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 88/221 [==========&gt;...................] - ETA: 1s - loss: 1.3818 - accuracy: 0.2763 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 93/221 [===========&gt;..................] - ETA: 1s - loss: 1.3813 - accuracy: 0.2802 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 99/221 [============&gt;.................] - ETA: 1s - loss: 1.3808 - accuracy: 0.2869 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015104/221 [=============&gt;................] - ETA: 1s - loss: 1.3803 - accuracy: 0.2900 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015109/221 [=============&gt;................] - ETA: 1s - loss: 1.3793 - accuracy: 0.2924 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015114/221 [==============&gt;...............] - ETA: 1s - loss: 1.3787 - accuracy: 0.2966 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015119/221 [===============&gt;..............] - ETA: 1s - loss: 1.3774 - accuracy: 0.2994 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015124/221 [===============&gt;..............] - ETA: 1s - loss: 1.3765 - accuracy: 0.3012 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015129/221 [================&gt;.............] - ETA: 0s - loss: 1.3753 - accuracy: 0.3067 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015135/221 [=================&gt;............] - ETA: 0s - loss: 1.3745 - accuracy: 0.3083 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015141/221 [==================&gt;...........] - ETA: 0s - loss: 1.3730 - accuracy: 0.3107 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015147/221 [==================&gt;...........] - ETA: 0s - loss: 1.3708 - accuracy: 0.3163 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015152/221 [===================&gt;..........] - ETA: 0s - loss: 1.3690 - accuracy: 0.3207 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015157/221 [====================&gt;.........] - ETA: 0s - loss: 1.3666 - accuracy: 0.3244 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015162/221 [====================&gt;.........] - ETA: 0s - loss: 1.3629 - accuracy: 0.3285 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015168/221 [=====================&gt;........] - ETA: 0s - loss: 1.3616 - accuracy: 0.3322 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015173/221 [======================&gt;.......] - ETA: 0s - loss: 1.3594 - accuracy: 0.3363 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015179/221 [=======================&gt;......] - ETA: 0s - loss: 1.3552 - accuracy: 0.3417 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015184/221 [=======================&gt;......] - ETA: 0s - loss: 1.3528 - accuracy: 0.3448 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015189/221 [========================&gt;.....] - ETA: 0s - loss: 1.3504 - accuracy: 0.3492 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015194/221 [=========================&gt;....] - ETA: 0s - loss: 1.3484 - accuracy: 0.3507 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015200/221 [==========================&gt;...] - ETA: 0s - loss: 1.3447 - accuracy: 0.3531 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015206/221 [==========================&gt;...] - ETA: 0s - loss: 1.3412 - accuracy: 0.3565 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015211/221 [===========================&gt;..] - ETA: 0s - loss: 1.3383 - accuracy: 0.3589 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015216/221 [============================&gt;.] - ETA: 0s - loss: 1.3370 - accuracy: 0.3600 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015221/221 [==============================] - ETA: 0s - loss: 1.3332 - accuracy: 0.3630 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015221/221 [==============================] - 3s 15ms/step - loss: 1.3332 - accuracy: 0.3630 - batch: 0.0000e+00 - val_loss: 1.2142 - val_accuracy: 0.4853</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:41.320 ip-10-0-161-24.us-west-2.compute.internal:38 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:41.706 ip-10-0-161-24.us-west-2.compute.internal:38 INFO profiler_config_parser.py:102] User has disabled profiler.</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:42.594 ip-10-0-161-24.us-west-2.compute.internal:38 INFO json_config.py:91] Creating hook from json_config at /opt/ml/input/config/debughookconfig.json.</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:42.594 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:201] tensorboard_dir has not been set for the hook. SMDebug will not be exporting tensorboard summaries.</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:42.595 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:255] Saving to /opt/ml/output/tensors</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:42.595 ip-10-0-161-24.us-west-2.compute.internal:38 INFO state_store.py:77] The checkpoint config file /opt/ml/input/config/checkpointconfig.json does not exist.</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:42.596 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:425] Monitoring the collections: losses, sm_metrics, metrics</span>
+<span class="ansi-blue-fg">[2022-04-03 02:45:42.599 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:425] Monitoring the collections: losses, sm_metrics, metrics</span>
+<span class="ansi-blue-fg">#015  1/222 [..............................] - ETA: 0s - loss: 1.3912 - accuracy: 0.2812 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015  5/222 [..............................] - ETA: 2s - loss: 1.3871 - accuracy: 0.2500 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 10/222 [&gt;.............................] - ETA: 2s - loss: 1.3873 - accuracy: 0.2188 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 15/222 [=&gt;............................] - ETA: 2s - loss: 1.3875 - accuracy: 0.2208 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 20/222 [=&gt;............................] - ETA: 2s - loss: 1.3870 - accuracy: 0.2359 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 25/222 [==&gt;...........................] - ETA: 2s - loss: 1.3862 - accuracy: 0.2562 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 30/222 [===&gt;..........................] - ETA: 2s - loss: 1.3858 - accuracy: 0.2594 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 36/222 [===&gt;..........................] - ETA: 1s - loss: 1.3856 - accuracy: 0.2509 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 42/222 [====&gt;.........................] - ETA: 1s - loss: 1.3856 - accuracy: 0.2448 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 48/222 [=====&gt;........................] - ETA: 1s - loss: 1.3850 - accuracy: 0.2526 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 53/222 [======&gt;.......................] - ETA: 1s - loss: 1.3849 - accuracy: 0.2518 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 59/222 [======&gt;.......................] - ETA: 1s - loss: 1.3846 - accuracy: 0.2537 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 65/222 [=======&gt;......................] - ETA: 1s - loss: 1.3845 - accuracy: 0.2587 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 70/222 [========&gt;.....................] - ETA: 1s - loss: 1.3842 - accuracy: 0.2621 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 75/222 [=========&gt;....................] - ETA: 1s - loss: 1.3840 - accuracy: 0.2675 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 81/222 [=========&gt;....................] - ETA: 1s - loss: 1.3832 - accuracy: 0.2816 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 87/222 [==========&gt;...................] - ETA: 1s - loss: 1.3825 - accuracy: 0.2888 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 93/222 [===========&gt;..................] - ETA: 1s - loss: 1.3818 - accuracy: 0.2937 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 99/222 [============&gt;.................] - ETA: 1s - loss: 1.3807 - accuracy: 0.2986 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015105/222 [=============&gt;................] - ETA: 1s - loss: 1.3798 - accuracy: 0.3009 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015111/222 [==============&gt;...............] - ETA: 1s - loss: 1.3781 - accuracy: 0.3091 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015117/222 [==============&gt;...............] - ETA: 1s - loss: 1.3751 - accuracy: 0.3133 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015123/222 [===============&gt;..............] - ETA: 0s - loss: 1.3737 - accuracy: 0.3140 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015129/222 [================&gt;.............] - ETA: 0s - loss: 1.3722 - accuracy: 0.3176 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015135/222 [=================&gt;............] - ETA: 0s - loss: 1.3699 - accuracy: 0.3181 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015141/222 [==================&gt;...........] - ETA: 0s - loss: 1.3676 - accuracy: 0.3207 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015147/222 [==================&gt;...........] - ETA: 0s - loss: 1.3651 - accuracy: 0.3225 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015153/222 [===================&gt;..........] - ETA: 0s - loss: 1.3621 - accuracy: 0.3262 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015159/222 [====================&gt;.........] - ETA: 0s - loss: 1.3593 - accuracy: 0.3306 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015165/222 [=====================&gt;........] - ETA: 0s - loss: 1.3566 - accuracy: 0.3345 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015171/222 [======================&gt;.......] - ETA: 0s - loss: 1.3525 - accuracy: 0.3386 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015177/222 [======================&gt;.......] - ETA: 0s - loss: 1.3495 - accuracy: 0.3420 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015183/222 [=======================&gt;......] - ETA: 0s - loss: 1.3461 - accuracy: 0.3453 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015189/222 [========================&gt;.....] - ETA: 0s - loss: 1.3424 - accuracy: 0.3479 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015195/222 [=========================&gt;....] - ETA: 0s - loss: 1.3388 - accuracy: 0.3518 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015201/222 [==========================&gt;...] - ETA: 0s - loss: 1.3359 - accuracy: 0.3534 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015207/222 [==========================&gt;...] - ETA: 0s - loss: 1.3323 - accuracy: 0.3573 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015213/222 [===========================&gt;..] - ETA: 0s - loss: 1.3283 - accuracy: 0.3609 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015219/222 [============================&gt;.] - ETA: 0s - loss: 1.3242 - accuracy: 0.3642 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015222/222 [==============================] - 3s 14ms/step - loss: 1.3223 - accuracy: 0.3659 - batch: 0.0000e+00 - val_loss: 1.1876 - val_accuracy: 0.4385</span>
 <span class="ansi-blue-fg">DONE</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:33.797253: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:33.797418: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:33.842099: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:35.572318: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:35.572486: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:35.624914: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
 <span class="ansi-blue-fg">keras_train_model.py:42: SettingWithCopyWarning: </span>
 <span class="ansi-blue-fg">A value is trying to be set on a copy of a slice from a DataFrame.</span>
 <span class="ansi-blue-fg">Try using .loc[row_indexer,col_indexer] = value instead</span>
@@ -15968,7 +16016,7 @@ Wall time: 4min 43s
 <span class="ansi-blue-fg">WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.</span>
 <span class="ansi-blue-fg">Instructions for updating:</span>
 <span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
-<span class="ansi-blue-fg">2022-03-31 05:11:57.606515: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.</span>
+<span class="ansi-blue-fg">2022-04-03 02:45:57.839161: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.</span>
 <span class="ansi-blue-fg">WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.</span>
 <span class="ansi-blue-fg">Instructions for updating:</span>
 <span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
@@ -15976,16 +16024,16 @@ Wall time: 4min 43s
 <span class="ansi-blue-fg">Instructions for updating:</span>
 <span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
 <span class="ansi-blue-fg">INFO:tensorflow:Assets written to: /opt/ml/model/assets</span>
+<span class="ansi-blue-fg">2022-04-03 02:46:07,679 sagemaker_tensorflow_container.training WARNING  Your model will NOT be servable with SageMaker TensorFlow Serving containers. The SavedModel bundle is under directory &#34;model&#34;, not a numeric name.</span>
 <span class="ansi-blue-fg">INFO:tensorflow:Assets written to: /opt/ml/model/assets</span>
-<span class="ansi-blue-fg">2022-03-31 05:12:07,207 sagemaker_tensorflow_container.training WARNING  Your model will NOT be servable with SageMaker TensorFlow Serving containers. The SavedModel bundle is under directory &#34;model&#34;, not a numeric name.</span>
-<span class="ansi-blue-fg">2022-03-31 05:12:07,208 sagemaker-training-toolkit INFO     Reporting training SUCCESS</span>
+<span class="ansi-blue-fg">2022-04-03 02:46:07,680 sagemaker-training-toolkit INFO     Reporting training SUCCESS</span>
 
-2022-03-31 05:12:31 Uploading - Uploading generated training model
-2022-03-31 05:12:31 Completed - Training job completed
-Training seconds: 218
-Billable seconds: 218
-CPU times: user 1.29 s, sys: 51.2 ms, total: 1.34 s
-Wall time: 5min 46s
+2022-04-03 02:46:22 Uploading - Uploading generated training model
+2022-04-03 02:46:22 Completed - Training job completed
+Training seconds: 196
+Billable seconds: 196
+CPU times: user 4.06 s, sys: 92.1 ms, total: 4.15 s
+Wall time: 5min 18s
 </pre>
 </div>
 </div>
@@ -16003,12 +16051,19 @@ Wall time: 5min 46s
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div>
+<img src="images/training-job.png" width="500"/>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="3.6-View-output-in-S3-bucket">3.6 View output in S3 bucket<a class="anchor-link" href="#3.6-View-output-in-S3-bucket">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/
@@ -16031,9 +16086,10 @@ Wall time: 5min 46s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>                           PRE tweets-chris04/
-2022-03-31 04:37:27    1299233 tweets.csv
-2022-03-31 04:41:25    1830178 tweets_processed.csv
+<pre>                           PRE tensorflow-training-2022-04-03-02-41-22-638/
+2022-04-03 01:53:53          4 dummy.txt
+2022-04-03 02:16:43    1315064 tweets.csv
+2022-04-03 02:37:03    1856856 tweets_processed.csv
 </pre>
 </div>
 </div>
@@ -16045,10 +16101,10 @@ Wall time: 5min 46s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets-chris04/
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tensorflow-training-2022-04-03-02-41-22-638/output/
 </pre></div>
 
      </div>
@@ -16068,45 +16124,7 @@ Wall time: 5min 46s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>                           PRE debug-output/
-                           PRE output/
-                           PRE profiler-output/
-                           PRE rule-output/
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 ls s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets-chris04/output/
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2022-03-31 05:12:17    1224576 model.tar.gz
+<pre>2022-04-03 02:46:15    1215049 model.tar.gz
 </pre>
 </div>
 </div>
@@ -16123,10 +16141,10 @@ Wall time: 5min 46s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tweets-chris04/output/model.tar.gz ./model.tar.gz
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>aws s3 cp s3://<span class="o">{</span>BUCKET<span class="o">}</span>/workshop/tensorflow-training-2022-04-03-02-41-22-638/output/model.tar.gz ./model.tar.gz
 </pre></div>
 
      </div>
@@ -16146,7 +16164,7 @@ Wall time: 5min 46s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>download: s3://dsml-chrisi-bucket/workshop/tweets-chris04/output/model.tar.gz to ./model.tar.gz
+<pre>download: s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/output/model.tar.gz to ./model.tar.gz
 </pre>
 </div>
 </div>
@@ -16158,7 +16176,7 @@ Wall time: 5min 46s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mkdir keras_model_files
@@ -16182,8 +16200,8 @@ Wall time: 5min 46s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>assets/
-saved_model.pb
+<pre>saved_model.pb
+assets/
 variables/
 variables/variables.index
 variables/variables.data-00000-of-00001
@@ -16291,7 +16309,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
@@ -16316,7 +16334,7 @@ variables/variables.data-00000-of-00001
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
 [NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
-[NbConvertApp] Writing 719731 bytes to sentiment-classification-twitter-modularize.html
+[NbConvertApp] Writing 720372 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
@@ -16369,7 +16387,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm sentiment-modularized.tar.gz
@@ -16383,7 +16401,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar --exclude<span class="o">=</span><span class="s2">&quot;.ipynb_checkpoints*&quot;</span> -zcvf sentiment-modularized.tar.gz .
@@ -16415,15 +16433,8 @@ variables/variables.data-00000-of-00001
 ./resources/keras_train_model.py
 ./resources/tweets.csv
 ./resources/tweets_processed.csv
-./resources/model.tar.gz
-./resources/keras_model_files/
-./resources/keras_model_files/variables/
-./resources/keras_model_files/variables/variables.index
-./resources/keras_model_files/variables/variables.data-00000-of-00001
-./resources/keras_model_files/saved_model.pb
-./resources/keras_model_files/assets/
+./resources/dummy.txt
 ./sentiment-classification-twitter-modularize.html
-./dummy.log
 ./images/
 ./images/Processing-1.png
 ./images/dl-containers.png
@@ -16446,7 +16457,7 @@ tar: .: file changed as we read it
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Delete-step">Delete step<a class="anchor-link" href="#Delete-step">&#182;</a></h3>
+<h3 id="Delete-stuff">Delete stuff<a class="anchor-link" href="#Delete-stuff">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -16454,7 +16465,7 @@ tar: .: file changed as we read it
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf README.md images resources delete_resources.py sentiment-classification-twitter-modularize.html sentiment-modularized.tar.gz
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!rm -rf README.md images resources delete_resources.py sentiment-classification-twitter-modularize.html sentiment-modularized.tar.gz</span>
 </pre></div>
 
      </div>
@@ -16465,10 +16476,10 @@ tar: .: file changed as we read it
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf resources/keras_model_files
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf keras_model_files resources/keras_model_files
 </pre></div>
 
      </div>
