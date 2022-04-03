@@ -113,6 +113,11 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 ![Screen Shot 2022-03-28 at 1 30 54 PM](https://user-images.githubusercontent.com/102556995/160551138-2b186cfc-421e-42ed-89fc-90a1f02f75af.png)
 3. Go into your bucket, and "Create folder" with name "athena_log". We will use this folder in the future.
 
+## Create a AWS Sagemaker Instance
+1. Go to AWS Sagemaker, choose "Notebook" on the left panel and click "Create a New Instance".![Screen Shot 2022-04-02 at 9 46 14 PM](https://user-images.githubusercontent.com/102556995/161415112-9f72c313-7850-41ce-a75d-2acd2328b1f1.png)
+2. Follow the settings below to set up your notebook instance. Make sure to use the IAM role you set up earlier.![Screen Shot 2022-04-02 at 9 48 49 PM](https://user-images.githubusercontent.com/102556995/161415128-d5bf29e2-3b66-4909-b52d-646c5cba13ee.png)
+
+
 
 ### Create a QuickSight account
 1. Go to AWS Quicksight
