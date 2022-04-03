@@ -37,7 +37,7 @@ This workshop series is designed so that you can jump in on any session if you m
 ### Session 4 Data Labeling by Hongyan Li (Day 2)
 
 - Hands-on: create a manual labeling job using AWS Sagemaker Groundtruth
-- Hands-on: collect newly labeled data using AWS Glue, Athena and S3
+- Hands-on: collect newly labeled data using AWS Athena and S3
 
 ### Session 5 Model Building by Adithya Kumar (Day 3)
 
