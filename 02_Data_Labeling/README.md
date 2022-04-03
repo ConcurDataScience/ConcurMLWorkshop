@@ -12,6 +12,7 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 * create and start your notebook instance. <b>Verify that it has the role <i>ConcurMLWorkshopUse</i> and it is listed under us-west-2 region.</b>
 
 <img width="622" alt="iamrole" src="https://user-images.githubusercontent.com/769011/161399924-dbe2b37a-39fe-438c-b35f-f090d646fecf.png">
+<img width="472" alt="Screen Shot 2022-04-02 at 5 49 26 PM" src="https://user-images.githubusercontent.com/769011/161406515-6f52e30f-b462-4b93-ab0f-ffe46446d1c0.png">
 <img width="200" alt="Screen Shot 2022-04-02 at 1 24 47 PM" src="https://user-images.githubusercontent.com/769011/161400029-88ae24d4-bf57-4436-bac5-28ba6e520df3.png">
 <img width="800" alt="Screen Shot 2022-04-02 at 1 27 31 PM" src="https://user-images.githubusercontent.com/769011/161400105-097f31f5-4c4f-4262-b733-94f9716b8158.png">
 
