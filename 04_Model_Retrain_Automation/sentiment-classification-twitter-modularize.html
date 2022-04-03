@@ -14271,15 +14271,13 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="0.1-Upload/unzip-sentiment-modularized.tar.gz-to-your-Sagemaker-notebook-instance">0.1 Upload/unzip sentiment-modularized.tar.gz to your Sagemaker notebook instance<a class="anchor-link" href="#0.1-Upload/unzip-sentiment-modularized.tar.gz-to-your-Sagemaker-notebook-instance">&#182;</a></h3>
+<h3 id="0.1a-Git-clone-the-workshop-repo-in-your-Sagemaker-instance">0.1a Git clone the workshop repo in your Sagemaker instance<a class="anchor-link" href="#0.1a-Git-clone-the-workshop-repo-in-your-Sagemaker-instance">&#182;</a></h3><p>You can run the command below in a Terminal inside Jupyter/JupyterLab, or in a Jupyter notebook cell (prefix with <code>!</code>)</p>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="c1"># After uploading the sentiment-modularized.tar.gz file to your Sagemaker notebook instance,</span>
-<span class="c1"># open a Terminal in JupyterLab and unzip the tar.gz file using the command below</span>
-
-<span class="nb">cd</span> Sagemaker <span class="o">&amp;&amp;</span> tar -xvf sentiment-modularized.tar.gz
+<div class="highlight"><pre><span></span>git clone https://github.com/ConcurDataScience/ConcurMLWorkshop.git
 </pre></div>
 
 </div>
@@ -14289,6 +14287,19 @@ a.anchor-link {
 <div>
 <img src="images/Terminal.png" width="400"/>
 </div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="0.1b-Upload/unzip-sentiment-modularized.tar.gz-to-your-Sagemaker-notebook-instance">0.1b Upload/unzip sentiment-modularized.tar.gz to your Sagemaker notebook instance<a class="anchor-link" href="#0.1b-Upload/unzip-sentiment-modularized.tar.gz-to-your-Sagemaker-notebook-instance">&#182;</a></h3><p>After uploading the sentiment-modularized.tar.gz file to your Sagemaker notebook instance, open a Terminal in JupyterLab and unzip the tar.gz file using the command below</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="nb">cd</span> Sagemaker <span class="o">&amp;&amp;</span> tar -xvf sentiment-modularized.tar.gz
+</pre></div>
+
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -15268,6 +15279,23 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="2.4-Initialize-Sagemaker-ScriptProcessor-(SKLearnProcessor)">2.4 Initialize Sagemaker ScriptProcessor (SKLearnProcessor)<a class="anchor-link" href="#2.4-Initialize-Sagemaker-ScriptProcessor-(SKLearnProcessor)">&#182;</a></h3>
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="images/Processing-1.png" alt=""></p>
+<p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Source</a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>References:</p>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/aws/amazon-sagemaker-processing-fully-managed-data-processing-and-model-evaluation/">https://aws.amazon.com/blogs/aws/amazon-sagemaker-processing-fully-managed-data-processing-and-model-evaluation/</a></li>
+<li><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/use-scikit-learn-processing-container.html">https://docs.aws.amazon.com/sagemaker/latest/dg/use-scikit-learn-processing-container.html</a></li>
+</ul>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15286,25 +15314,6 @@ Requirement already satisfied: six in /home/ec2-user/anaconda3/envs/python3/lib/
                                      <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span>
                                      <span class="n">instance_type</span><span class="o">=</span><span class="s1">&#39;ml.m5.xlarge&#39;</span><span class="p">,</span>
                                      <span class="n">instance_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="2.5-(TODO)-Create-S3-bucket">2.5 (TODO) Create S3 bucket<a class="anchor-link" href="#2.5-(TODO)-Create-S3-bucket">&#182;</a></h3>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do it</span>
 </pre></div>
 
      </div>
@@ -15705,7 +15714,8 @@ Wall time: 4min 43s
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.3-Initialize-Sagemaker-Estimator">3.3 Initialize Sagemaker Estimator<a class="anchor-link" href="#3.3-Initialize-Sagemaker-Estimator">&#182;</a></h3><p>Let's compare with (2.4)</p>
+<h3 id="3.3-Initialize-Sagemaker-Estimator">3.3 Initialize Sagemaker Estimator<a class="anchor-link" href="#3.3-Initialize-Sagemaker-Estimator">&#182;</a></h3><p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/frameworks.html">https://docs.aws.amazon.com/sagemaker/latest/dg/frameworks.html</a></p>
+<p>Let's compare with (2.4)</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15730,20 +15740,19 @@ Wall time: 4min 43s
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Add link to mapping </span>
-</pre></div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>DL Container images - <a href="https://github.com/aws/deep-learning-containers/blob/master/available_images.md">https://github.com/aws/deep-learning-containers/blob/master/available_images.md</a></p>
 
-     </div>
 </div>
 </div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div>
+<img src="images/dl-containers.png" width="600"/>
 </div>
-
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16178,6 +16187,7 @@ variables/variables.data-00000-of-00001
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="What-next?">What next?<a class="anchor-link" href="#What-next?">&#182;</a></h3><ul>
+<li><a href="https://sagemaker.readthedocs.io/en/stable/overview.html#">Sagemaker Python SDK</a></li>
 <li><a href="https://github.com/aws/amazon-sagemaker-examples">Sagemaker notebook examples</a> - (accessible via the Sagemaker notebook extension on the lower left of this Jupyterlab)</li>
 <li><a href="https://www.oreilly.com/library/view/data-science-on/9781492079385/">Data Science on AWS (Book)</a> </li>
 <li>Non-AWS<ul>
@@ -16200,12 +16210,66 @@ variables/variables.data-00000-of-00001
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="(Example)-Sagemaker-Pipelines">(Example) Sagemaker Pipelines<a class="anchor-link" href="#(Example)-Sagemaker-Pipelines">&#182;</a></h3><p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html">https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html</a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div>
+<img src="images/pipeline-full.png" width="350"/>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sagemaker.sklearn.processing</span> <span class="kn">import</span> <span class="n">SKLearnProcessor</span>
+
+<span class="n">sklearn_processor</span> <span class="o">=</span> <span class="n">SKLearnProcessor</span><span class="p">(</span><span class="n">framework_version</span><span class="o">=</span><span class="s1">&#39;0.20.0&#39;</span><span class="p">,</span>
+                                     <span class="n">role</span><span class="o">=&lt;</span><span class="n">role</span><span class="o">&gt;</span><span class="p">,</span>
+                                     <span class="n">instance_type</span><span class="o">=</span><span class="s1">&#39;ml.m5.xlarge&#39;</span><span class="p">,</span>
+                                     <span class="n">instance_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sagemaker.processing</span> <span class="kn">import</span> <span class="n">ProcessingInput</span><span class="p">,</span> <span class="n">ProcessingOutput</span>
+<span class="kn">from</span> <span class="nn">sagemaker.workflow.steps</span> <span class="kn">import</span> <span class="n">ProcessingStep</span>
+
+<span class="n">step_process</span> <span class="o">=</span> <span class="n">ProcessingStep</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;AbaloneProcess&quot;</span><span class="p">,</span>
+    <span class="n">processor</span><span class="o">=</span><span class="n">sklearn_processor</span><span class="p">,</span>
+    <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
+      <span class="n">ProcessingInput</span><span class="p">(</span><span class="n">source</span><span class="o">=&lt;</span><span class="n">input_data</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;/opt/ml/processing/input&quot;</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">outputs</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ProcessingOutput</span><span class="p">(</span><span class="n">output_name</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;/opt/ml/processing/train&quot;</span><span class="p">),</span>
+        <span class="n">ProcessingOutput</span><span class="p">(</span><span class="n">output_name</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;/opt/ml/processing/validation&quot;</span><span class="p">),</span>
+        <span class="n">ProcessingOutput</span><span class="p">(</span><span class="n">output_name</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;/opt/ml/processing/test&quot;</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">code</span><span class="o">=</span><span class="s2">&quot;abalone/preprocessing.py&quot;</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>(Compare with 2.7)</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="END-OF-CLASS">END OF CLASS<a class="anchor-link" href="#END-OF-CLASS">&#182;</a></h3><p>===================</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Create-html-from-notebook">Create html from notebook<a class="anchor-link" href="#Create-html-from-notebook">&#182;</a></h3>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
@@ -16230,7 +16294,7 @@ variables/variables.data-00000-of-00001
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
 [NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
-[NbConvertApp] Writing 711713 bytes to sentiment-classification-twitter-modularize.html
+[NbConvertApp] Writing 713561 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
@@ -16280,10 +16344,10 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Zip-up-files">Zip up files<a class="anchor-link" href="#Zip-up-files">&#182;</a></h3>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm sentiment-modularized.tar.gz
@@ -16294,31 +16358,10 @@ variables/variables.data-00000-of-00001
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>rm: cannot remove ‘sentiment-modularized.tar.gz’: No such file or directory
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar --exclude<span class="o">=</span><span class="s2">&quot;.ipynb_checkpoints*&quot;</span> -zcvf sentiment-modularized.tar.gz .
@@ -16361,6 +16404,7 @@ variables/variables.data-00000-of-00001
 ./dummy.log
 ./images/
 ./images/Processing-1.png
+./images/delete-bucket-01.png
 ./images/stop-notebook.png
 ./images/unzipped-list.png
 ./images/Terminal.png
