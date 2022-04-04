@@ -127,6 +127,8 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 
 2. If you don't already have a Quicksight account, follow the settings below to create your Quicksight account. We will use this in Session 5. This will incur charge in your AWS account, but very minimal. Again, please submit your cost for attending this workshop for reimbursement from your own cost center.
 
+   It defaults to an "Enterprise" account, but click "Standard" to choose a standard one.
+
   ![Screen Shot 2022-03-28 at 4 52 29 PM](https://user-images.githubusercontent.com/102556995/160550998-6981a384-ea4e-4a35-a234-b8e0776c0dc6.png)
 
   ![Screen Shot 2022-03-28 at 4 52 47 PM](https://user-images.githubusercontent.com/102556995/160550958-a8cbdf21-d8ff-4c97-a674-753e56e6381b.png)
@@ -143,9 +145,11 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
   - Fpr mac, install using brew. https://docs.python-guide.org/starting/install3/osx/
   - For windows, install the binary from https://www.python.org/downloads/ and add that into PATH
   - After installing Python, use venv to create an empty python environemnt:
-    `pip install virtualenv
+     ```
+     pip install virtualenv
      python3 -m venv env
-     source env/bin/activate`
+     source env/bin/activate
+     ```
 - Your preferred Python IDE, such as VSCode, PyCharm etc
 
 #### Install Docker
