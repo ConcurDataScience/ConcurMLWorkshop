@@ -1,3 +1,4 @@
+:pushpin:
 # Hands-on ML Workshop by SAP Concur Data Science Team
 
 ## Welcome
@@ -36,7 +37,7 @@ This workshop series is designed so that you can jump in on any session if you m
 ### Session 4 Data Labeling by Hongyan Li (Day 2)
 
 - Hands-on: create a manual labeling job using AWS Sagemaker Groundtruth
-- Hands-on: collect newly labeled data using AWS Glue, Athena and S3
+- Hands-on: collect newly labeled data using AWS Athena and S3
 
 ### Session 5 Model Building by Adithya Kumar (Day 3)
 
@@ -47,23 +48,30 @@ This workshop series is designed so that you can jump in on any session if you m
 ### Session 6 Model Training Automation by Chris Ismael (Day 3)
 
 - Hands-on: make your model training script re-usable using AWS Sagemaker Processing and Estimator jobs
-- Other tools for ML training automation
+- Use AWS Sagemaker for ML training automation
 
 ### Session 7 Service Building by Mike Stark (Day 4)
 
-- Hands-on: create a Flask-based service for serialized RNN model from Session 5
+- Hands-on: create a Flask-based REST API for serialized RNN model from Session 5
 - Hands-on: create a docker image of the service
 - Hands-on: run service locally
+- Overview of deployment pipeline at SAP Concur
 
-### Session 8 Service Optimization by Vladimir Valouch & Renan Barreto (Day 4)
 
-- Hands-on: optimize the service created in Session 7 by using tf-serving
+### Session 8 Service Performance Tuning by Vladimir Valouch (Day 4)
+
 - Hands-on: benchmark the service using Locust
+- Hands-on: optimize the service created in Session 7 by using tf-serving
 
 
 
 
-## What to Prep
+## What to Prep Before the Workshop
+
+### Set up a Google Colab account in your browser
+
+Due to Anaconda community edition not approved by SAP we will be using Google Colab, so make sure to have Google Colab set up (https://colab.research.google.com/)
+
 
 ### Github repo
 
@@ -73,13 +81,19 @@ Please clone https://github.com/ConcurDataScience/ConcurMLWorkshop.git to your l
 
 ### Create an AWS account
 
-Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.  
+Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.
+
+Instructions: https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
 
 After creating, you can go to Billing Dashboard to see your current running instances.
 ![Screen Shot 2022-03-28 at 1 06 53 PM](https://user-images.githubusercontent.com/102556995/160551518-795c3062-4125-4a12-b053-8c1ae1c51962.png)
 
-### Set up your AWS environment 
+### Set up your AWS environment
 We will also cover this in Session 2 of Day 1. If you can't make it to the session, please complete this before starting D2 or Session 3.
+
+Please make sure use "US West (Oregon) as your region for all the stesp below.
+![Screen Shot 2022-04-03 at 8 28 57 PM](https://user-images.githubusercontent.com/102556995/161469245-ed881b9d-5f2c-468d-b5d6-bb9e4e47d477.png)
+
 
 #### Set up IAM role
 
@@ -105,12 +119,20 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 ![Screen Shot 2022-03-28 at 1 30 54 PM](https://user-images.githubusercontent.com/102556995/160551138-2b186cfc-421e-42ed-89fc-90a1f02f75af.png)
 3. Go into your bucket, and "Create folder" with name "athena_log". We will use this folder in the future.
 
+## Create a AWS Sagemaker Instance
+1. Go to AWS Sagemaker, choose "Notebook" on the left panel and click "Create a New Instance".![Screen Shot 2022-04-02 at 9 46 14 PM](https://user-images.githubusercontent.com/102556995/161415112-9f72c313-7850-41ce-a75d-2acd2328b1f1.png)
+2. Follow the settings below to set up your notebook instance. Make sure to use the IAM role you set up earlier.![Screen Shot 2022-04-02 at 9 48 49 PM](https://user-images.githubusercontent.com/102556995/161415128-d5bf29e2-3b66-4909-b52d-646c5cba13ee.png)
+3. Don't start the instance just yet.
 
-### Create a QuickSight account
+
+
+### Create a QuickSight account - you can skip this for now!
 1. Go to AWS Quicksight
 ![Screen Shot 2022-03-28 at 4 51 32 PM](https://user-images.githubusercontent.com/102556995/160551071-d6580958-2c9f-44e9-ae14-76964e52d1c3.png)
 
 2. If you don't already have a Quicksight account, follow the settings below to create your Quicksight account. We will use this in Session 5. This will incur charge in your AWS account, but very minimal. Again, please submit your cost for attending this workshop for reimbursement from your own cost center.
+
+   It defaults to an "Enterprise" account, but click "Standard" to choose a standard one.
 
   ![Screen Shot 2022-03-28 at 4 52 29 PM](https://user-images.githubusercontent.com/102556995/160550998-6981a384-ea4e-4a35-a234-b8e0776c0dc6.png)
 
@@ -118,3 +140,93 @@ We will also cover this in Session 2 of Day 1. If you can't make it to the sessi
 
   ![Screen Shot 2022-03-28 at 4 53 00 PM](https://user-images.githubusercontent.com/102556995/160550841-b1dc6af1-41ee-4864-a07e-c241b6d1db7a.png)
 
+
+### Set up your computer local
+
+#### Python environment
+- Make sure your local python environment is 3.8
+  If you are unable to install Anaconda due to licensing issue, please follow the instructions below to set up your python environment:
+  - For linux, install using apt-get install python3: https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
+  - Fpr mac, install using brew. https://docs.python-guide.org/starting/install3/osx/
+  - For windows, install the binary from https://www.python.org/downloads/ and add that into PATH
+  - After installing Python, use venv to create an empty python environemnt:
+     ```
+     pip install virtualenv
+     python3 -m venv env
+     source env/bin/activate
+     ```
+- Your preferred Python IDE, such as VSCode, PyCharm etc
+
+#### Install Docker
+Install Docker from `https://docs.docker.com/get-docker/`
+
+**Note: Docker now needs licenses to run on SAP laptops. If you don't currently have a Docker license through SAP, you can download the docker to your own personal laptop for personal use for free. See `https://www.docker.com/pricing/` for more information. For this workshop, you will need Docker on Day 4 and it needs to on the same laptop with Python 3.8 environment, IDE and Postman.**
+
+#### Install Postman
+Install Postman from `https://www.postman.com/downloads/`
+
+
+# Delete AWS Resources After the Workshop
+During the workshop, we will walk you through all the steps needed to delete all the AWS resources so that you don't get charged accidently.
+
+If you are following this tutorial on your own pace, please make sure to delete all the following resources:
+
+**( For AWS CLI commands you can either use Sagemaker Terminal, Sagemaker Notebook by adding `!` infront of the commands, or launching a AWS cloudshell)**
+
+For cloud shell see how to launch that below:
+
+  From the top right you should see this shell like icon ( in red box)
+![Screen Shot 2022-04-01 at 3 05 26 PM](https://user-images.githubusercontent.com/101754067/161347316-6c786c44-9c67-48fc-b3e0-e26d8beae1fd.png)
+
+click on that, this should launch a cloudshell env like this, here you can run your aws cli commands.
+
+![Screen Shot 2022-04-01 at 2 42 26 PM](https://user-images.githubusercontent.com/101754067/161347170-5b4043a3-c357-4292-b222-7b2370d90bc8.png)
+
+  - After Session 3: delete Glue dev end-point, Glue notebook
+    - [x] Delete Glue Dev Endpoint
+          - `aws glue delete-dev-endpoint --endpoint-name {endpoint_name}`
+    - [x] Delete Glue Notebook
+          - `aws sagemaker delete-notebook-instance --notebook-instance-name {glue_notebook_name}`
+    - [x] Delete Glue Job(if created)
+          - `aws glue   delete-job --job-name {glue_job_name}`
+    - [x] Delete Glue Job Trigger(if created)
+          - `aws glue delete-trigger --name {glue_trigger_name}`
+          
+- After Session 4: stop Ground Truth job and delete the associated IAM roles and IAM policies
+
+- After Session 5: delete Quicksight account and associated IAM roles and IAM policies
+
+- After Session 6: Glue DB/Tabl/Crawler, Athena tables , stop and delete Sagemaker instances, S3 bucket and IAM role created during session 2
+    - [x] Delete Glue Table
+          - `aws glue delete-table --database-name {database_name} --name {table_name}`
+    - [x] Delete Glue DB
+          - `aws glue delete-database --name {database_name}`
+    - [x] Delete Glue Crawler
+          - `aws glue delete-crawler --name {crawler_name}`
+    - [x] Delete Athena Tables:
+    - [x] Delete/Stop All Sagemaker Instances
+          - Click [here](https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/notebook-instances) to show your notebook instances
+          - Click "Stop" to stop your notebook instance, as in the image below
+          - ![](./04_Model_Retrain_Automation/images/stop-notebook.png)
+    - [x] Delete S3 Bucket:
+          - Click [here](https://s3.console.aws.amazon.com/s3/buckets?region=us-west-2) to list your S3 buckets
+          - Click "Delete" to delete your S3 bucket, as in the image below
+          - ![](./04_Model_Retrain_Automation/images/delete-bucket-01.png)
+    - [x] Delete IAM role
+
+
+
+# Contact Us
+Feel free to reach out if you have any questions or feedbacks. We'd love to hear from you if you use some of the material we prepared. Please find our contact info below.
+
+SAP Slack Channel: #ask-datascience
+
+Work Emails of Instructors:
+- Jesper Lind, Director of Data Science: jesper.lind@sap.com
+- Mengyuan Liu, Data Science Manager: mengyuan.liu@sap.com
+- Anupam Dewan, Senior Data Scientist: anupam.dewan@sap.com
+- Hongyan Li, Senior Developer: hongyan.li01@sap.com
+- Adithya Kumar, Senior Data Scientist: adithya.kumar@sap.com
+- Chris Ismael, Senior Developer: chris.ismael@sap.com
+- Mike Stark, Data Science Manager: mike.stark@sap.com
+- Vladimir Valouch, Principal Data Scientist: vladimir.valouch@sap.com
