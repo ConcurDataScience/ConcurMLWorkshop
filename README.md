@@ -83,6 +83,8 @@ Please clone https://github.com/ConcurDataScience/ConcurMLWorkshop.git to your l
 
 Create an AWS account for personal use. It will ask for your payment information. As previously stated, the bill occurred during this workshop can be reimbursed through your own cost center. Generally speaking, the cost shouldn't exceed $50.
 
+Instructions: https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
+
 After creating, you can go to Billing Dashboard to see your current running instances.
 ![Screen Shot 2022-03-28 at 1 06 53 PM](https://user-images.githubusercontent.com/102556995/160551518-795c3062-4125-4a12-b053-8c1ae1c51962.png)
 
