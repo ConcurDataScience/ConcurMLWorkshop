@@ -15660,7 +15660,7 @@ Wall time: 4min 43s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> keras_train_model.py
@@ -15793,7 +15793,7 @@ Wall time: 4min 43s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -15825,15 +15825,21 @@ Wall time: 4min 43s
 <img src="images/dl-containers.png" width="600"/>
 </div>
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pricing - <a href="https://aws.amazon.com/sagemaker/pricing/">https://aws.amazon.com/sagemaker/pricing/</a></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">estimator</span> <span class="o">=</span> <span class="n">TensorFlow</span><span class="p">(</span>
                  <span class="n">entry_point</span><span class="o">=</span><span class="s1">&#39;keras_train_model.py&#39;</span><span class="p">,</span>
-                 <span class="n">instance_type</span><span class="o">=</span><span class="s1">&#39;ml.p3.2xlarge&#39;</span><span class="p">,</span> <span class="c1">#&#39;ml.p3.8xlarge&#39;, &#39;local&#39;</span>
+                 <span class="n">instance_type</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="c1">#&#39;ml.c5.xlarge&#39;&#39;, #&#39;ml.p3.8xlarge&#39;, &#39;local&#39;</span>
                  <span class="n">instance_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                  <span class="n">source_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span>
                  <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span>
@@ -15846,7 +15852,7 @@ Wall time: 4min 43s
                      <span class="c1">#&#39;batch-size&#39;: 64,</span>
                      <span class="c1">#&#39;modelfinish&#39;: 5</span>
                  <span class="p">},</span>
-                 <span class="c1">#script_mode=True,</span>
+                 <span class="n">script_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                  <span class="c1">#dependencies=dependencies,</span>
                  <span class="c1">#image_uri=&lt;image_uri&gt;,</span>
 <span class="p">)</span>
@@ -15860,12 +15866,13 @@ Wall time: 4min 43s
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="3.4-Run-training!">3.4 Run training!<a class="anchor-link" href="#3.4-Run-training!">&#182;</a></h3>
+<h3 id="3.4-Run-training!">3.4 Run training!<a class="anchor-link" href="#3.4-Run-training!">&#182;</a></h3><p>Run both in <code>local</code> and non-local. For local, open up a Terminal and <code>docker ps</code></p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -15889,151 +15896,141 @@ Wall time: 4min 43s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2022-04-03 02:41:26 Starting - Starting the training job...
-2022-04-03 02:41:52 Starting - Preparing the instances for trainingProfilerReport-1648953686: InProgress
-.........
-2022-04-03 02:43:21 Downloading - Downloading input data
-2022-04-03 02:43:21 Training - Downloading the training image............
-2022-04-03 02:45:26 Training - Training image download completed. Training in progress..<span class="ansi-blue-fg">2022-04-03 02:45:29.562008: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:29.565735: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:29.757137: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.10.2</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:29.838569: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:33,056 sagemaker-training-toolkit INFO     Imported framework sagemaker_tensorflow_container.training</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:34,261 sagemaker-training-toolkit INFO     Invoking user script</span>
-<span class="ansi-blue-fg">Training Env:</span>
-<span class="ansi-blue-fg">{
-    &#34;additional_framework_parameters&#34;: {},
-    &#34;channel_input_dirs&#34;: {
-        &#34;train&#34;: &#34;/opt/ml/input/data/train&#34;
-    },
-    &#34;current_host&#34;: &#34;algo-1&#34;,
-    &#34;framework_module&#34;: &#34;sagemaker_tensorflow_container.training:main&#34;,
-    &#34;hosts&#34;: [
-        &#34;algo-1&#34;
-    ],
-    &#34;hyperparameters&#34;: {
-        &#34;model_dir&#34;: &#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;
-    },
-    &#34;input_config_dir&#34;: &#34;/opt/ml/input/config&#34;,
-    &#34;input_data_config&#34;: {
-        &#34;train&#34;: {
-            &#34;TrainingInputMode&#34;: &#34;File&#34;,
-            &#34;S3DistributionType&#34;: &#34;FullyReplicated&#34;,
-            &#34;RecordWrapperType&#34;: &#34;None&#34;
-        }
-    },
-    &#34;input_dir&#34;: &#34;/opt/ml/input&#34;,
-    &#34;is_master&#34;: true,
-    &#34;job_name&#34;: &#34;tensorflow-training-2022-04-03-02-41-22-638&#34;,
-    &#34;log_level&#34;: 20,
-    &#34;master_hostname&#34;: &#34;algo-1&#34;,
-    &#34;model_dir&#34;: &#34;/opt/ml/model&#34;,
-    &#34;module_dir&#34;: &#34;s3://dsml-chrisi-bucket/tensorflow-training-2022-04-03-02-41-22-638/source/sourcedir.tar.gz&#34;,
-    &#34;module_name&#34;: &#34;keras_train_model&#34;,
-    &#34;network_interface_name&#34;: &#34;eth0&#34;,
-    &#34;num_cpus&#34;: 8,
-    &#34;num_gpus&#34;: 1,
-    &#34;output_data_dir&#34;: &#34;/opt/ml/output/data&#34;,
-    &#34;output_dir&#34;: &#34;/opt/ml/output&#34;,
-    &#34;output_intermediate_dir&#34;: &#34;/opt/ml/output/intermediate&#34;,
-    &#34;resource_config&#34;: {
-        &#34;current_host&#34;: &#34;algo-1&#34;,
-        &#34;current_instance_type&#34;: &#34;ml.p3.2xlarge&#34;,
-        &#34;current_group_name&#34;: &#34;homogeneousCluster&#34;,
-        &#34;hosts&#34;: [
-            &#34;algo-1&#34;
-        ],
-        &#34;instance_groups&#34;: [
-            {
-                &#34;instance_group_name&#34;: &#34;homogeneousCluster&#34;,
-                &#34;instance_type&#34;: &#34;ml.p3.2xlarge&#34;,
-                &#34;hosts&#34;: [
-                    &#34;algo-1&#34;
-                ]
-            }
-        ],
-        &#34;network_interface_name&#34;: &#34;eth0&#34;
-    },
-    &#34;user_entry_point&#34;: &#34;keras_train_model.py&#34;</span>
-<span class="ansi-blue-fg">}</span>
-<span class="ansi-blue-fg">Environment variables:</span>
-<span class="ansi-blue-fg">SM_HOSTS=[&#34;algo-1&#34;]</span>
-<span class="ansi-blue-fg">SM_NETWORK_INTERFACE_NAME=eth0</span>
-<span class="ansi-blue-fg">SM_HPS={&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;}</span>
-<span class="ansi-blue-fg">SM_USER_ENTRY_POINT=keras_train_model.py</span>
-<span class="ansi-blue-fg">SM_FRAMEWORK_PARAMS={}</span>
-<span class="ansi-blue-fg">SM_RESOURCE_CONFIG={&#34;current_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;current_host&#34;:&#34;algo-1&#34;,&#34;current_instance_type&#34;:&#34;ml.p3.2xlarge&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_groups&#34;:[{&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;instance_type&#34;:&#34;ml.p3.2xlarge&#34;}],&#34;network_interface_name&#34;:&#34;eth0&#34;}</span>
-<span class="ansi-blue-fg">SM_INPUT_DATA_CONFIG={&#34;train&#34;:{&#34;RecordWrapperType&#34;:&#34;None&#34;,&#34;S3DistributionType&#34;:&#34;FullyReplicated&#34;,&#34;TrainingInputMode&#34;:&#34;File&#34;}}</span>
-<span class="ansi-blue-fg">SM_OUTPUT_DATA_DIR=/opt/ml/output/data</span>
-<span class="ansi-blue-fg">SM_CHANNELS=[&#34;train&#34;]</span>
-<span class="ansi-blue-fg">SM_CURRENT_HOST=algo-1</span>
-<span class="ansi-blue-fg">SM_MODULE_NAME=keras_train_model</span>
-<span class="ansi-blue-fg">SM_LOG_LEVEL=20</span>
-<span class="ansi-blue-fg">SM_FRAMEWORK_MODULE=sagemaker_tensorflow_container.training:main</span>
-<span class="ansi-blue-fg">SM_INPUT_DIR=/opt/ml/input</span>
-<span class="ansi-blue-fg">SM_INPUT_CONFIG_DIR=/opt/ml/input/config</span>
-<span class="ansi-blue-fg">SM_OUTPUT_DIR=/opt/ml/output</span>
-<span class="ansi-blue-fg">SM_NUM_CPUS=8</span>
-<span class="ansi-blue-fg">SM_NUM_GPUS=1</span>
-<span class="ansi-blue-fg">SM_MODEL_DIR=/opt/ml/model</span>
-<span class="ansi-blue-fg">SM_MODULE_DIR=s3://dsml-chrisi-bucket/tensorflow-training-2022-04-03-02-41-22-638/source/sourcedir.tar.gz</span>
-<span class="ansi-blue-fg">SM_TRAINING_ENV={&#34;additional_framework_parameters&#34;:{},&#34;channel_input_dirs&#34;:{&#34;train&#34;:&#34;/opt/ml/input/data/train&#34;},&#34;current_host&#34;:&#34;algo-1&#34;,&#34;framework_module&#34;:&#34;sagemaker_tensorflow_container.training:main&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;hyperparameters&#34;:{&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;},&#34;input_config_dir&#34;:&#34;/opt/ml/input/config&#34;,&#34;input_data_config&#34;:{&#34;train&#34;:{&#34;RecordWrapperType&#34;:&#34;None&#34;,&#34;S3DistributionType&#34;:&#34;FullyReplicated&#34;,&#34;TrainingInputMode&#34;:&#34;File&#34;}},&#34;input_dir&#34;:&#34;/opt/ml/input&#34;,&#34;is_master&#34;:true,&#34;job_name&#34;:&#34;tensorflow-training-2022-04-03-02-41-22-638&#34;,&#34;log_level&#34;:20,&#34;master_hostname&#34;:&#34;algo-1&#34;,&#34;model_dir&#34;:&#34;/opt/ml/model&#34;,&#34;module_dir&#34;:&#34;s3://dsml-chrisi-bucket/tensorflow-training-2022-04-03-02-41-22-638/source/sourcedir.tar.gz&#34;,&#34;module_name&#34;:&#34;keras_train_model&#34;,&#34;network_interface_name&#34;:&#34;eth0&#34;,&#34;num_cpus&#34;:8,&#34;num_gpus&#34;:1,&#34;output_data_dir&#34;:&#34;/opt/ml/output/data&#34;,&#34;output_dir&#34;:&#34;/opt/ml/output&#34;,&#34;output_intermediate_dir&#34;:&#34;/opt/ml/output/intermediate&#34;,&#34;resource_config&#34;:{&#34;current_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;current_host&#34;:&#34;algo-1&#34;,&#34;current_instance_type&#34;:&#34;ml.p3.2xlarge&#34;,&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_groups&#34;:[{&#34;hosts&#34;:[&#34;algo-1&#34;],&#34;instance_group_name&#34;:&#34;homogeneousCluster&#34;,&#34;instance_type&#34;:&#34;ml.p3.2xlarge&#34;}],&#34;network_interface_name&#34;:&#34;eth0&#34;},&#34;user_entry_point&#34;:&#34;keras_train_model.py&#34;}</span>
-<span class="ansi-blue-fg">SM_USER_ARGS=[&#34;--model_dir&#34;,&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model&#34;]</span>
-<span class="ansi-blue-fg">SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate</span>
-<span class="ansi-blue-fg">SM_CHANNEL_TRAIN=/opt/ml/input/data/train</span>
-<span class="ansi-blue-fg">SM_HP_MODEL_DIR=s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model</span>
-<span class="ansi-blue-fg">PYTHONPATH=/opt/ml/code:/usr/local/bin:/usr/local/lib/python37.zip:/usr/local/lib/python3.7:/usr/local/lib/python3.7/lib-dynload:/usr/local/lib/python3.7/site-packages</span>
-<span class="ansi-blue-fg">Invoking script with the following command:</span>
-<span class="ansi-blue-fg">/usr/local/bin/python3.7 keras_train_model.py --model_dir s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-03-02-41-22-638/model</span>
-<span class="ansi-blue-fg">Input /opt/ml/input/data/train/tweets_processed.csv</span>
-<span class="ansi-blue-fg">Output /opt/ml/model</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:41.320 ip-10-0-161-24.us-west-2.compute.internal:38 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:41.706 ip-10-0-161-24.us-west-2.compute.internal:38 INFO profiler_config_parser.py:102] User has disabled profiler.</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:42.594 ip-10-0-161-24.us-west-2.compute.internal:38 INFO json_config.py:91] Creating hook from json_config at /opt/ml/input/config/debughookconfig.json.</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:42.594 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:201] tensorboard_dir has not been set for the hook. SMDebug will not be exporting tensorboard summaries.</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:42.595 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:255] Saving to /opt/ml/output/tensors</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:42.595 ip-10-0-161-24.us-west-2.compute.internal:38 INFO state_store.py:77] The checkpoint config file /opt/ml/input/config/checkpointconfig.json does not exist.</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:42.596 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:425] Monitoring the collections: losses, sm_metrics, metrics</span>
-<span class="ansi-blue-fg">[2022-04-03 02:45:42.599 ip-10-0-161-24.us-west-2.compute.internal:38 INFO hook.py:425] Monitoring the collections: losses, sm_metrics, metrics</span>
-<span class="ansi-blue-fg">#015  1/222 [..............................] - ETA: 0s - loss: 1.3912 - accuracy: 0.2812 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015  5/222 [..............................] - ETA: 2s - loss: 1.3871 - accuracy: 0.2500 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 10/222 [&gt;.............................] - ETA: 2s - loss: 1.3873 - accuracy: 0.2188 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 15/222 [=&gt;............................] - ETA: 2s - loss: 1.3875 - accuracy: 0.2208 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 20/222 [=&gt;............................] - ETA: 2s - loss: 1.3870 - accuracy: 0.2359 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 25/222 [==&gt;...........................] - ETA: 2s - loss: 1.3862 - accuracy: 0.2562 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 30/222 [===&gt;..........................] - ETA: 2s - loss: 1.3858 - accuracy: 0.2594 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 36/222 [===&gt;..........................] - ETA: 1s - loss: 1.3856 - accuracy: 0.2509 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 42/222 [====&gt;.........................] - ETA: 1s - loss: 1.3856 - accuracy: 0.2448 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 48/222 [=====&gt;........................] - ETA: 1s - loss: 1.3850 - accuracy: 0.2526 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 53/222 [======&gt;.......................] - ETA: 1s - loss: 1.3849 - accuracy: 0.2518 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 59/222 [======&gt;.......................] - ETA: 1s - loss: 1.3846 - accuracy: 0.2537 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 65/222 [=======&gt;......................] - ETA: 1s - loss: 1.3845 - accuracy: 0.2587 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 70/222 [========&gt;.....................] - ETA: 1s - loss: 1.3842 - accuracy: 0.2621 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 75/222 [=========&gt;....................] - ETA: 1s - loss: 1.3840 - accuracy: 0.2675 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 81/222 [=========&gt;....................] - ETA: 1s - loss: 1.3832 - accuracy: 0.2816 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 87/222 [==========&gt;...................] - ETA: 1s - loss: 1.3825 - accuracy: 0.2888 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 93/222 [===========&gt;..................] - ETA: 1s - loss: 1.3818 - accuracy: 0.2937 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015 99/222 [============&gt;.................] - ETA: 1s - loss: 1.3807 - accuracy: 0.2986 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015105/222 [=============&gt;................] - ETA: 1s - loss: 1.3798 - accuracy: 0.3009 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015111/222 [==============&gt;...............] - ETA: 1s - loss: 1.3781 - accuracy: 0.3091 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015117/222 [==============&gt;...............] - ETA: 1s - loss: 1.3751 - accuracy: 0.3133 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015123/222 [===============&gt;..............] - ETA: 0s - loss: 1.3737 - accuracy: 0.3140 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015129/222 [================&gt;.............] - ETA: 0s - loss: 1.3722 - accuracy: 0.3176 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015135/222 [=================&gt;............] - ETA: 0s - loss: 1.3699 - accuracy: 0.3181 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015141/222 [==================&gt;...........] - ETA: 0s - loss: 1.3676 - accuracy: 0.3207 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015147/222 [==================&gt;...........] - ETA: 0s - loss: 1.3651 - accuracy: 0.3225 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015153/222 [===================&gt;..........] - ETA: 0s - loss: 1.3621 - accuracy: 0.3262 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015159/222 [====================&gt;.........] - ETA: 0s - loss: 1.3593 - accuracy: 0.3306 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015165/222 [=====================&gt;........] - ETA: 0s - loss: 1.3566 - accuracy: 0.3345 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015171/222 [======================&gt;.......] - ETA: 0s - loss: 1.3525 - accuracy: 0.3386 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015177/222 [======================&gt;.......] - ETA: 0s - loss: 1.3495 - accuracy: 0.3420 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015183/222 [=======================&gt;......] - ETA: 0s - loss: 1.3461 - accuracy: 0.3453 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015189/222 [========================&gt;.....] - ETA: 0s - loss: 1.3424 - accuracy: 0.3479 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015195/222 [=========================&gt;....] - ETA: 0s - loss: 1.3388 - accuracy: 0.3518 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015201/222 [==========================&gt;...] - ETA: 0s - loss: 1.3359 - accuracy: 0.3534 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015207/222 [==========================&gt;...] - ETA: 0s - loss: 1.3323 - accuracy: 0.3573 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015213/222 [===========================&gt;..] - ETA: 0s - loss: 1.3283 - accuracy: 0.3609 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015219/222 [============================&gt;.] - ETA: 0s - loss: 1.3242 - accuracy: 0.3642 - batch: 0.0000e+00#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#010#015222/222 [==============================] - 3s 14ms/step - loss: 1.3223 - accuracy: 0.3659 - batch: 0.0000e+00 - val_loss: 1.1876 - val_accuracy: 0.4385</span>
-<span class="ansi-blue-fg">DONE</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:35.572318: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:35.572486: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:35.624914: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.</span>
-<span class="ansi-blue-fg">keras_train_model.py:42: SettingWithCopyWarning: </span>
-<span class="ansi-blue-fg">A value is trying to be set on a copy of a slice from a DataFrame.</span>
-<span class="ansi-blue-fg">Try using .loc[row_indexer,col_indexer] = value instead</span>
-<span class="ansi-blue-fg">See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  train_df[&#39;tweet_keras_tokenized&#39;] = list(train_texts_to_sequences)</span>
-<span class="ansi-blue-fg">keras_train_model.py:46: SettingWithCopyWarning: </span>
-<span class="ansi-blue-fg">A value is trying to be set on a copy of a slice from a DataFrame.</span>
-<span class="ansi-blue-fg">Try using .loc[row_indexer,col_indexer] = value instead</span>
-<span class="ansi-blue-fg">See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  test_df[&#39;tweet_keras_tokenized&#39;] = list(test_texts_to_sequences)</span>
-<span class="ansi-blue-fg">WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.</span>
-<span class="ansi-blue-fg">Instructions for updating:</span>
-<span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
-<span class="ansi-blue-fg">WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.</span>
-<span class="ansi-blue-fg">Instructions for updating:</span>
-<span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
-<span class="ansi-blue-fg">2022-04-03 02:45:57.839161: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.</span>
-<span class="ansi-blue-fg">WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.</span>
-<span class="ansi-blue-fg">Instructions for updating:</span>
-<span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
-<span class="ansi-blue-fg">WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.</span>
-<span class="ansi-blue-fg">Instructions for updating:</span>
-<span class="ansi-blue-fg">This property should not be used in TensorFlow 2.0, as updates are applied automatically.</span>
-<span class="ansi-blue-fg">INFO:tensorflow:Assets written to: /opt/ml/model/assets</span>
-<span class="ansi-blue-fg">2022-04-03 02:46:07,679 sagemaker_tensorflow_container.training WARNING  Your model will NOT be servable with SageMaker TensorFlow Serving containers. The SavedModel bundle is under directory &#34;model&#34;, not a numeric name.</span>
-<span class="ansi-blue-fg">INFO:tensorflow:Assets written to: /opt/ml/model/assets</span>
-<span class="ansi-blue-fg">2022-04-03 02:46:07,680 sagemaker-training-toolkit INFO     Reporting training SUCCESS</span>
-
-2022-04-03 02:46:22 Uploading - Uploading generated training model
-2022-04-03 02:46:22 Completed - Training job completed
-Training seconds: 196
-Billable seconds: 196
-CPU times: user 4.06 s, sys: 92.1 ms, total: 4.15 s
-Wall time: 5min 18s
+<pre>Creating bxgk9e4pdq-algo-1-k1b80 ... 
+Creating bxgk9e4pdq-algo-1-k1b80 ... done
+Attaching to bxgk9e4pdq-algo-1-k1b80
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:32.083693: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:32.083858: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:32.115200: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:33,538 sagemaker-training-toolkit INFO     Imported framework sagemaker_tensorflow_container.training
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:33,545 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:35,376 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:35,396 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:35,415 sagemaker-training-toolkit INFO     No GPUs detected (normal if no gpus installed)
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:35,428 sagemaker-training-toolkit INFO     Invoking user script
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Training Env:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> {
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;additional_framework_parameters&#34;: {},
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;channel_input_dirs&#34;: {
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         &#34;train&#34;: &#34;/opt/ml/input/data/train&#34;
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     },
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;current_host&#34;: &#34;algo-1-k1b80&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;framework_module&#34;: &#34;sagemaker_tensorflow_container.training:main&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;hosts&#34;: [
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         &#34;algo-1-k1b80&#34;
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     ],
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;hyperparameters&#34;: {
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         &#34;model_dir&#34;: &#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-04-17-06-33-307/model&#34;
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     },
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;input_config_dir&#34;: &#34;/opt/ml/input/config&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;input_data_config&#34;: {
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         &#34;train&#34;: {
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>             &#34;TrainingInputMode&#34;: &#34;File&#34;
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         }
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     },
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;input_dir&#34;: &#34;/opt/ml/input&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;is_master&#34;: true,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;job_name&#34;: &#34;tensorflow-training-2022-04-04-17-06-33-307&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;log_level&#34;: 20,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;master_hostname&#34;: &#34;algo-1-k1b80&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;model_dir&#34;: &#34;/opt/ml/model&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;module_dir&#34;: &#34;s3://dsml-chrisi-bucket/tensorflow-training-2022-04-04-17-06-33-307/source/sourcedir.tar.gz&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;module_name&#34;: &#34;keras_train_model&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;network_interface_name&#34;: &#34;eth0&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;num_cpus&#34;: 4,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;num_gpus&#34;: 0,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;output_data_dir&#34;: &#34;/opt/ml/output/data&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;output_dir&#34;: &#34;/opt/ml/output&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;output_intermediate_dir&#34;: &#34;/opt/ml/output/intermediate&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;resource_config&#34;: {
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         &#34;current_host&#34;: &#34;algo-1-k1b80&#34;,
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         &#34;hosts&#34;: [
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>             &#34;algo-1-k1b80&#34;
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>         ]
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     },
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>     &#34;user_entry_point&#34;: &#34;keras_train_model.py&#34;
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> }
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Environment variables:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_HOSTS=[&#34;algo-1-k1b80&#34;]
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_NETWORK_INTERFACE_NAME=eth0
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_HPS={&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-04-17-06-33-307/model&#34;}
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_USER_ENTRY_POINT=keras_train_model.py
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_FRAMEWORK_PARAMS={}
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_RESOURCE_CONFIG={&#34;current_host&#34;:&#34;algo-1-k1b80&#34;,&#34;hosts&#34;:[&#34;algo-1-k1b80&#34;]}
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_INPUT_DATA_CONFIG={&#34;train&#34;:{&#34;TrainingInputMode&#34;:&#34;File&#34;}}
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_OUTPUT_DATA_DIR=/opt/ml/output/data
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_CHANNELS=[&#34;train&#34;]
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_CURRENT_HOST=algo-1-k1b80
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_MODULE_NAME=keras_train_model
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_LOG_LEVEL=20
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_FRAMEWORK_MODULE=sagemaker_tensorflow_container.training:main
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_INPUT_DIR=/opt/ml/input
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_INPUT_CONFIG_DIR=/opt/ml/input/config
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_OUTPUT_DIR=/opt/ml/output
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_NUM_CPUS=4
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_NUM_GPUS=0
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_MODEL_DIR=/opt/ml/model
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_MODULE_DIR=s3://dsml-chrisi-bucket/tensorflow-training-2022-04-04-17-06-33-307/source/sourcedir.tar.gz
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_TRAINING_ENV={&#34;additional_framework_parameters&#34;:{},&#34;channel_input_dirs&#34;:{&#34;train&#34;:&#34;/opt/ml/input/data/train&#34;},&#34;current_host&#34;:&#34;algo-1-k1b80&#34;,&#34;framework_module&#34;:&#34;sagemaker_tensorflow_container.training:main&#34;,&#34;hosts&#34;:[&#34;algo-1-k1b80&#34;],&#34;hyperparameters&#34;:{&#34;model_dir&#34;:&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-04-17-06-33-307/model&#34;},&#34;input_config_dir&#34;:&#34;/opt/ml/input/config&#34;,&#34;input_data_config&#34;:{&#34;train&#34;:{&#34;TrainingInputMode&#34;:&#34;File&#34;}},&#34;input_dir&#34;:&#34;/opt/ml/input&#34;,&#34;is_master&#34;:true,&#34;job_name&#34;:&#34;tensorflow-training-2022-04-04-17-06-33-307&#34;,&#34;log_level&#34;:20,&#34;master_hostname&#34;:&#34;algo-1-k1b80&#34;,&#34;model_dir&#34;:&#34;/opt/ml/model&#34;,&#34;module_dir&#34;:&#34;s3://dsml-chrisi-bucket/tensorflow-training-2022-04-04-17-06-33-307/source/sourcedir.tar.gz&#34;,&#34;module_name&#34;:&#34;keras_train_model&#34;,&#34;network_interface_name&#34;:&#34;eth0&#34;,&#34;num_cpus&#34;:4,&#34;num_gpus&#34;:0,&#34;output_data_dir&#34;:&#34;/opt/ml/output/data&#34;,&#34;output_dir&#34;:&#34;/opt/ml/output&#34;,&#34;output_intermediate_dir&#34;:&#34;/opt/ml/output/intermediate&#34;,&#34;resource_config&#34;:{&#34;current_host&#34;:&#34;algo-1-k1b80&#34;,&#34;hosts&#34;:[&#34;algo-1-k1b80&#34;]},&#34;user_entry_point&#34;:&#34;keras_train_model.py&#34;}
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_USER_ARGS=[&#34;--model_dir&#34;,&#34;s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-04-17-06-33-307/model&#34;]
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_CHANNEL_TRAIN=/opt/ml/input/data/train
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> SM_HP_MODEL_DIR=s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-04-17-06-33-307/model
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> PYTHONPATH=/opt/ml/code:/usr/local/bin:/usr/local/lib/python37.zip:/usr/local/lib/python3.7:/usr/local/lib/python3.7/lib-dynload:/usr/local/lib/python3.7/site-packages
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Invoking script with the following command:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> /usr/local/bin/python3.7 keras_train_model.py --model_dir s3://dsml-chrisi-bucket/workshop/tensorflow-training-2022-04-04-17-06-33-307/model
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Input /opt/ml/input/data/train/tweets_processed.csv
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Output /opt/ml/model
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> [2022-04-04 17:07:38.034 386d0b47f674:32 INFO utils.py:27] RULE_JOB_STOP_SIGNAL_FILENAME: None
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> [2022-04-04 17:07:38.281 386d0b47f674:32 INFO profiler_config_parser.py:102] Unable to find config at /opt/ml/input/config/profilerconfig.json. Profiler is disabled.
+222/222 [==============================] - 8s 36ms/step - loss: 1.3175 - accuracy: 0.3707 - val_loss: 1.1633 - val_accuracy: 0.5053
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> DONE
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:36.282444: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:36.282591: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:105] SageMaker Profiler is not enabled. The timeline writer thread will not be started, future recorded events will be dropped.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:36.314008: W tensorflow/core/profiler/internal/smprofiler_timeline.cc:460] Initializing the SageMaker Profiler.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> keras_train_model.py:42: SettingWithCopyWarning: 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> A value is trying to be set on a copy of a slice from a DataFrame.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Try using .loc[row_indexer,col_indexer] = value instead
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>   train_df[&#39;tweet_keras_tokenized&#39;] = list(train_texts_to_sequences)
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> keras_train_model.py:46: SettingWithCopyWarning: 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> A value is trying to be set on a copy of a slice from a DataFrame.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Try using .loc[row_indexer,col_indexer] = value instead
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span>   test_df[&#39;tweet_keras_tokenized&#39;] = list(test_texts_to_sequences)
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Instructions for updating:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Instructions for updating:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:07:55.727437: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Instructions for updating:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> WARNING:tensorflow:From /usr/local/lib/python3.7/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> Instructions for updating:
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> INFO:tensorflow:Assets written to: /opt/ml/model/assets
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> INFO:tensorflow:Assets written to: /opt/ml/model/assets
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:08:03,842 sagemaker_tensorflow_container.training WARNING  Your model will NOT be servable with SageMaker TensorFlow Serving containers. The SavedModel bundle is under directory &#34;model&#34;, not a numeric name.
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 |</span> 2022-04-04 17:08:03,842 sagemaker-training-toolkit INFO     Reporting training SUCCESS
+<span class="ansi-cyan-fg">bxgk9e4pdq-algo-1-k1b80 exited with code 0
+</span>Aborting on container exit...
+===== Job Complete =====
+CPU times: user 2.21 s, sys: 146 ms, total: 2.36 s
+Wall time: 1min 31s
 </pre>
 </div>
 </div>
@@ -16309,7 +16306,7 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html sentiment-classification-twitter-modularize.ipynb
@@ -16334,7 +16331,7 @@ variables/variables.data-00000-of-00001
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
 [NbConvertApp] Converting notebook sentiment-classification-twitter-modularize.ipynb to html
-[NbConvertApp] Writing 720372 bytes to sentiment-classification-twitter-modularize.html
+[NbConvertApp] Writing 717899 bytes to sentiment-classification-twitter-modularize.html
 </pre>
 </div>
 </div>
@@ -16384,10 +16381,10 @@ variables/variables.data-00000-of-00001
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Zip-up-files">Zip up files<a class="anchor-link" href="#Zip-up-files">&#182;</a></h3>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm sentiment-modularized.tar.gz
@@ -16398,10 +16395,31 @@ variables/variables.data-00000-of-00001
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>rm: cannot remove ‘sentiment-modularized.tar.gz’: No such file or directory
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tar --exclude<span class="o">=</span><span class="s2">&quot;.ipynb_checkpoints*&quot;</span> -zcvf sentiment-modularized.tar.gz .
@@ -16429,6 +16447,7 @@ variables/variables.data-00000-of-00001
 ./.gitignore
 ./README.md
 ./resources/
+./resources/tweets_start.csv
 ./resources/process_tweets.py
 ./resources/keras_train_model.py
 ./resources/tweets.csv
@@ -16438,11 +16457,13 @@ variables/variables.data-00000-of-00001
 ./images/
 ./images/Processing-1.png
 ./images/dl-containers.png
+./images/training-job.png
 ./images/delete-bucket-01.png
 ./images/stop-notebook.png
 ./images/pipeline-full.png
 ./images/unzipped-list.png
 ./images/Terminal.png
+./images/processing-job.png
 ./images/AWLMLStack.png
 ./sentiment-classification-twitter-modularize.ipynb
 tar: .: file changed as we read it
