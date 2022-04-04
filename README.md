@@ -91,6 +91,10 @@ After creating, you can go to Billing Dashboard to see your current running inst
 ### Set up your AWS environment
 We will also cover this in Session 2 of Day 1. If you can't make it to the session, please complete this before starting D2 or Session 3.
 
+Please make sure use "US West (Oregon) as your region for all the stesp below.
+![Screen Shot 2022-04-03 at 8 28 57 PM](https://user-images.githubusercontent.com/102556995/161469245-ed881b9d-5f2c-468d-b5d6-bb9e4e47d477.png)
+
+
 #### Set up IAM role
 
 1. Go to AWS IAM.
