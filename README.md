@@ -122,10 +122,11 @@ Please make sure use "US West (Oregon) as your region for all the stesp below.
 ## Create a AWS Sagemaker Instance
 1. Go to AWS Sagemaker, choose "Notebook" on the left panel and click "Create a New Instance".![Screen Shot 2022-04-02 at 9 46 14 PM](https://user-images.githubusercontent.com/102556995/161415112-9f72c313-7850-41ce-a75d-2acd2328b1f1.png)
 2. Follow the settings below to set up your notebook instance. Make sure to use the IAM role you set up earlier.![Screen Shot 2022-04-02 at 9 48 49 PM](https://user-images.githubusercontent.com/102556995/161415128-d5bf29e2-3b66-4909-b52d-646c5cba13ee.png)
+3. Don't start the instance just yet.
 
 
 
-### Create a QuickSight account
+### Create a QuickSight account - you can skip this for now!
 1. Go to AWS Quicksight
 ![Screen Shot 2022-03-28 at 4 51 32 PM](https://user-images.githubusercontent.com/102556995/160551071-d6580958-2c9f-44e9-ae14-76964e52d1c3.png)
 
