@@ -85,8 +85,7 @@ Create an AWS account for personal use. It will ask for your payment information
 
 Instructions: https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
 
-After creating, you can go to Billing Dashboard to see your current running instances.
-![Screen Shot 2022-03-28 at 1 06 53 PM](https://user-images.githubusercontent.com/102556995/160551518-795c3062-4125-4a12-b053-8c1ae1c51962.png)
+After creating, you can go to Billing Dashboard in the dropdown after clicking your username on the top right corner to see your current running instances.
 
 ### Set up your AWS environment
 We will also cover this in Session 2 of Day 1. If you can't make it to the session, please complete this before starting D2 or Session 3.
