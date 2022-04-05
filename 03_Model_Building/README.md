@@ -28,7 +28,8 @@ If you missed this session, please follow the below steps:
 - Create a AWS SageMaker notebook instance by following the steps here: https://github.com/ConcurDataScience/ConcurMLWorkshop
 - Download the files from here and upload it to your notebook instance
 - If you have already cloned the repository, it should already be available
-- There is a power point slide attached in the repo. Please use that for reference
+- Run all the cells in the Jupyter lab notebook (Make sure you have selected the conda_tensorflow_p36 kernel type on the top right corner of your Jupyterlab) 
+- There is a power point slide attached in the repo too. Please use that for reference/theoretical concepts
 - Run Glue Crawler to save model results in S3 to Athena
 
 - ![Screen Shot 2022-04-04 at 11 10 07 PM](https://user-images.githubusercontent.com/9430155/161690230-8295dcd7-a1d6-4ea9-a2a8-08640006a3a3.png)
