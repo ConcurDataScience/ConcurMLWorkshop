@@ -20,8 +20,8 @@ Welcome to the Data Labeling section of the ML Workshop. This morning we have go
 * create your S3 bucket. <b>Verify that in the Properties tab, you see us-west-2 as the region.</b>
 * create and start your notebook instance. <b>Verify that it has the role <i>ConcurMLWorkshopUse</i> and it is listed under us-west-2 region.</b>
 
-<img width="311" alt="iamrole" src="https://user-images.githubusercontent.com/769011/161399924-dbe2b37a-39fe-438c-b35f-f090d646fecf.png">
-<img width="236" alt="Screen Shot 2022-04-02 at 5 49 26 PM" src="https://user-images.githubusercontent.com/769011/161406515-6f52e30f-b462-4b93-ab0f-ffe46446d1c0.png">
+<img width="622" alt="iamrole" src="https://user-images.githubusercontent.com/769011/161399924-dbe2b37a-39fe-438c-b35f-f090d646fecf.png">
+<img width="472" alt="Screen Shot 2022-04-02 at 5 49 26 PM" src="https://user-images.githubusercontent.com/769011/161406515-6f52e30f-b462-4b93-ab0f-ffe46446d1c0.png">
 <img width="200" alt="Screen Shot 2022-04-02 at 1 24 47 PM" src="https://user-images.githubusercontent.com/769011/161400029-88ae24d4-bf57-4436-bac5-28ba6e520df3.png">
 <img width="800" alt="Screen Shot 2022-04-02 at 1 27 31 PM" src="https://user-images.githubusercontent.com/769011/161400105-097f31f5-4c4f-4262-b733-94f9716b8158.png">
 
@@ -54,8 +54,8 @@ Because Part1 already prepared some labeled data, you should be fine to continue
 ### Cleanup Instruction:
 The following resources are created after this session. Please follow the cleanup instructions to avoid incur any unnecessary charges on you.
 
-1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, first make sure that you delete all the tables by clicking on the 3 dots on the right of each table and selecting "Delete Table". After that run "drop database `ml-workshop-db`" in Athena Query Editor.<img width="859" alt="Screen Shot 2022-04-05 at 1 28 07 PM" src="https://user-images.githubusercontent.com/769011/161843722-0433b7b2-e81c-453c-9dc4-3036436d34bb.png">
-<img width="871" alt="Screen Shot 2022-04-05 at 1 31 13 PM" src="https://user-images.githubusercontent.com/769011/161844081-27f80be0-91ff-47fb-81c0-5f2bd620665d.png">
+1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, first make sure that you delete all the tables by clicking on the 3 dots on the right of each table and selecting "Delete Table". After that run "drop database `ml-workshop-db`" in Athena Query Editor.<img width="430" alt="Screen Shot 2022-04-05 at 1 28 07 PM" src="https://user-images.githubusercontent.com/769011/161843722-0433b7b2-e81c-453c-9dc4-3036436d34bb.png">
+<img width="435" alt="Screen Shot 2022-04-05 at 1 31 13 PM" src="https://user-images.githubusercontent.com/769011/161844081-27f80be0-91ff-47fb-81c0-5f2bd620665d.png">
 2. S3 bucket: You can go to the S3 console and delete it at the end of the week.
 3. GroundTruth jobs: AWS does not have a mechanism to delete the jobs. Failed or completed jobs will not incur any changes. If you have finished the exercises, the job should be in the completed status. In case if you did not finish the exercise, you can stop the job to avoid any charges after that.
 4. SageMaker notebook instance:
