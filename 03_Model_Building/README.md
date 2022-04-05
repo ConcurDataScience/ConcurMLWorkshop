@@ -21,6 +21,7 @@ By the end of this section, you should have a good idea on
 - ![Screen Shot 2022-04-04 at 10 27 56 PM](https://user-images.githubusercontent.com/9430155/161685014-1f43bd18-7a2d-450c-aed3-4b2093a963c2.png)
 - ![Screen Shot 2022-04-04 at 10 28 07 PM](https://user-images.githubusercontent.com/9430155/161685022-4c208418-3abd-44eb-917a-2ba6801a26fe.png)
 - ![Screen Shot 2022-04-04 at 10 28 15 PM](https://user-images.githubusercontent.com/9430155/161685030-3d848520-7912-41f5-9a9d-cf2b4cfc3014.png)
+- ![Screen Shot 2022-04-04 at 11 20 56 PM](https://user-images.githubusercontent.com/9430155/161691386-208fe0e9-53c4-41a2-a000-0333084e8e92.png)
 
 ## Missed it? Dont Worry 
 If you missed this session, please follow the below steps:
