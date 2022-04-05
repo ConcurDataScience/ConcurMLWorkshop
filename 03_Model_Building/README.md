@@ -43,6 +43,15 @@ If you missed this session, please follow the below steps:
 - ![Screen Shot 2022-04-04 at 11 14 11 PM](https://user-images.githubusercontent.com/9430155/161691111-f53ee14b-9d25-4f17-995f-114a3b149193.png)
 
 - Create QuickSights dashboards to view model results
+- Click Manage QuickSights on the top right corner 
+- Navigate to Security and Permissions
+- Click Manage under - QuickSight access to AWS services
+- Select S3 buckets and choose the bucket you had created earlier
+- Save your changes
+- ![Screen Shot 2022-04-04 at 11 43 46 PM](https://user-images.githubusercontent.com/9430155/161695250-38b4bf00-368a-4099-91b8-72ae0203847d.png)
+- ![Screen Shot 2022-04-04 at 11 43 38 PM](https://user-images.githubusercontent.com/9430155/161695253-83b21c95-164a-404c-8d9f-65e7a2e8b790.png)
+- ![Screen Shot 2022-04-04 at 11 43 29 PM](https://user-images.githubusercontent.com/9430155/161695255-77ff05a9-3849-4813-98f9-b4f27981a8cf.png)
+
 - ![Screen Shot 2022-04-04 at 11 16 31 PM](https://user-images.githubusercontent.com/9430155/161690972-49f66e47-3938-432e-8536-e2d0b65a8e62.png)
 - ![Screen Shot 2022-04-04 at 11 16 53 PM](https://user-images.githubusercontent.com/9430155/161690993-6a5a227e-4e80-4d4e-92cc-557219351732.png)
 - ![Screen Shot 2022-04-04 at 11 17 03 PM](https://user-images.githubusercontent.com/9430155/161691171-8b3aaf5c-3e7b-431b-bfe8-648206e94e82.png)
