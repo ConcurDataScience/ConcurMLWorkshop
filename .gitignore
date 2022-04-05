@@ -127,8 +127,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+.idea
 .idea/workspace.xml
 .idea/vcs.xml
 .idea/modules.xml
 .idea/misc.xml
 .idea/ConcurMLWorkshop.iml
+**/.DS_Store
