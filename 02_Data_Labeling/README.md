@@ -55,12 +55,14 @@ Because Part1 already prepared some labeled data, you should be fine to continue
 The following resources are created after this session. Please follow the cleanup instructions to avoid incur any unnecessary charges on you.
 
 1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, first make sure that you delete all the tables by clicking on the 3 dots on the right of each table and selecting "Delete Table". After that run "drop database `ml-workshop-db`" in Athena Query Editor.
-2. S3 bucket: You can go to the S3 console and delete it at the end of the week.
-3. GroundTruth jobs: AWS does not have a mechanism to delete the jobs. Failed or completed jobs will not incur any changes. If you have finished the exercises, the job should be in the completed status. In case if you did not finish the exercise, you can stop the job to avoid any charges after that.
-4. SageMaker notebook instance:
+<img width="859" alt="Screen Shot 2022-04-05 at 1 28 07 PM" src="https://user-images.githubusercontent.com/769011/161843722-0433b7b2-e81c-453c-9dc4-3036436d34bb.png">
+<img width="871" alt="Screen Shot 2022-04-05 at 1 31 13 PM" src="https://user-images.githubusercontent.com/769011/161844081-27f80be0-91ff-47fb-81c0-5f2bd620665d.png">
+3. S3 bucket: You can go to the S3 console and delete it at the end of the week.
+4. GroundTruth jobs: AWS does not have a mechanism to delete the jobs. Failed or completed jobs will not incur any changes. If you have finished the exercises, the job should be in the completed status. In case if you did not finish the exercise, you can stop the job to avoid any charges after that.
+5. SageMaker notebook instance:
 * You can stop the instance at the end of each day.
 * Start the notebook before the first session of the day. It can take up to 5 to 10 minutes to start your notebook instance.
 * Delete the notebook instance when the class is finished by the end of the week.
-5. Cognito User Pool (created by Amazon automatically): <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
+6. Cognito User Pool (created by Amazon automatically): <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
 
 <strong>Disclaimer, the instruction here does not supersede the AWS pricing policy. When in doubt about what cost it might incur, please check the corresponding service pricing page from Amazon.</strong>
