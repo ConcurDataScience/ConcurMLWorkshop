@@ -13,7 +13,7 @@ Participants will need to download the saved model and pre/post-processing code 
 
 Also, in their local environment, they need to have the following tools:
 - A python 3.8 environment (an anaconda environment, for example)
-- docker
+- Docker
 - Some Python IDE (Pycharm, VScode, etc.)
 - Postman
 
