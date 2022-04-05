@@ -58,12 +58,12 @@ The following resources are created after this session. Please follow the cleanu
 <img width="435" alt="Screen Shot 2022-04-05 at 1 31 13 PM" src="https://user-images.githubusercontent.com/769011/161844081-27f80be0-91ff-47fb-81c0-5f2bd620665d.png">
 2. S3 bucket: You can go to the S3 console and delete it at the end of the week. You need to first empty the bucket before you can delete it. So, empty it and then delete it.<img width="1600" alt="Screen Shot 2022-04-05 at 1 37 51 PM" src="https://user-images.githubusercontent.com/769011/161845010-4c816b87-68e8-44be-86f2-55eb9a6692a8.png">
 3. GroundTruth jobs: AWS does not have a mechanism to delete the jobs. Failed or completed jobs will not incur any changes. If you have finished the exercises, the job should be in the completed status. In case if you did not finish the exercise, you can stop the job to avoid any charges after that.
-<img width="1446" alt="Screen Shot 2022-04-05 at 2 01 01 PM" src="https://user-images.githubusercontent.com/769011/161848595-01830606-5ebe-43a9-a72e-1a02d41e9b86.png">
+<img width="723" alt="Screen Shot 2022-04-05 at 2 01 01 PM" src="https://user-images.githubusercontent.com/769011/161848595-01830606-5ebe-43a9-a72e-1a02d41e9b86.png">
 4. SageMaker notebook instance:
 * You can stop the instance at the end of each day.
 * Start the notebook before the first session of the day. It can take up to 5 to 10 minutes to start your notebook instance.
 * Delete the notebook instance when the class is finished by the end of the week.
-<img width="1493" alt="Screen Shot 2022-04-05 at 1 42 43 PM" src="https://user-images.githubusercontent.com/769011/161845699-fa42e9ed-2425-4815-8600-8e8abf4a45dd.png">
+<img width="746" alt="Screen Shot 2022-04-05 at 1 42 43 PM" src="https://user-images.githubusercontent.com/769011/161845699-fa42e9ed-2425-4815-8600-8e8abf4a45dd.png">
 5. Cognito User Pool (created by Amazon automatically): <b>sagemaker-groundtruth-user-pool</b>. For free tier, if you have less than 50000 MAUs, it is free and so we recommand that you do not delete this. If you do delete it, it will stop you from being able to create new labeling job again. You can check for the pricing [here](https://aws.amazon.com/cognito/pricing/) for more detail.
-<img width="1117" alt="Screen Shot 2022-04-05 at 2 05 43 PM" src="https://user-images.githubusercontent.com/769011/161849514-23f07c95-dc6c-4948-98af-588dfb960549.png">
+<img width="500" alt="Screen Shot 2022-04-05 at 2 05 43 PM" src="https://user-images.githubusercontent.com/769011/161849514-23f07c95-dc6c-4948-98af-588dfb960549.png">
 <strong>Disclaimer, the instruction here does not supersede the AWS pricing policy. When in doubt about what cost it might incur, please check the corresponding service pricing page from Amazon.</strong>
