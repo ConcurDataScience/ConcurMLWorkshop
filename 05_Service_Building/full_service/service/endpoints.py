@@ -23,12 +23,7 @@ def predict(model, tokenizer):
         return {'error': 'Invalid input. The text key can not be empty.'}, 400
 
     # Define the indexing for each possible label in a dictionary
-    class_to_index = {
-        "Neutral": 0,
-        "Irrelevant": 1,
-        "Negative": 2,
-        "Positive": 3
-    }
+    class_to_index = {"Neutral": 0, "Negative": 1, "Positive": 2}
 
     # Creates a reverse dictionary
     index_to_class = dict((v, k) for k, v in class_to_index.items())

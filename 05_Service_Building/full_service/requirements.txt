@@ -1,4 +1,4 @@
-flask
-keras
-nltk
-tensorflow>=2.6.1
+flask==2.0.2
+nltk==3.6.7
+keras==2.6.0
+tensorflow==2.6.1

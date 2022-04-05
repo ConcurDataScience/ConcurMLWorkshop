@@ -44,7 +44,7 @@ RUN groupadd -r servicegroup && useradd -r -g servicegroup -m -d /app service
 USER service
 
 # Install the project requirements using pip3 as the service user
-RUN pip install --user flask nltk "tensorflow>=2.6.1"
+RUN pip install --user "flask==2.0.2" "nltk==3.6.7" "keras==2.6.0" "tensorflow==2.6.1"
 
 # Install the NLTK data
 RUN python3 -m nltk.downloader stopwords wordnet omw-1.4
