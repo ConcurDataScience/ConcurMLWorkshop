@@ -54,7 +54,7 @@ Because Part1 already prepared some labeled data, you should be fine to continue
 ### Cleanup Instruction:
 The following resources are created after this session. Please follow the cleanup instructions to avoid incur any unnecessary charges on you.
 
-1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, run "drop database `ml-workshop-db`" in Athena Query Editor.
+1. Athena database with tables: <b>ml-workshop-db</b>. You can delete at the end of the week. To delete, first make sure that you delete all the tables by clicking on the 3 dots on the right of each table and selecting "Delete Table". After that run "drop database `ml-workshop-db`" in Athena Query Editor.
 2. S3 bucket: You can go to the S3 console and delete it at the end of the week.
 3. GroundTruth jobs: AWS does not have a mechanism to delete the jobs. Failed or completed jobs will not incur any changes. If you have finished the exercises, the job should be in the completed status. In case if you did not finish the exercise, you can stop the job to avoid any charges after that.
 4. SageMaker notebook instance:
