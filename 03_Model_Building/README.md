@@ -22,6 +22,23 @@ By the end of this section, you should have a good idea on
 - ![Screen Shot 2022-04-04 at 10 28 07 PM](https://user-images.githubusercontent.com/9430155/161685022-4c208418-3abd-44eb-917a-2ba6801a26fe.png)
 - ![Screen Shot 2022-04-04 at 10 28 15 PM](https://user-images.githubusercontent.com/9430155/161685030-3d848520-7912-41f5-9a9d-cf2b4cfc3014.png)
 
+- Glue Crawler to save model results to Athena
+- ![Screen Shot 2022-04-04 at 11 10 07 PM](https://user-images.githubusercontent.com/9430155/161690230-8295dcd7-a1d6-4ea9-a2a8-08640006a3a3.png)
+- ![Screen Shot 2022-04-04 at 11 10 13 PM](https://user-images.githubusercontent.com/9430155/161690234-cd020afe-9e68-43fd-8bc0-d9e46568ae26.png)
+- ![Screen Shot 2022-04-04 at 11 10 34 PM](https://user-images.githubusercontent.com/9430155/161690300-2fe6f77b-6e28-4382-bab2-99ae1984bdef.png)
+- ![Screen Shot 2022-04-04 at 11 10 41 PM](https://user-images.githubusercontent.com/9430155/161690314-31230ac2-e0b3-47ba-a84c-a71b4eb1b502.png)
+- ![Screen Shot 2022-04-04 at 11 10 50 PM](https://user-images.githubusercontent.com/9430155/161690332-f5519010-14fe-4ad2-b58c-02e8e71cb60f.png)
+- ![Screen Shot 2022-04-04 at 11 10 55 PM](https://user-images.githubusercontent.com/9430155/161690345-12f02d28-0796-499f-b594-c9909a6cdc62.png)
+- ![Screen Shot 2022-04-04 at 11 11 09 PM](https://user-images.githubusercontent.com/9430155/161690360-c056e299-1d78-4241-a0b7-6b1dae3b2673.png)
+- ![Screen Shot 2022-04-04 at 11 11 16 PM](https://user-images.githubusercontent.com/9430155/161690376-abf6ae9b-a100-42ba-aa19-f2a90cc0935f.png)
+
+
+
+
+- 
+
+
+
 ## Missed it? Dont Worry 
 If you missed this session, please follow the below steps:
 - Create a AWS SageMaker notebook instance by following the steps here: https://github.com/ConcurDataScience/ConcurMLWorkshop
