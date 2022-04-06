@@ -10,12 +10,16 @@ This class shows how to tune up your service and model serving to handle more lo
 ## Tasks
 **1. Start the service from within the container**
 This task verifies that we can start where the previous class ended and that we have everything running.
+
 **2. Run the first load test**
 This task is the MOST important one because the locust is used also in other tasks. Expect to see results of what our current service can handle.
+
 **3. Optimize logs**
 You can't enhance it without properly measuring it, therefore we are going to modify the logging in our service.
+
 **4. Swap to TF Serving**
 The step where move the model inference to tf-serving and check whether everything works as expected.
+
 **5. Performance tuning**
 The last step allows us to play with the tf-serving configuration to achieve the highest possible throughput.
 
