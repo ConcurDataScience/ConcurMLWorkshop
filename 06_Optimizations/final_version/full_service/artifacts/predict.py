@@ -11,18 +11,18 @@ from tensorflow.keras.preprocessing.text import tokenizer_from_json
 stopwords = nltk.corpus.stopwords.words('english')
 lemmatizer = WordNetLemmatizer()
 
-# This can be replaced with the model location
 max_len = 50
-negative_tweet_text = 'i had an very sick bad service'
-positive_tweet_text = 'i had an excellent service'
+negative_tweet_text = 'That is really a bad service'
+positive_tweet_text = 'I had an excellent service'
 
 # Define the indexing for each possible label in a dictionary
-class_to_index = {"Neutral": 0, "Irrelevant": 1, "Negative": 2, "Positive": 3}
+class_to_index = {"Neutral": 0, "Negative": 1, "Positive": 2}
 
 # Creates a reverse dictionary
 index_to_class = dict((v, k) for k, v in class_to_index.items())
 
 ids_to_names = lambda n: np.array([index_to_class.get(x) for x in n])
+
 
 def preprocess_tweet(tweet_text):
     tweet_text = re.sub('[^a-zA-Z]', ' ', tweet_text)
