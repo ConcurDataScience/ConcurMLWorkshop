@@ -200,9 +200,12 @@ click on that, this should launch a cloudshell env like this, here you can run y
           - `aws glue delete-table --database-name {database_name} --name {table_name}`
     - [x] Delete Glue DB
           - `aws glue delete-database --name {database_name}`
+          - ![Screen Shot 2022-04-06 at 12 07 51 PM](https://user-images.githubusercontent.com/101754067/162050506-35271a1d-e075-4893-afe0-7df912123c09.png)
+
     - [x] Delete Glue Crawler
           - `aws glue delete-crawler --name {crawler_name}`
-    - [x] Delete Athena Tables:
+          - ![Screen Shot 2022-04-06 at 12 07 34 PM](https://user-images.githubusercontent.com/101754067/162050550-0852baba-95bb-439f-a961-ee9feaa8f50b.png)
+          
     - [x] Delete/Stop All Sagemaker Instances
           - Click [here](https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/notebook-instances) to show your notebook instances
           - Click "Stop" to stop your notebook instance, as in the image below
@@ -212,6 +215,9 @@ click on that, this should launch a cloudshell env like this, here you can run y
           - Click "Delete" to delete your S3 bucket, as in the image below
           - ![](./04_Model_Retrain_Automation/images/delete-bucket-01.png)
     - [x] Delete IAM role
+              ![Screen Shot 2022-04-06 at 12 06 47 PM](https://user-images.githubusercontent.com/101754067/162050654-123ab949-8816-4751-8fbf-9683a93c309b.png)
+              ![Screen Shot 2022-04-06 at 12 06 54 PM](https://user-images.githubusercontent.com/101754067/162050678-0e1f2ea1-3074-41ea-b0e8-77b603ee248c.png)
+
 
 
 
