@@ -1,7 +1,8 @@
 import numpy as np
 from flask import request
+from marshmallow import ValidationError
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-
+from service.schemas import RequestSchema, ResponseSchema
 from service.utils import preprocess_tweet
 
 # Max length used in the input for the Keras model
@@ -16,7 +17,10 @@ def predict(model, tokenizer):
     :return: A API response and a status code
     """
     # Parse the input json into a dictionary
-    input_data = request.get_json()
+    try:
+        input_data = RequestSchema().load(request.get_json())
+    except ValidationError:
+        return "Invalid input", 422
 
     # Check for the text field
     if 'text' not in input_data or not input_data['text']:
@@ -47,4 +51,4 @@ def predict(model, tokenizer):
         "score": float(keras_predictions[0][best_prediction_idx])
     }
 
-    return result, 200
+    return ResponseSchema().dump(result), 200
