@@ -4,23 +4,34 @@
 
 This class shows how to tune up your service and model serving to handle more load. The first part of the lesson contains a simulation of load tests to see what our service can handle. The next steps take us through an analysis of the load and multiple ways how to handle the load.
 
-## Pre-requisite
-1. code from previous lesson `05_Service_Building`
+## Introduction
+1. Why care about performance?
+2. What are the options?
+3. What is [Locust](https://locust.io/)?
+4. What is [TensorFlow Serving](https://www.tensorflow.org/tfx/serving/architecture)?
+
 
 ## Tasks
 **1. Start the service from within the container**
 This task verifies that we can start where the previous class ended and that we have everything running.
+
 **2. Run the first load test**
 This task is the MOST important one because the locust is used also in other tasks. Expect to see results of what our current service can handle.
+
 **3. Optimize logs**
 You can't enhance it without properly measuring it, therefore we are going to modify the logging in our service.
+
 **4. Swap to TF Serving**
 The step where move the model inference to tf-serving and check whether everything works as expected.
+
 **5. Performance tuning**
 The last step allows us to play with the tf-serving configuration to achieve the highest possible throughput.
 
 
 ## Implementation steps
+
+### Pre-requisites
+The code from previous lesson `05_Service_Building`
 
 ### 1. Start the service from within the container
 This task verifies that we can start where the previous class ended and that we have everything running.
@@ -52,6 +63,13 @@ This task verifies that we can start where the previous class ended and that we 
    docker kill $(docker ps -q)
    ```
 7. test that the service is running and responsive via postman or following code
+   1. curl
+   ```bash
+   curl --location --request POST 'http://127.0.0.1:8080/predict' \
+   --header 'Content-Type: application/json' \
+   --data-raw '{"text": "That is really a interesting service"}'
+   ```
+   2. python   
    ```python
    import requests
    import json
@@ -269,3 +287,7 @@ The last step allows us to play with the tf-serving configuration to achieve the
    # to see which process is using the most CPU
    top
    ```
+   
+# Summary
+This is just a beginning and there many more ways how to tune your setup.
+
