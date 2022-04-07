@@ -51,4 +51,4 @@ def predict(model, tokenizer):
         "score": float(keras_predictions[0][best_prediction_idx])
     }
 
-    return result, 200
+    return ResponseSchema().dump(result), 200
